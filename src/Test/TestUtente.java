@@ -26,21 +26,20 @@ public class TestUtente {
 		@org.junit.Test
 		public void testCliente() {
 			//assertEquals();
-
+			
+			
+			//toString
+			for(int i = 0; i < clienti.length; i++) {
+				clienti[i].toString();
+			}//end for
 		}//end testCliente
 		
 		@org.junit.Test
 		public void testGestore() {
-
+			//assertEquals();
 			
+			//toString
+			gestore.toString();
 		}//end testGestore
-
-		/*
-		//TEST
-		gestore.toString();
-		for(int i = 0; i < clienti.length; i++) {
-			clienti[i].toString();
-		}//end for
-		*/
 		
 }//end TestUtente
