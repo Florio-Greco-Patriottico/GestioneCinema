@@ -9,6 +9,7 @@ public class TestFilm {
 		
 	}//end createData()
 	
+	@org.junit.Test
 	public void testFilm() {
 		
 	}//end testFilm

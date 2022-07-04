@@ -9,10 +9,12 @@ public class TestSala {
 		
 	}//end createData()
 	
+	@org.junit.Test
 	public void testSala2D() {
 		
 	}//end testSala2D
 	
+	@org.junit.Test
 	public void testSala3D() {
 		
 	}//end testSala3D

@@ -1,5 +1,7 @@
 package Test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Random;
 import Utente.Cliente;
 import Utente.Gestore;
@@ -21,11 +23,13 @@ public class TestUtente {
 			gestore = new Gestore(rnd.nextInt(99),"Fabrizio","Moro");
 		}//end createData
 		
+		@org.junit.Test
 		public void testCliente() {
-			
+			//assertEquals();
 
 		}//end testCliente
 		
+		@org.junit.Test
 		public void testGestore() {
 
 			

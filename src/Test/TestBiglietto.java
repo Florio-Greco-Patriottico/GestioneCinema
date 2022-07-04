@@ -9,6 +9,7 @@ public class TestBiglietto {
 		
 	}//end createData()
 	
+	@org.junit.Test
 	public void testBiglietto() {
 		
 	}//end testBiglietto
