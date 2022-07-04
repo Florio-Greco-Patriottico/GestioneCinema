@@ -1,0 +1,27 @@
+nome del progetto:
+
+Gestione Cinema
+
+Componenti del team:
+Antonio Florio; Alessandro Patriottico; Christian Greco
+
+Obiettivo del progetto:
+Realizzazione di una applicazione che svolga il ruolo di gestionale d'un cinema: L'applicativo in questione dovrà  permettere ai clienti
+di visualizzare i film disponibili con le relative sale in cui verrà proiettato il film, prenotare un numero n di biglietti per quel determinato film,
+scegliere il posto per la sala. Inoltre l'applicativo darà la possibilità ad un gestore di aggiungere i nuovi film al cinema e associare quest'ultimi
+alle sale.
+
+Funzionalità fornite dal progetto:
+*il cliente dovrà selezionare a tempo di prenotazione l'età.
+
+*il cliente potrà qualora fosse possibile, scegliere diverse sale che proiettano lo stesso film avendo la possibilità di 
+ visualizzare i posti disponibili e prenotare quest'ultimi con libero arbitrio.
+
+*il gestore potrà inserire i nuovi film nel programma, potrà visualizzare le sale disponibili ovvero quelle che non dispongono 
+ di nessun film a esse associato e assorciarle ai nuovi film.
+
+*il gestore sarà in grado di decidere il prezzo del film in base al tipo di sala (3D o 2D) e all'età del cliente (Bambino,Ragazzo e Adulto).
+
+*Sarà realizzata l'interfaccia per il cliente e quella per il gestore.
+
+*Eventuali funzionalità aggiuntive realizzate a tempo di programmazione o a seguito d'una discussione con il docente.
