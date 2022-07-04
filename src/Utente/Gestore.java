@@ -53,29 +53,24 @@ public class Gestore implements IUtente {
 	//Metodi dell'interfaccia
 	@Override
 	public int getAge() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.age;
 	}//end getAge
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}//end getName
 
 	@Override
 	public String getSurname() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.surname;
 	}//end getSurname
 
 	@Override
 	public boolean getGender() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.gender;
 	}//end getGender
-
-
+	
 	@Override
 	public String toString() {
 		return "Gestore : [age=" + age + ", name=" + name + ", surname=" + surname + ", gender=" + gender + "]";
