@@ -1,5 +1,5 @@
 package Utente;
 
-public class Utente {
+public class Utente implements IUtente{
 
 }
