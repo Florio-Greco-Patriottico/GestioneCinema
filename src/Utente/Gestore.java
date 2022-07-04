@@ -49,7 +49,6 @@ public class Gestore implements IUtente {
 				&& Objects.equals(surname, other.surname);
 	}//end equals
 	
-	
 	//Metodi dell'interfaccia
 	@Override
 	public int getAge() {

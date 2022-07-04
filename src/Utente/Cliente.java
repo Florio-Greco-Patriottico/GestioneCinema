@@ -14,7 +14,7 @@ public class Cliente implements IUtente{
 													//TRUE = Cliente
 	
 	//costruttore 
-	public Cliente(final int age, final String name, final String surname) {
+	public Cliente(int age,String name,String surname) {
 		super();
 		//inizializzo gli attributi funzionali
 		this.age 		= age;
