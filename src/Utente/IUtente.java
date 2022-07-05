@@ -21,7 +21,7 @@ public interface IUtente {
 	public String getSurname();
 	
 	//metodo per ritornare il genere
-	//in questo caso TRUE = Cliente, FALSE = Gestore
+	//in questo caso TRUE = Maschio, FALSE = Femmina
 	public boolean getGender();
 	
 }//end IUtente

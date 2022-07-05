@@ -10,17 +10,17 @@ public class Cliente implements IUtente{
 	private int age;								//variabile utilizzata per l'eta
 	private String name;							//variabile utilzzata per il nome
 	private String surname;							//variabile utilzzata per il cognome
-	private boolean gender;							//variabile utilizzata per il genere,
-													//TRUE = Cliente
+	private boolean gender;							//variabile utilizzata per il genere
+													//TRUE = Maschio, FALSE = Femmina
 	
 	//costruttore 
-	public Cliente(int age,String name,String surname) {
+	public Cliente(int age,String name,String surname,boolean gender) {
 		super();
 		//inizializzo gli attributi funzionali
 		this.age 		= age;
 		this.name 		= name;
 		this.surname 	= surname;
-		this.gender 	= true;
+		this.gender 	= gender;
 	}//end cliente
 	
 	//INERFACCIA PUBBLICA DELLA CLASSE

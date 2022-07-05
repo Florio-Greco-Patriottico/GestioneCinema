@@ -10,34 +10,40 @@ public class TestUtente {
 		//dichairazione degli attributi funzionali
 		private Random rnd;
 		private Gestore gestore;
-		private Cliente clienti[];
+		private Cliente cliente1;
+		private Cliente cliente2;
+		private Cliente cliente3;
 		
 		public void createData() {
 			rnd = new Random(); //generatore di valori pseudo-casuali
 			//creo una serie di clienti
-			clienti = new Cliente[10];
-			for(int i = 0; i < clienti.length; i++) {
-				clienti[i] = new Cliente(rnd.nextInt(99),"Nome_"+i,"Cognome_"+i);
-			}//end for
+			cliente1 = new Cliente(this.rnd.nextInt(99),"Mario","Rossi",this.rnd.nextBoolean());
+			cliente2 = new Cliente(this.rnd.nextInt(99),"Mattia","Bianchi",this.rnd.nextBoolean());
+			cliente3 = new Cliente(this.rnd.nextInt(99),"Christian","Greco",this.rnd.nextBoolean());
 			//creo un gestore
-			gestore = new Gestore(rnd.nextInt(99),"Fabrizio","Moro");
+			gestore =  new Gestore("Fabrizio","Moro");
+			
 		}//end createData
 		
 		@org.junit.Test
 		public void testCliente() {
-			//assertEquals();
-			
-			
+			assertEquals(cliente1.equals(cliente2),false);
+			assertEquals(cliente1.getName(),"Mario");
+			assertEquals(cliente2.getName(),"Mattia");
+			assertEquals(cliente2.equals(cliente3),false);
+			cliente1 = cliente2;
+			assertEquals(cliente1.equals(cliente2),true);
 			//toString
-			for(int i = 0; i < clienti.length; i++) {
-				clienti[i].toString();
-			}//end for
+			cliente1.toString();
+			cliente2.toString();
 		}//end testCliente
 		
 		@org.junit.Test
 		public void testGestore() {
-			//assertEquals();
-			
+			assertEquals(gestore.getAge(),0);
+			assertEquals(gestore.getGender(),false);
+			assertEquals(gestore.getName(),"Fabrizio");
+			assertEquals(gestore.getSurname(),"Moro");
 			//toString
 			gestore.toString();
 		}//end testGestore
