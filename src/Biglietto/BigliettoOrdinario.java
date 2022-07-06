@@ -1,5 +1,5 @@
 package Biglietto;
 
-public class BigliettoOrdinario {
+public class BigliettoOrdinario implements IBiglietto{
 
 }
