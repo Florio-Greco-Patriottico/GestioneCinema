@@ -2,12 +2,13 @@ package Biglietto;
 
 public class AbstractBiglietto implements IBiglietto{
 	
-	private int Matricola;
+	private int Matricola = 0;
 	private double prezzoUomo;
 	private double prezzoDonna;
 	private double prezzoBambino;
 	
 	public AbstractBiglietto(double prezzoUomo, double prezzoDonna, double prezzoBambino) {
+		this.Matricola++;
 		this.prezzoUomo = prezzoUomo;
 		this.prezzoDonna = prezzoDonna;
 		this.prezzoBambino = prezzoBambino;
