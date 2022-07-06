@@ -36,4 +36,5 @@ public interface IFilm {
 	
 	//metodo per modificare il tipo di un film
 	public void setMovieType(boolean getMovieType);
-}
+	
+}//end IFilm
