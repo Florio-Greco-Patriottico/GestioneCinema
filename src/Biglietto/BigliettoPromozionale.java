@@ -14,6 +14,7 @@ public class BigliettoPromozionale extends AbstractBiglietto{
 			  (prezzoBambino / 100) * this.percentualeBiglietto());
 	}
 	
+	//metodo privato che calcola quanta percentuale avrà il biglietto con sconto applicato
 	private int percentualeBiglietto() {
 		return (100 - this.percentualeSconto);
 	}
