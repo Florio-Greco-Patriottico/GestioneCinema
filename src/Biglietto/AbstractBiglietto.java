@@ -1,5 +1,7 @@
 package Biglietto;
 
+import java.util.Objects;
+
 public class AbstractBiglietto implements IBiglietto{
 	
 	private int Matricola = 0;
@@ -49,4 +51,21 @@ public class AbstractBiglietto implements IBiglietto{
 		this.prezzoBambino = prezzoBambino;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AbstractBiglietto other = (AbstractBiglietto) obj;
+		return this.Matricola == other.Matricola;
+	}
+
+	@Override
+	public String toString() {
+		return "Biglietto [Matricola:" + Matricola + ", prezzoUomo:" + prezzoUomo + ", prezzoDonna:"
+				+ prezzoDonna + ", prezzoBambino:" + prezzoBambino + "]";
+	}
 }
