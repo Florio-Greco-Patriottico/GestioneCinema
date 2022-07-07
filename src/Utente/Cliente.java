@@ -1,78 +1,47 @@
 package Utente;
 
-import java.util.Objects;
+import java.util.HashMap;
+
+import Biglietto.AbstractBiglietto;
+import Film.AbstractFilm;
 
 //classe cliente, si occuperà di simulare le iterazione all'interno del cinema
 
-public class Cliente implements IUtente{
+public class Cliente extends AbstractUtente{
+
+	//biglietto del cliente
+	private HashMap<AbstractFilm,AbstractBiglietto> tickets;
 	
-	//dichiarazione degli attributi funzionali
-	private int age;								//variabile utilizzata per l'eta
-	private String name;							//variabile utilzzata per il nome
-	private String surname;							//variabile utilzzata per il cognome
-	private boolean gender;							//variabile utilizzata per il genere
-													//TRUE = Maschio, FALSE = Femmina
-	
-	//costruttore 
-	public Cliente(int age,String name,String surname,boolean gender) {
-		super();
+	//costruttore
+	public Cliente(int age, String name, String surname, boolean gender) {
+		super(age, name, surname, gender);
 		//inizializzo gli attributi funzionali
-		this.age 		= age;
-		this.name 		= name;
-		this.surname 	= surname;
-		this.gender 	= gender;
-	}//end cliente
+		this.tickets = new HashMap<>();
+	}//end costruttore
 	
-	//INERFACCIA PUBBLICA DELLA CLASSE
+	//INTERFACCIA PUBBLICA DEL CLIENTE
+	//metodo per aggiungere un biglietto
+	public void addTicket(AbstractFilm film, AbstractBiglietto biglietto) {
+		this.tickets.put(film, biglietto);
+	}//end addTicket
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + age;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-		return result;
-		//return Objects.hash(age, gender, name, surname);
-	}//end hashCode
+	//metodo per visualizzare i propri biglietti
+	public void getTickets() {
+		this.tickets.entrySet().forEach( entry -> {
+		    System.out.println( entry.getKey() + " => " + entry.getValue() );
+		});
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	}//end getTickets
+	
+	//metodo per disdire un biglietto
+	public boolean removeTicket(AbstractFilm film, AbstractBiglietto biglietto) {
+		//controllo se esiste il biglietto
+		if(this.tickets.containsKey(film)) {
+			this.tickets.remove(film, biglietto);
 			return true;
-		if (obj == null)
+		}else {
+			System.out.println("Ticket not found.");
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		return age == other.age && gender == other.gender && Objects.equals(name, other.name)
-				&& Objects.equals(surname, other.surname);
-	}//end equals
-	
-	//Metodi dell'interfaccia
-	@Override
-	public int getAge() {
-		return this.age;
-	}//end getAge
-
-	@Override
-	public String getName() {
-		return this.name;
-	}//end getName
-
-	@Override
-	public String getSurname() {
-		return this.surname;
-	}//end getSurname
-
-	@Override
-	public boolean getGender() {
-		return this.gender;
-	}//end getGender
-	
-	@Override
-	public String toString() {
-		return "Cliente : [age=" + age + ", name=" + name + ", surname=" + surname + ", gender=" + gender + "]";
-	}//end toString
-
+		}
+	}
 }//end classe Cliente

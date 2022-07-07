@@ -17,7 +17,7 @@ public class AbstractFilm implements IFilm{
 	}
 	
 	@Override
-	public String[] getNome() {
+	public String[] getName() {
 		return this.name;
 	}
 

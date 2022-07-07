@@ -1,3 +1,5 @@
+import Film.AbstractFilm;
+import Film.Film;
 
 public class GestioneCinema {
 	

@@ -3,16 +3,18 @@ package Test;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
+
+import Utente.AbstractUtente;
 import Utente.Cliente;
 import Utente.Gestore;
 
 public class TestUtente {
 		//dichairazione degli attributi funzionali
 		private Random rnd;
-		private Gestore gestore;
-		private Cliente cliente1;
-		private Cliente cliente2;
-		private Cliente cliente3;
+		private AbstractUtente gestore;
+		private AbstractUtente cliente1;
+		private AbstractUtente cliente2;
+		private AbstractUtente cliente3;
 		
 		public void createData() {
 			rnd = new Random(); //generatore di valori pseudo-casuali
@@ -21,7 +23,7 @@ public class TestUtente {
 			cliente2 = new Cliente(this.rnd.nextInt(99),"Mattia","Bianchi",this.rnd.nextBoolean());
 			cliente3 = new Cliente(this.rnd.nextInt(99),"Christian","Greco",this.rnd.nextBoolean());
 			//creo un gestore
-			gestore =  new Gestore("Fabrizio","Moro");
+			gestore =  new Gestore(this.rnd.nextInt(99),"Fabrizio","Moro",this.rnd.nextBoolean());
 			
 		}//end createData
 		
