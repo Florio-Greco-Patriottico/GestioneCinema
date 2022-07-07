@@ -20,6 +20,10 @@ public interface ISala {
 	public void addPosto();
 	//metodo per aggiungere un film
 	void addFilm(Film.Film f);
+	//metodo per ritornare un film
+	Film.Film  getFilm(Film.Film f);
+	//metodo per ritornare il tipo della sala
+	boolean getType();
 	//metodo che ritorna una lista la quali contiene le programmazioni per la sala
 	public ArrayList<Film.Film> getFilm();
 
