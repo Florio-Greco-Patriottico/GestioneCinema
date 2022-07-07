@@ -22,25 +22,37 @@ public class Cliente extends AbstractUtente{
 	//INTERFACCIA PUBBLICA DEL CLIENTE
 	//metodo per aggiungere un biglietto
 	public void addTicket(AbstractFilm film, AbstractBiglietto biglietto) {
-		this.tickets.put(film, biglietto);
+		try{
+			this.tickets.put(film, biglietto);
+		}catch(Exception e) {
+			System.out.println("Error found: " + e);
+		} 
 	}//end addTicket
 	
 	//metodo per visualizzare i propri biglietti
 	public void getTickets() {
-		this.tickets.entrySet().forEach( entry -> {
-		    System.out.println( entry.getKey() + " => " + entry.getValue() );
-		});
-
+		try {
+			this.tickets.entrySet().forEach( entry -> {
+			    System.out.println( entry.getKey() + " => " + entry.getValue() );
+			});
+		}catch(Exception e) {
+			System.out.println("Error found: " + e);
+		}
 	}//end getTickets
 	
 	//metodo per disdire un biglietto
 	public boolean removeTicket(AbstractFilm film, AbstractBiglietto biglietto) {
-		//controllo se esiste il biglietto
-		if(this.tickets.containsKey(film)) {
-			this.tickets.remove(film, biglietto);
-			return true;
-		}else {
-			System.out.println("Ticket not found.");
+		try {
+			//controllo se esiste il biglietto
+			if(this.tickets.containsKey(film)) {
+				this.tickets.remove(film, biglietto);
+				return true;
+			}else {
+				System.out.println("Ticket not found.");
+				return false;
+			}
+		}catch(Exception e) {
+			System.out.println("Error found: " + e);
 			return false;
 		}
 	}
