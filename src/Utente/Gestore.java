@@ -34,6 +34,11 @@ public class Gestore extends AbstractUtente {
 			System.out.println("Error found: " + e);
 		}
 	}
+	
+	//idea da implementare
+	public boolean changeFilm(AbstractFilm oldFilm, AbstractFilm newFilm, AbstractSala film) {
+		return true;
+	}
 
 	
 }//end classe Gestore
