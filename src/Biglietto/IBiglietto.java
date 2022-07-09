@@ -15,24 +15,24 @@ public interface IBiglietto {
 	//INTERFACCIA PUBBLICA DELLA CLASSE
 	
 	//metodo per ottenere il numero di matricola
-	int getMatricola();
+	int getNumber();
 	
 	//metodo per ottenere il prezzo per un uomo
-	double getPrezzoUomo();
+	double getManPrice();
 	
 	//metodo per ottenere il prezzo per una donna
-	double getPrezzoDonna();
+	double getWomanPrice();
 	
 	//metodo per ottenere il prezzo per un bambino
-	double getPrezzoBambino();
+	double getChildPrice();
 	
 	//metodo per modificare il prezzo per un uomo
-	void setPrezzoUomo(double prezzoUomo);
+	void setManPrice(double manprice);
 		
 	//metodo per modificare il prezzo per una donna
-	void setPrezzoDonna(double prezzoDonna);
+	void setWomanPrice(double womanprice);
 		
 	//metodo per modificare il prezzo per un bambino
-	void setPrezzoBambino(double prezzoBambino);
+	void setChildPrice(double childprice);
 
 }//end IBiglietto

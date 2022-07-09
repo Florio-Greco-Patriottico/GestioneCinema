@@ -1,54 +1,52 @@
 package Biglietto;
 
-import java.util.Objects;
-
 public class AbstractBiglietto implements IBiglietto{
 	
-	private int Matricola = 0;
-	private double prezzoUomo;
-	private double prezzoDonna;
-	private double prezzoBambino;
+	private int Number = 0;
+	private double ManPrice;
+	private double WomanPrice;
+	private double ChildPrice;
 	
-	public AbstractBiglietto(double prezzoUomo, double prezzoDonna, double prezzoBambino) {
-		this.Matricola++;
-		this.prezzoUomo = prezzoUomo;
-		this.prezzoDonna = prezzoDonna;
-		this.prezzoBambino = prezzoBambino;
+	public AbstractBiglietto(double ManPrice, double WomanPrice, double ChildPrice) {
+		this.Number++;
+		this.ManPrice = ManPrice;
+		this.WomanPrice = WomanPrice;
+		this.ChildPrice = ChildPrice;
 	}
 
 	@Override
-	public int getMatricola() {
-		return this.Matricola;
+	public int getNumber() {
+		return this.Number;
 	}
 
 	@Override
-	public double getPrezzoUomo() {
-		return this.prezzoUomo;
+	public double getManPrice() {
+		return this.ManPrice;
 	}
 
 	@Override
-	public double getPrezzoDonna() {
-		return this.prezzoDonna;
+	public double getWomanPrice() {
+		return this.WomanPrice;
 	}
 
 	@Override
-	public double getPrezzoBambino() {
-		return this.prezzoBambino;
+	public double getChildPrice() {
+		return this.ChildPrice;
 	}
 
 	@Override
-	public void setPrezzoUomo(double prezzoUomo) {
-		this.prezzoUomo = prezzoUomo;
+	public void setManPrice(double ManPrice) {
+		this.ManPrice = ManPrice;
 	}
 
 	@Override
-	public void setPrezzoDonna(double prezzoDonna) {
-		this.prezzoDonna = prezzoDonna;
+	public void setWomanPrice(double WomanPrice) {
+		this.WomanPrice = WomanPrice;
 	}
 
 	@Override
-	public void setPrezzoBambino(double prezzoBambino) {
-		this.prezzoBambino = prezzoBambino;
+	public void setChildPrice(double ChildPrice) {
+		this.ChildPrice = ChildPrice;
 	}
 
 	@Override
@@ -60,12 +58,12 @@ public class AbstractBiglietto implements IBiglietto{
 		if (getClass() != obj.getClass())
 			return false;
 		AbstractBiglietto other = (AbstractBiglietto) obj;
-		return this.Matricola == other.Matricola;
+		return this.Number == other.Number;
 	}
 
 	@Override
 	public String toString() {
-		return "Biglietto [Matricola:" + Matricola + ", prezzoUomo:" + prezzoUomo + ", prezzoDonna:"
-				+ prezzoDonna + ", prezzoBambino:" + prezzoBambino + "]";
+		return "Biglietto [Matricola:" + this.Number + ", prezzoUomo:" + this.ManPrice + ", prezzoDonna:"
+				+ this.WomanPrice + ", prezzoBambino:" + this.ChildPrice + "]";
 	}
 }
