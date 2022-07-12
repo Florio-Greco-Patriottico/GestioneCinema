@@ -10,9 +10,9 @@ public interface Ibar {
 	//metodo per ritoranare il nome
 	public String getName();
 	//metodo per ritornare i prodotti
-	public List<AbstractProduct> getProduct();
+	public void getProduct();
 	//metodo per ritornare i commessi
-	public List<AbstractUtente>  getShopAssistant();
+	public void  getShopAssistant();
 	//metodo per aggiungere un prodotto
 	public void addProduct(AbstractProduct p);
 	//metodo per aggiungere un commesso

@@ -31,13 +31,15 @@ public class Bar implements Ibar {
 	}
 
 	@Override
-	public List<AbstractProduct> getProduct() {
-		return null;
+	public void getProduct() {
+		System.out.println("Product:");
+		this.product.stream().forEach(System.out::println);
 	}
 
 	@Override
-	public List<AbstractUtente> getShopAssistant() {
-		return null;
+	public void getShopAssistant() {
+		System.out.println("Dependents: ");
+		this.dependents.stream().forEach(System.out::println);
 	}
 
 	@Override
