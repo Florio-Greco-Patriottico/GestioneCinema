@@ -8,6 +8,7 @@ public class AbstractBiglietto implements IBiglietto{
 	private double ChildPrice;
 	
 	public AbstractBiglietto(double ManPrice, double WomanPrice, double ChildPrice) {
+		super();
 		this.Number++;
 		this.ManPrice = ManPrice;
 		this.WomanPrice = WomanPrice;
