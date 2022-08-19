@@ -9,7 +9,8 @@ import Utente.Gestore;
 public class GestioneCinema {
 	
 	public static void main(String args[])
-	{  
+	{
+		
 		//inizializzo un Gestore
 		Gestore gestore = new Gestore(0, null, null, false);
 		//iniazializzo il bar
