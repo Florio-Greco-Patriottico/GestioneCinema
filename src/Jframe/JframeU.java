@@ -1,5 +1,6 @@
 package Jframe;
 
-public class JframeU {
 
+public class JframeU {
+	
 }
