@@ -9,16 +9,8 @@ import Utente.Gestore;
 
 public class GestioneCinema {
 	
-	public class Gui{
-		
-	}
-	
 	public static void main(String args[])
-	{
-		
-		JframeU frameU = new JframeU();
-		
-		
+	{	
 		//inizializzo un Gestore
 		Gestore gestore = new Gestore(0, null, null, false);
 		//iniazializzo il bar
