@@ -3,7 +3,8 @@ package Product;
 import java.util.Objects;
 
 public class AbstractProduct implements IProduct {
-
+	
+	//classe abstractProduct
 	//attributi funzionali
 	private double price;							//variabile per il prezzo del prodotto
 	private String name;							//variabile per il nome del prodotto
