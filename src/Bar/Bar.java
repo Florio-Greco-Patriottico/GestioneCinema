@@ -7,4 +7,5 @@ public class Bar extends AbstractBar{
 		// TODO Auto-generated constructor stub
 	}
 
+	//classe bar
 }
