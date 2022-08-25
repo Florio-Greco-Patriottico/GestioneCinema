@@ -7,6 +7,7 @@ public class AbstractBiglietto implements IBiglietto{
 	private double WomanPrice;
 	private double ChildPrice;
 	
+	//proa
 	public AbstractBiglietto(double ManPrice, double WomanPrice, double ChildPrice) {
 		super();
 		this.Number++;
