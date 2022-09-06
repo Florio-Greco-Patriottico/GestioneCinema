@@ -9,7 +9,7 @@ public abstract class AbstractProduct implements IProduct {
 	private double price;							//variabile per il prezzo del prodotto
 	private String name;							//variabile per il nome del prodotto
 	private String description;						//variabile per la descrizione del prodotto
-	private int    quantity;						//variabile per la quantit�
+	private int    quantity;						//variabile per la quantita'
 	
 	
 	//costruttore
@@ -45,9 +45,9 @@ public abstract class AbstractProduct implements IProduct {
 
 	@Override
 	public void setQuantity(int q) {
-		//controllo se il parametro � valido
+		//controllo se il parametro e' valido
 		if(q > 0) {
-			//controllo se vi � gi� una quantit�
+			//controllo se vi e' gia' una quantita'
 			if(this.quantity > 0) {
 				System.out.println("Il prodotto ha ancora giacenze");
 			}else if(this.quantity <= 0) {
@@ -63,7 +63,7 @@ public abstract class AbstractProduct implements IProduct {
 
 	@Override
 	public void setPrice(double p) {
-		//controllo se il prezzo � maggiore di 0
+		//controllo se il prezzo e' maggiore di 0
 		if(p > 0.0) {
 			this.price = p;
 			//notifico

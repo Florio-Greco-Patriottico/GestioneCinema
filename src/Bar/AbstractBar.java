@@ -45,7 +45,7 @@ public abstract class AbstractBar implements Ibar {
 	@Override
 	public void addProduct(AbstractProduct p) {
 		try {
-			//controllo se il prodotto � provvisto degli attributi
+			//controllo se il prodotto e' provvisto degli attributi
 			if(p.getPrice() > 0 && p.getQuantity() > 0 && p.getName() != null) {
 				//allora posso aggiungerlo
 				this.product.add(p);

@@ -10,7 +10,7 @@ public abstract class AbstractSala implements ISala {
 		private int numSala;						//variabile per tenere conto del numero della sala
 		private int numPostiL;						//variabile per tenere conto dei posti liberi
 		private int numPostiO;					    //varibile per tenere conto dei posti occupati
-		private boolean isFull;					    //variabile per controllare se la sala � piena
+		private boolean isFull;					    //variabile per controllare se la sala e' piena
 		private boolean type;
 		private ArrayList<Film> programmazioni;		//variabile per la lista delle programmazioni
 		

@@ -7,7 +7,7 @@ import Biglietto.AbstractBiglietto;
 import Film.AbstractFilm;
 import Sala.AbstractSala;
 
-//classe gestore, si occuperà di gestire il cinema
+//classe gestore, si occupera' di gestire il cinema
 
 public class Gestore extends AbstractUtente {
 	
@@ -27,7 +27,7 @@ public class Gestore extends AbstractUtente {
 			this.reservation.forEach((e,a) ->  {
 				if(e.equals(film)) {
 					System.out.println("sala : " + e.getNumSala());
-					reservation.forEach((k, v) -> System.out.println("Cliente : " + v.getName() + ", " + v.getSurname() + ", età : " + v.getAge() + ", genere : " + v.getGender()));
+					reservation.forEach((k, v) -> System.out.println("Cliente : " + v.getName() + ", " + v.getSurname() + ", eta' : " + v.getAge() + ", genere : " + v.getGender()));
 				}
 			});
 		}catch(Exception e) {
