@@ -1,4 +1,5 @@
 import Bar.AbstractBar;
+import Bar.Bar;
 import Film.AbstractFilm;
 import Film.Film;
 import Jframe.JframeU;
@@ -14,7 +15,7 @@ public class GestioneCinema {
 		//inizializzo un Gestore
 		Gestore gestore = new Gestore(0, null, null, false);
 		//iniazializzo il bar
-		AbstractBar bar 		= new AbstractBar(null);
+		AbstractBar bar 		= new Bar(null);
 		//inizializzo un Commesso
 		Commesso commesso = new Commesso(0, null, null, false);
 		//aggiungo il commesso al bar
