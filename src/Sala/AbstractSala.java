@@ -5,12 +5,12 @@ import java.util.Objects;
 
 import Film.Film;
 
-public class AbstractSala implements ISala {
+public abstract class AbstractSala implements ISala {
 	//Dichiarazione degli attributi funzionali
 		private int numSala;						//variabile per tenere conto del numero della sala
 		private int numPostiL;						//variabile per tenere conto dei posti liberi
 		private int numPostiO;					    //varibile per tenere conto dei posti occupati
-		private boolean isFull;					    //variabile per controllare se la sala è piena
+		private boolean isFull;					    //variabile per controllare se la sala ï¿½ piena
 		private boolean type;
 		private ArrayList<Film> programmazioni;		//variabile per la lista delle programmazioni
 		

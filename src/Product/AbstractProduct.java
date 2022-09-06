@@ -2,7 +2,7 @@ package Product;
 
 import java.util.Objects;
 
-public class AbstractProduct implements IProduct {
+public abstract class AbstractProduct implements IProduct {
 	
 	//classe abstractProduct
 	//attributi funzionali

@@ -3,7 +3,7 @@ package Film;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class AbstractFilm implements IFilm{
+public abstract class AbstractFilm implements IFilm{
 	
 
 

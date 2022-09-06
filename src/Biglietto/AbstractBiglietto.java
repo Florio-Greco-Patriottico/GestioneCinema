@@ -1,6 +1,6 @@
 package Biglietto;
 
-public class AbstractBiglietto implements IBiglietto{
+public abstract class AbstractBiglietto implements IBiglietto{
 	
 	private int Number = 0;
 	private double ManPrice;

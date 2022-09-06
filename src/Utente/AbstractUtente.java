@@ -2,7 +2,7 @@ package Utente;
 
 import java.util.Objects;
 
-public class AbstractUtente implements IUtente {
+public abstract class AbstractUtente implements IUtente {
 
 	//dichiarazione degli attributi funzionali
 		private int age;								//variabile utilizzata per l'eta

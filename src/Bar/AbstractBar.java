@@ -7,7 +7,7 @@ import java.util.Objects;
 import Product.AbstractProduct;
 import Utente.AbstractUtente;
 
-public class AbstractBar implements Ibar {
+public abstract class AbstractBar implements Ibar {
 
 	//dichiarazione degli attributi funzionali
 	private String name;
@@ -45,7 +45,7 @@ public class AbstractBar implements Ibar {
 	@Override
 	public void addProduct(AbstractProduct p) {
 		try {
-			//controllo se il prodotto è provvisto degli attributi
+			//controllo se il prodotto ï¿½ provvisto degli attributi
 			if(p.getPrice() > 0 && p.getQuantity() > 0 && p.getName() != null) {
 				//allora posso aggiungerlo
 				this.product.add(p);
