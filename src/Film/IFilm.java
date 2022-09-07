@@ -11,30 +11,30 @@ package Film;
 //7. set 3D/2D
 
 public interface IFilm {
-	
-	//INTERFACCIA PUBBLICA DELLA CLASSE
-	
-	//metodo per restituire il nome
+
+	// INTERFACCIA PUBBLICA DELLA CLASSE
+
+	// metodo per restituire il nome
 	public String getName();
-	
-	//metodo per restituire il genere
-	public String[] getGender();
-	
-	//metodo per restituire la trama
-	public String[] getPlot();
-	
-	//metodo per restituire tipo del film
-	//in questo caso TRUE = 3D, FALSE = 2D
+
+	// metodo per restituire il genere
+	public String getGender();
+
+	// metodo per restituire la trama
+	public String getPlot();
+
+	// metodo per restituire tipo del film
+	// in questo caso TRUE = 3D, FALSE = 2D
 	public boolean getMovieType();
-	
-	//metodo per restituire tipo entrata
-	//in questo caso TRUE = libero, FALSE = 18+
+
+	// metodo per restituire tipo entrata
+	// in questo caso TRUE = libero, FALSE = 18+
 	public boolean getEntranceType();
-	
-	//metodo per modificare la trama di un film
-	public void setPlot (String[] getPlot);
-	
-	//metodo per modificare il tipo di un film
+
+	// metodo per modificare la trama di un film
+	public void setPlot(String getPlot);
+
+	// metodo per modificare il tipo di un film
 	public void setMovieType(boolean getMovieType);
-	
-}//end IFilm
+
+}// end IFilm
