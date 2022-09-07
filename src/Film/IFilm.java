@@ -15,7 +15,7 @@ public interface IFilm {
 	//INTERFACCIA PUBBLICA DELLA CLASSE
 	
 	//metodo per restituire il nome
-	public String[] getName();
+	public String getName();
 	
 	//metodo per restituire il genere
 	public String[] getGender();

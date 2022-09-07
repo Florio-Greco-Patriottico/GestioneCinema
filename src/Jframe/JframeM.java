@@ -3,10 +3,23 @@ package Jframe;
 import java.awt.*;
 import javax.swing.*;
 
+import Utente.Cliente;
+import Utente.IUtente;
+import it.fooddelivery.controller.Manager;
+import it.fooddelivery.controller.ManagerFactory;
+import it.fooddelivery.view.View;
+import it.fooddelivery.view.ViewWelcome;
+import it.fooddelivery.view.ViewWorker;
+
 //prova d'una interfaccia lato utente
 public class JframeM {
     public static void main(String s[]) {
-        //defininione delle variabili
+ 
+    	final IUtente controller = new Cliente(13,"christian","greco",true);
+		new Prova1(controller);
+    }
+/*	
+    	//defininione delle variabili
         JLabel title;                       //titolo iniziale dell'interfaccia
         JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
         JList  films;                       //lista dei film
@@ -65,5 +78,9 @@ public class JframeM {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+     
     }//end main
+    
+ */  
 }//end JFrameM
+    	
