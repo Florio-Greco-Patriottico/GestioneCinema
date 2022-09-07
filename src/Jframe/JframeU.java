@@ -46,7 +46,7 @@ public class JframeU extends JFrame{
 		this.setSize(800, 600); 
 		this.setLocation(400, 200); //localizzazione finestra nel desktop
 		
-		mainPanel = new JPanel();
+		mainPanel = new JPanel();	//creazione pannello padre
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setBorder(new EmptyBorder(10, 50, 300, 300)); //distanza dai bordi del pannello padre
 		mainPanel.add(createGendersPanel());	//aggiunge al pannello padre il pannello principale per il genere
