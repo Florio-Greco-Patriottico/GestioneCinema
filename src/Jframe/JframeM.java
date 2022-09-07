@@ -18,6 +18,8 @@ public class JframeM {
     	final IUtente controller = new Cliente(13,"christian","greco",true);
 		new Prova1(controller);
     }
+    
+    
 /*	
     	//defininione delle variabili
         JLabel title;                       //titolo iniziale dell'interfaccia

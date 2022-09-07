@@ -16,6 +16,7 @@ import Utente.IUtente;
 
 public class JframeU extends JFrame{
 	
+	//DICHIARAZIONE CONTROLLER
 	private final IUtente controller;
 	
 	//DICHIARAZIONE PANNELLO PADRE
