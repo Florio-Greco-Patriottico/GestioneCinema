@@ -45,7 +45,7 @@ public class JframeG {
         JComboBox<String> dropDown3; // menu' a cascata
         JButton save; // menu' per salvare
         JButton reset; // menu' per resettare
-        String[] optionsBoolean = { "TRUE", "FALSE" }; // elementi menu a cascata
+        String[] optionsBoolean = { "--", "TRUE", "FALSE" }; // elementi menu a cascata
         String[] optionsSale = { "SELEZIONA SALA", "sala1", "sala2", "sala3", "sala4" };
 
         // inizializzazione delle variabili
@@ -167,9 +167,9 @@ public class JframeG {
                 Name.setText("");
                 Gender.setText("");
                 Plot.setText("");
-                dropDown.setSelectedIndex(2);
-                dropDown2.setSelectedIndex(2);
-                dropDown3.setSelectedIndex(1);
+                dropDown.setSelectedIndex(0);
+                dropDown2.setSelectedIndex(0);
+                dropDown3.setSelectedIndex(0-1);
             }
         });
         // evento save
