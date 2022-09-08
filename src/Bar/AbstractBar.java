@@ -56,16 +56,21 @@ public abstract class AbstractBar implements Ibar {
 	}
 
 	@Override
-	public void addShopAssistant(AbstractUtente u) {
+	public boolean addShopAssistant(AbstractUtente u) {
+		boolean ret = true;
 		try {
 			//controllo se il commesso ha almeno 18 anni
 			if(u.getAge() >= 18) {
 				//allora posso aggiungerlo
 				this.dependents.add(u);
+				
+			}else {
+				ret = false;
 			}
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+		return ret;
 	}
 
 	@Override

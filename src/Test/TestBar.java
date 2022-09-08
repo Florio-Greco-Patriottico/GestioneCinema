@@ -18,6 +18,7 @@ public class TestBar {
 	private Random rnd;
 	private AbstractBar bar;
 	private AbstractUtente commesso;
+	private AbstractUtente commessoMinorenne;
 	private AbstractProduct snack;
 	private AbstractProduct bibita;
 	
@@ -27,6 +28,7 @@ public class TestBar {
 		this.rnd = new Random();
 		this.bar = new Bar("Bar");
 		this.commesso = new Commesso(18, "Mario", "Florio", false);
+		this.commessoMinorenne = new Commesso(17, "Mario", "Florio", false);
 		this.snack = new Snack();
 		this.bibita = new Beverage();
 		
@@ -38,12 +40,18 @@ public class TestBar {
 		bar.addProduct(bibita);
 		bar.addProduct(snack);
 		bar.addShopAssistant(commesso);
+		bar.addShopAssistant(commessoMinorenne);
 		
 	}//end createData()
 	
 	@org.junit.Test
 	public void testBar() {
-		assertEquals();
+		assertEquals(bar.equals(bibita),false);
+		assertEquals(bar.equals(snack),false);
+		assertEquals(bar.equals(commesso),false);
+		assertEquals(bar.equals(bar),true);
+		assertEquals(bar.addShopAssistant(commessoMinorenne),false);
+		
 	}//end testBar
 	
 }//end testBar

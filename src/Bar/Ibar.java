@@ -16,6 +16,6 @@ public interface Ibar {
 	//metodo per aggiungere un prodotto
 	public void addProduct(AbstractProduct p);
 	//metodo per aggiungere un commesso
-	public void addShopAssistant(AbstractUtente u);
+	public boolean addShopAssistant(AbstractUtente u);
 
 }//end Ibar
