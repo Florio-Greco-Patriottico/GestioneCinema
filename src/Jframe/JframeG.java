@@ -3,6 +3,7 @@ package Jframe;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -11,12 +12,28 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import Film.Film;
+import Sala.AbstractSala;
+import Sala.Sala2D;
+import Sala.Sala3D;
 import Utente.Gestore;
 
-//classe Jframe per il gestore, questo Jframe servir√† al gestore per inserire i dati relativi al film da aggiungere
+//classe Jframe per il gestore, questo Jframe servir‡ al gestore per inserire i dati relativi al film da aggiungere
 //al cinema e associarlo ad una sala disponibile scelta a discrezione del gestore
 public class JframeG {
     public static void main(String s[]) {
+        // dichiaro le sale
+        Sala2D sala1 = new Sala2D("Sala1 - 2D", 1, 10, false);
+        Sala3D sala2 = new Sala3D("Sala2 - 3D", 2, 10, true);
+        Sala2D sala3 = new Sala2D("Sala3 - 2D", 3, 10, false);
+        Sala3D sala4 = new Sala3D("Sala4 - 3D", 4, 10, true);
+        // lista delle sale
+        ArrayList<AbstractSala> sale = new ArrayList();
+        // aggiungo le sale alla lista
+        sale.add(sala1);
+        sale.add(sala2);
+        sale.add(sala3);
+        sale.add(sala4);
+
         // defininione delle variabili
         Gestore gestore = new Gestore(30, "Mario", "Mario", true);
         JLabel title; // titolo iniziale dell'interfaccia
@@ -42,12 +59,12 @@ public class JframeG {
         h5 = new JLabel("");
         h6 = new JLabel("");
         // inizializzo le variaibli che comporranno il corpo del Jframe
-        name = new JLabel("NOME : ");
-        gender = new JLabel("GENERE : ");
+        name = new JLabel("NOME: ");
+        gender = new JLabel("GENERE: ");
         plot = new JLabel("POSTO: ");
-        movieType = new JLabel("TIPOLOGIA DEL FILM : ");
-        entranceType = new JLabel("TIPOLOGIA ENTRATA FILM : ");
-        sala = new JLabel("SALA : ");
+        movieType = new JLabel("TIPOLOGIA DEL FILM: ");
+        entranceType = new JLabel("TIPOLOGIA ENTRATA FILM: ");
+        sala = new JLabel("SALA: ");
         // inizializzo le variabili JTextField
         Name = new JTextField();
         Gender = new JTextField();
@@ -58,9 +75,14 @@ public class JframeG {
         // inizializzo il pannello per le scelte multiple
         dropDown = new JComboBox<>(optionsBoolean);
         dropDown2 = new JComboBox<>(optionsBoolean);
-        dropDown3 = new JComboBox<>(optionsSale);
-        // definisco le propriet√† delle mie variabili
-        // variabili che compongo l'intesatazione del Jframe
+        dropDown3 = new JComboBox<>();
+        // inizializzo il dropdown3
+        for (int i = 0; i < sale.size(); i++) {
+            String a = sale.get(i).getName();
+            dropDown3.insertItemAt(a, i);
+        } // end for
+          // definisco le propriet‡ delle mie variabili
+          // variabili che compongo l'intesatazione del Jframe
         title.setBounds(75, 20, 600, 30);
         h1.setBounds(460, 0, 100, 50);
         h2.setBounds(460, 22, 100, 50);
@@ -70,11 +92,11 @@ public class JframeG {
         h6.setBounds(545, 15, 100, 50);
         // variabili che compongono il corpo del Jframe
         name.setBounds(80, 60, 100, 30);
-        Name.setBounds(180, 60, 100, 30);
+        Name.setBounds(180, 60, 200, 30);
         gender.setBounds(80, 100, 200, 50);
-        Gender.setBounds(180, 110, 100, 30);
+        Gender.setBounds(180, 110, 200, 30);
         plot.setBounds(80, 150, 200, 50);
-        Plot.setBounds(180, 160, 100, 30);
+        Plot.setBounds(180, 160, 200, 30);
         movieType.setBounds(80, 200, 300, 50);
         dropDown.setBounds(330, 213, 140, 30);
         entranceType.setBounds(80, 250, 300, 50);
@@ -154,6 +176,31 @@ public class JframeG {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    // creo l'oggetto film
+                    boolean a, b;
+                    if (dropDown.getSelectedItem().equals("TRUE")) {
+                        a = true;
+                    } else {
+                        a = false;
+                    }
+                    if (dropDown2.getSelectedItem().equals("TRUE")) {
+                        b = true;
+                    } else {
+                        b = false;
+                    }
+                    Film film = new Film(Name.getText(), Gender.getText(), Plot.getText(), a, b);
+                    film.toString();
+                    // aggiungo il film alla sala
+                    int sel = 0;
+                    AbstractSala current = null;
+                    sel = dropDown3.getSelectedIndex();
+                    current = sale.get(sel);
+                    current.addFilm(film);
+                    current.toString();
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
 
             }
         });
