@@ -7,13 +7,13 @@ import Product.Beverage;
 import Product.Snack;
 import Utente.Commesso;
 import Utente.Gestore;
-
+import Jframe.*;
 public class GestioneCinema {
 	
 	public static void main(String args[])
 	{	
 		//inizializzo un Gestore
-		Gestore gestore = new Gestore(0, null, null, false);
+		/*Gestore gestore = new Gestore(0, null, null, false);
 		//iniazializzo il bar
 		AbstractBar bar 		= new Bar(null);
 		//inizializzo un Commesso
@@ -25,7 +25,21 @@ public class GestioneCinema {
 		Snack snack	  = new Snack();
 		//aggiungo i prodotti al bar
 		bar.addProduct(snack);
-		bar.addProduct(cocacola);
+		bar.addProduct(cocacola);*/
+		
+		JframeG();
+		JframeM();
 		
 	}//end main	  
+
+	private static void JframeM() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void JframeG() {
+		JframeG frameg = null;
+		frameg.run();
+		
+	}
 }//end gestioneCinema
