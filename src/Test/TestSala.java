@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Random;
 
 import Film.AbstractFilm;
+import Film.Film;
 import Sala.AbstractSala;
 import Sala.Sala2D;
 import Sala.Sala3D;
@@ -31,8 +32,8 @@ public class TestSala {
 		Sala3D_1 = new Sala3D("Sala3D_1",1, 10, false);
 		Sala3D_2 = new Sala3D("Sala3D_2",1, 10, false);
 		//inizializzo i film
-		film_1   = new Film();
-		film_2   = new Film();
+		film_1   = new Film("Terminator", "avventura", null, true, true);
+		film_2   = new Film("Spider-Man", "azione", null, false, false);
 	}//end createData()
 	
 	@org.junit.Test

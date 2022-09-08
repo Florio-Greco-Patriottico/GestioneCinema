@@ -3,6 +3,8 @@ package Sala;
 
 import java.util.ArrayList;
 
+import Film.AbstractFilm;
+
 //interfaccia sala utilizzata dalle classi Sala2D e Sala3D
 public interface ISala {
 	
@@ -19,12 +21,12 @@ public interface ISala {
 	//metodo per aggiungere un posto
 	public void addPosto();
 	//metodo per aggiungere un film
-	void addFilm(Film.Film f);
+	void addFilm(AbstractFilm film);
 	//metodo per ritornare un film
-	Film.Film  getFilm(Film.Film f);
+	AbstractFilm  getFilm(Film.Film f);
 	//metodo per ritornare il tipo della sala
 	boolean getType();
 	//metodo che ritorna una lista la quali contiene le programmazioni per la sala
-	public ArrayList<Film.Film> getFilm();
+	public ArrayList<AbstractFilm> getFilm();
 
 }//end ISala 

@@ -3,6 +3,7 @@ package Sala;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import Film.AbstractFilm;
 import Film.Film;
 
 public abstract class AbstractSala implements ISala {
@@ -13,7 +14,7 @@ public abstract class AbstractSala implements ISala {
 	private int numPostiO; // varibile per tenere conto dei posti occupati
 	private boolean isFull; // variabile per controllare se la sala e' piena
 	private boolean type;
-	private ArrayList<Film> programmazioni; // variabile per la lista delle programmazioni
+	private ArrayList<AbstractFilm> programmazioni; // variabile per la lista delle programmazioni
 
 	// costuttore
 	public AbstractSala(final String name, final int id, int posti, boolean type) {
@@ -25,7 +26,7 @@ public abstract class AbstractSala implements ISala {
 		this.numPostiO = 0;
 		this.isFull = false;
 		this.type = type;
-		this.programmazioni = new ArrayList<Film>();
+		this.programmazioni = new ArrayList<AbstractFilm>();
 	}// end costruttore
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
@@ -69,13 +70,13 @@ public abstract class AbstractSala implements ISala {
 	}// end addPosto
 
 	@Override
-	public ArrayList<Film> getFilm() {
+	public ArrayList<AbstractFilm> getFilm() {
 		return this.programmazioni;
 	}// end getFilm
 
 	@Override
-	public void addFilm(Film f) {
-		this.programmazioni.add(f);
+	public void addFilm(AbstractFilm film) {
+		this.programmazioni.add(film);
 	}// end addFilm
 
 	@Override
@@ -88,7 +89,7 @@ public abstract class AbstractSala implements ISala {
 		return this.type;
 	}// end getType
 
-	public Film getFilm(Film f) {
+	public AbstractFilm getFilm(Film f) {
 		return this.programmazioni.stream().filter(e -> e.equals(f)).findFirst().get();
 	}// end getFilm
 
