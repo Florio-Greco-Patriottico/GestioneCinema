@@ -27,19 +27,8 @@ public class GestioneCinema {
 		bar.addProduct(snack);
 		bar.addProduct(cocacola);*/
 		
-		JframeG();
-		JframeM();
+
 		
 	}//end main	  
 
-	private static void JframeM() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void JframeG() {
-		JframeG frameg = null;
-		frameg.run();
-		
-	}
 }//end gestioneCinema
