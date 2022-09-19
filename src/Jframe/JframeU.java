@@ -28,11 +28,11 @@ public class JframeU extends JFrame{
 	//DICHIARAZIONE DI TUTTI I PANNELLI
 	//(i pannelli vanno dichiarati prima di essere creati)
 	private JComboBox<String> gendersCombo;
-	private JTextField NameField;		//sottopannello nome
-	private JTextField SurnameField;	//sottopannello cognome
-	private JTextField AgeField;		//sottopannello eta'
-	private JButton saveButton;			//sottopannello bottone salva
-	private JButton exitButton;			//sottopannello bottone exit
+	private JTextField NameField;				//sottopannello nome
+	private JTextField SurnameField;			//sottopannello cognome
+	private JTextField AgeField;				//sottopannello eta'
+	private JButton saveButton;					//sottopannello bottone salva
+	private JButton exitButton;					//sottopannello bottone exit
 	
 	//COSTRUTTORE
 	JframeU(final IUtente controller){
