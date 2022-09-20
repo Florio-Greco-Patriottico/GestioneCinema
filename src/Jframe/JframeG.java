@@ -20,7 +20,8 @@ import Utente.Gestore;
 //classe Jframe per il gestore, questo Jframe servirà al gestore per inserire i dati relativi al film da aggiungere
 //al cinema e associarlo ad una sala disponibile scelta a discrezione del gestore
 public class JframeG {
-    public void run() {
+    		
+			/*
             // dichiaro le sale
             Sala2D sala1 = new Sala2D("Sala1 - 2D", 1, 10, false);
             Sala3D sala2 = new Sala3D("Sala2 - 3D", 2, 10, true);
@@ -204,5 +205,5 @@ public class JframeG {
 
                 }
             });
-    }
-}// end JframeG
+            */
+    }// end JframeG

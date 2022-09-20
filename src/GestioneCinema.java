@@ -27,8 +27,8 @@ public class GestioneCinema {
 		bar.addProduct(snack);
 		bar.addProduct(cocacola);*/
 		
-
-		
+		JframeM frameM = new JframeM();
+		frameM.start();
 	}//end main	  
 
 }//end gestioneCinema
