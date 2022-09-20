@@ -12,7 +12,7 @@ public abstract class AbstractProduct implements IProduct {
 	private int    quantity;						//variabile per la quantita'
 	
 	
-	//costruttore
+	//costruttore 1
 	public AbstractProduct() {
 		super();
 		//inizializzo gli attributi funzionali
@@ -21,6 +21,16 @@ public abstract class AbstractProduct implements IProduct {
 		this.description = null;
 		this.quantity    = 0;
 	}//end costruttore
+	
+	//costruttore 2
+		public AbstractProduct(Double price,String name, String description, int quantity) {
+			super();
+			//inizializzo gli attributi funzionali
+			this.price 		 = price;
+			this.name  		 = name;
+			this.description = description;
+			this.quantity    = quantity;
+		}//end costruttore
 	
 	//METODI DERIVATI DALL'INTERFACCIA
 	@Override
