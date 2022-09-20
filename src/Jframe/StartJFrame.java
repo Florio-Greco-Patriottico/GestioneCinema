@@ -11,11 +11,11 @@ public class StartJFrame {
 	public StartJFrame(final Cliente controller) {
 		new JframeU(controller).Init();
 		
-	}
+	}//startJFrame
 	
 	public StartJFrame(final Gestore controller) {
 		new JframeU(controller);
-	}
+	}//startJFrame
 	
 	
 

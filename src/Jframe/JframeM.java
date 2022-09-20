@@ -17,7 +17,7 @@ public class JframeM extends JFrame{
 
 		//costruttore
 		public JframeM() {
-			
+			this.start();
 		}//end costruttore
 		
 		public void start() {
