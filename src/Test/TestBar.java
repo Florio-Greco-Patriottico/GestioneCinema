@@ -37,6 +37,7 @@ public class TestBar {
 		snack.setPrice(1);
 		bibita.setPrice(2);
 		
+		
 		bar.addProduct(bibita);
 		bar.addProduct(snack);
 		bar.addShopAssistant(commesso);
