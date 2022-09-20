@@ -8,16 +8,12 @@ public class StartJFrame {
 
 	//classe di prova
 	//COSTRUTTORE
-	public StartJFrame(final Cliente controller) {
-		new JframeU(controller).Init();
-		
+	public StartJFrame(final IUtente controller) {
+		if(controller instanceof Cliente) {
+			new JframeU(controller).Init();
+		}else if(controller instanceof Gestore){
+			new JframeG(controller).Init();
+		}
 	}//startJFrame
-	
-	public StartJFrame(final Gestore controller) {
-		new JframeU(controller);
-	}//startJFrame
-	
-	
 
-	
 }//end startJFrame

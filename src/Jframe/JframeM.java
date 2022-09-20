@@ -5,6 +5,7 @@ import javax.swing.border.EmptyBorder;
 
 import Utente.Cliente;
 import Utente.Gestore;
+import Utente.IUtente;
 
 //prova d'una interfaccia lato utente
 public class JframeM extends JFrame{
@@ -17,13 +18,13 @@ public class JframeM extends JFrame{
 
 		//costruttore
 		public JframeM() {
-			this.start();
+			
 		}//end costruttore
 		
 		public void start() {
 			//codice nella main che serve a far partire l'interfaccia JFrameG
-			final Cliente controlleru = new Cliente(13,"christian","greco",true);
-			final Gestore controllerg  = new Gestore(30, "Mario", "Mario", true);
+			final IUtente controlleru = new Cliente(13,"christian","greco",true);
+			final IUtente controllerg  = new Gestore(30, "Mario", "Mario", true);
 			new StartJFrame(controlleru);
 			new StartJFrame(controllerg);
 			this.init();

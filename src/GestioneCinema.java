@@ -16,6 +16,7 @@ public class GestioneCinema {
 		JframeM frameM = new JframeM();
 		frameM.start();
 		
+		
 	}//end main	  
 
 }//end gestioneCinema

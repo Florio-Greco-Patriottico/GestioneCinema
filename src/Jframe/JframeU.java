@@ -115,6 +115,8 @@ public class JframeU extends JFrame{
     }//end init
 	
 	
+	
+	
 	/*
 	private JPanel createButtonsPanel() {
 		//impostazioni pannello contenente i bottoni
