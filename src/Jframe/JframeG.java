@@ -20,13 +20,16 @@ import Utente.IUtente;
 
 //classe Jframe per il gestore, questo Jframe servirà al gestore per inserire i dati relativi al film da aggiungere
 //al cinema e associarlo ad una sala disponibile scelta a discrezione del gestore
-public class JframeG {
+public class JframeG extends JFrame{
     		
+	private static final long serialVersionUID = 1L;
+	
 			//DICHIARAZIONE CONTROLLER
 			private final IUtente controller;
 	
 			//costruttore
 			public JframeG(final IUtente controller) {
+				System.out.println("Start JFrameG.....");
 				this.controller = controller;
 			}//end costruttore
 			

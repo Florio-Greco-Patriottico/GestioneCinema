@@ -1,28 +1,35 @@
 package Jframe;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import Utente.Cliente;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import Utente.IUtente;
 
 public class JframeU extends JFrame{
 	
+	private static final long serialVersionUID = 1L;
+	
 	//DICHIARAZIONE CONTROLLER
 	private final IUtente controller;
 	private ArrayList<String> parametri = new ArrayList();
+	
 	//COSTRUTTORE
 	JframeU(final IUtente controller, ArrayList<String> ret){
+		System.out.println("Start JFrameU.....");
 		this.controller = controller;
 		this.parametri.addAll(ret);
-		
 	}//end costruttore
 	
 	public void Init() {
