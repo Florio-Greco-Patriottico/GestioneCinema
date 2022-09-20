@@ -39,7 +39,7 @@ public class JframeU extends JFrame{
         JPanel panel = new JPanel(new GridBagLayout());
         // Constraints for the layout
         GridBagConstraints constr = new GridBagConstraints();
-        constr.insets = new Insets(5, 5, 5, 5);     
+        constr.insets = new Insets(7, 7, 7, 7);     
         constr.anchor = GridBagConstraints.WEST;
  
         // Set the initial grid values to 0,0
@@ -78,14 +78,14 @@ public class JframeU extends JFrame{
         constr.gridy=3;
         
         panel.add(typeLabel, constr);
-        constr.gridx=1;
+        constr.gridx=0;
         panel.add(dropDown, constr);
-        constr.gridy=3;
+        constr.gridy=6;
          
         constr.gridwidth = 2;
         constr.anchor = GridBagConstraints.CENTER;
   
-                // Button with text "Register"
+        // Button with text "Register"
         JButton button = new JButton("Register");
         // add a listener to button
         button.addActionListener(new ActionListener()
@@ -96,12 +96,11 @@ public class JframeU extends JFrame{
             userNameTxt.setText("");
             ageTxt.setText("");
             surnameTxt.setText("");
-            typeTxt.setText(" "+dropDown.getSelectedItem());
           }
         });
   
-               // Add label and button to panel
-               panel.add(button, constr);
+        // Add label and button to panel
+        panel.add(button, constr);
   
         mainPanel.add(headingPanel);
         mainPanel.add(panel);
