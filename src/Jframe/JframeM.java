@@ -138,10 +138,10 @@ public class JframeM extends JFrame{
                     	ret.add((String) posto.getSelectedItem());
                     	
                     	//apro l'interfaccia cliente
-                    	final IUtente controlleru = new Cliente(13,"christian","greco",true);
+                    	final IUtente controlleru = new Cliente(0,"null","null",true);
                     	new StartJFrame(controlleru, ret);
                     } catch (Exception ex) {
-                        System.out.println(ex);
+                        System.out.println("Error : " + ex);
                     }
 
                 }
