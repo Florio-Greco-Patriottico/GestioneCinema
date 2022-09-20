@@ -9,12 +9,15 @@ public class StartJFrame {
 	//classe di prova
 	//COSTRUTTORE
 	public StartJFrame(final Cliente controller) {
-		new JframeU(controller);
+		new JframeU(controller).Init();
+		
 	}
 	
 	public StartJFrame(final Gestore controller) {
 		new JframeU(controller);
 	}
+	
+	
 
 	
 }//end startJFrame

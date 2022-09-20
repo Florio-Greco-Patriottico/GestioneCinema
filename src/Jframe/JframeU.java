@@ -1,15 +1,13 @@
 package Jframe;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.*;
 
 import Utente.Cliente;
 import Utente.IUtente;
@@ -19,8 +17,157 @@ public class JframeU extends JFrame{
 	//DICHIARAZIONE CONTROLLER
 	private final IUtente controller;
 	
+	//COSTRUTTORE
+	JframeU(final IUtente controller){
+		this.controller = controller;
+	}//end costruttore
+	
+	public void Init() {
+		// Create frame with title Registration Demo
+        JFrame frame= new JFrame(); 
+        frame.setTitle("Cinema - Registration");
+         
+               // Panel to define the layout. We are using GridBagLayout
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+ 
+        JPanel headingPanel = new JPanel();
+        JLabel headingLabel = new JLabel("This is the heading panel for registration");
+        headingPanel.add(headingLabel);
+         
+               // Panel to define the layout. We are using GridBagLayout
+        JPanel panel = new JPanel(new GridBagLayout());
+        // Constraints for the layout
+        GridBagConstraints constr = new GridBagConstraints();
+        constr.insets = new Insets(5, 5, 5, 5);     
+        constr.anchor = GridBagConstraints.WEST;
+ 
+        // Set the initial grid values to 0,0
+        constr.gridx=0;
+        constr.gridy=0;
+  
+        // Declare the required Labels
+        JLabel userNameLabel = new JLabel("Enter your name :");
+        JLabel surnameLabel = new JLabel("Enter surname :");
+        JLabel ageLabel = new JLabel("Enter your age :");
+        JLabel typeLabel = new JLabel("Choose ticket's type :");
+        
+         
+        // Declare Text fields
+        JTextField userNameTxt = new JTextField(20);
+        JTextField ageTxt = new JTextField(20);
+        JTextField surnameTxt = new JTextField(20);
+        JTextField typeTxt = new JTextField(20);
+        JComboBox<String> dropDown = new JComboBox<>();
+        String[] optionsBoolean = { "--", "TRUE", "FALSE" }; // elementi menu a cascata
+        dropDown = new JComboBox<>(optionsBoolean);
+         
+        panel.add(userNameLabel, constr);
+        constr.gridx=1;
+        panel.add(userNameTxt, constr);
+        constr.gridx=0; constr.gridy=1;
+         
+        panel.add(ageLabel, constr);
+        constr.gridx=1;
+        panel.add(ageTxt, constr);
+        constr.gridx=0; constr.gridy=2;
+         
+        panel.add(surnameLabel, constr);
+        constr.gridx=1;
+        panel.add(surnameTxt, constr);
+        constr.gridy=3;
+        
+        panel.add(typeLabel, constr);
+        constr.gridx=1;
+        panel.add(dropDown, constr);
+        constr.gridy=3;
+         
+        constr.gridwidth = 2;
+        constr.anchor = GridBagConstraints.CENTER;
+  
+                // Button with text "Register"
+        JButton button = new JButton("Register");
+        // add a listener to button
+        button.addActionListener(new ActionListener()
+        {
+          public void actionPerformed(ActionEvent e)
+          {
+            headingLabel.setText("Thanks for registering. We'll get back to you shortly.");
+            userNameTxt.setText("");
+            ageTxt.setText("");
+            surnameTxt.setText("");
+            typeTxt.setText(" "+dropDown.getSelectedItem());
+          }
+        });
+  
+               // Add label and button to panel
+               panel.add(button, constr);
+  
+        mainPanel.add(headingPanel);
+        mainPanel.add(panel);
+ 
+        // Add panel to frame
+        frame.add(mainPanel);
+        frame.pack();
+                frame.setSize(400, 400);
+                frame.setLocationRelativeTo(null);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }//end init
+	
+	
+	/*
+	private JPanel createButtonsPanel() {
+		//impostazioni pannello contenente i bottoni
+		JPanel buttonsPanel = new JPanel(); //creazione pannello principale bottoni
+		buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
+		buttonsPanel.setBorder(new EmptyBorder(10, 60, 10, 10));	//distanza dai bordi
+		
+		
+		//BOTTONE SALVA
+		saveButton = new JButton("SALVA"); 
+		
+		//la parte sottostante può servire per gestire l'evento 
+		
+		 /** saveButton.addActionListener(event -> {
+		 
+			controller.createCurrentOrder((CityImpl)citiesCombo.getSelectedItem(), addressField.getText(), (Restaurant)restaurantCombo.getSelectedItem());
+			this.setVisible(false);
+			this.dispose();
+			new ViewPlacing(this.controller);
+			
+		});*/
+		/*
+		buttonsPanel.add(saveButton);	//aggiunge il bottone save al pannello buttonsPannel
+								
+		
+		//BOTTONE ESCI
+		exitButton = new JButton("ESCI");
+		
+		//la parte sottostante può servire per gestire l'evento 
+		/** exitButton.addActionListener(event -> {
+		 
+			this.dispose();
+			ViewWorker.getInstance().dispose();
+		});*/
+		/*
+		buttonsPanel.add(exitButton);	//aggiunge il bottone exit al pannello buttonsPannel
+		
+		buttonsPanel.add(Box.createHorizontalStrut(60)); //pone i bottoni in orizzontale
+		
+		return buttonsPanel;
+	}
+	*/
+	
+	
+	//end init
+	
+	
+	
+	/*
 	//DICHIARAZIONE PANNELLO PADRE
 	private JPanel mainPanel;
+	
 	
 	//titolo finestra
 	private final String title = "INSERISCI I DATI DEL BIGLIETTO";
@@ -34,12 +181,10 @@ public class JframeU extends JFrame{
 	private JButton saveButton;					//sottopannello bottone salva
 	private JButton exitButton;					//sottopannello bottone exit
 	
-	//COSTRUTTORE
-	JframeU(final IUtente controller){
-		this.controller = controller;
-		this.Init();
-	}
+	*/
+
 	
+	/*
 	//inizializzo le finestre
 	private void Init() {
 		this.setTitle(this.title);
@@ -108,43 +253,6 @@ public class JframeU extends JFrame{
 		return datePanel;
 	}
 	
-	private JPanel createButtonsPanel() {
-		//impostazioni pannello contenente i bottoni
-		JPanel buttonsPanel = new JPanel(); //creazione pannello principale bottoni
-		buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
-		buttonsPanel.setBorder(new EmptyBorder(10, 60, 10, 10));	//distanza dai bordi
-		
-		
-		//BOTTONE SALVA
-		saveButton = new JButton("SALVA"); 
-		
-		//la parte sottostante può servire per gestire l'evento 
-		
-		 /** saveButton.addActionListener(event -> {
-		 
-			controller.createCurrentOrder((CityImpl)citiesCombo.getSelectedItem(), addressField.getText(), (Restaurant)restaurantCombo.getSelectedItem());
-			this.setVisible(false);
-			this.dispose();
-			new ViewPlacing(this.controller);
-			
-		});*/
-		
-		buttonsPanel.add(saveButton);	//aggiunge il bottone save al pannello buttonsPannel
-								
-		
-		//BOTTONE ESCI
-		exitButton = new JButton("ESCI");
-		
-		//la parte sottostante può servire per gestire l'evento 
-		/** exitButton.addActionListener(event -> {
-		 
-			this.dispose();
-			ViewWorker.getInstance().dispose();
-		});*/
-		buttonsPanel.add(exitButton);	//aggiunge il bottone exit al pannello buttonsPannel
-		
-		buttonsPanel.add(Box.createHorizontalStrut(60)); //pone i bottoni in orizzontale
-		
-		return buttonsPanel;
-	}
+	*/
+	
 }
