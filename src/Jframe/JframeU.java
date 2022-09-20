@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import Utente.Cliente;
 import Utente.IUtente;
@@ -16,10 +17,12 @@ public class JframeU extends JFrame{
 	
 	//DICHIARAZIONE CONTROLLER
 	private final IUtente controller;
-	
+	private ArrayList<String> parametri = new ArrayList();
 	//COSTRUTTORE
-	JframeU(final IUtente controller){
+	JframeU(final IUtente controller, ArrayList<String> ret){
 		this.controller = controller;
+		this.parametri.addAll(ret);
+		
 	}//end costruttore
 	
 	public void Init() {

@@ -1,5 +1,7 @@
 package Jframe;
 
+import java.util.ArrayList;
+
 import Utente.Cliente;
 import Utente.Gestore;
 import Utente.IUtente;
@@ -8,10 +10,10 @@ public class StartJFrame {
 
 	//classe di prova
 	//COSTRUTTORE
-	public StartJFrame(final IUtente controller) {
+	public StartJFrame(final IUtente controller, ArrayList<String> ret) {
 		try {
 			if(controller instanceof Cliente) {
-				new JframeU(controller).Init();
+				new JframeU(controller,ret).Init();
 			}else if(controller instanceof Gestore){
 				new JframeG(controller).Init();
 			}

@@ -1,8 +1,14 @@
 package Jframe;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import Film.Film;
+import Sala.AbstractSala;
 import Utente.Cliente;
 import Utente.Gestore;
 import Utente.IUtente;
@@ -23,10 +29,8 @@ public class JframeM extends JFrame{
 		
 		public void start() {
 			//codice nella main che serve a far partire l'interfaccia JFrameG
-			final IUtente controlleru = new Cliente(13,"christian","greco",true);
 			final IUtente controllerg  = new Gestore(30, "Mario", "Mario", true);
-			new StartJFrame(controlleru);
-			new StartJFrame(controllerg);
+			new StartJFrame(controllerg, null);
 			this.init();
 		}//end start
 
@@ -123,6 +127,26 @@ public class JframeM extends JFrame{
 	        //pannello con bottone prenota
 	        buttonPanel.add(prenota);
 	        buttonPanel.setBorder(new EmptyBorder(10,150,100,150));
+	    
+	        prenota.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                    	//inizializzo un array contente le scelte del cliente
+                    	ArrayList<String> ret = new ArrayList();
+                    	ret.add((String) sala.getSelectedItem());
+                    	ret.add((String) posto.getSelectedItem());
+                    	
+                    	//apro l'interfaccia cliente
+                    	final IUtente controlleru = new Cliente(13,"christian","greco",true);
+                    	new StartJFrame(controlleru, ret);
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+
+                }
+            });
+	        
 		}//end init
 }//end JFrameM
     	

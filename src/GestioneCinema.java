@@ -1,13 +1,4 @@
-import Bar.AbstractBar;
-import Bar.Bar;
-import Film.AbstractFilm;
-import Film.Film;
-import Jframe.JframeU;
-import Product.Beverage;
-import Product.Snack;
-import Utente.Commesso;
-import Utente.Gestore;
-import Jframe.*;
+import Jframe.JframeM;
 public class GestioneCinema {
 	
 	public static void main(String args[])
