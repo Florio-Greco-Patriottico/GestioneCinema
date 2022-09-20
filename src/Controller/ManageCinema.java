@@ -11,40 +11,139 @@ import java.util.Set;
 import Product.Beverage;
 import Product.IProduct;
 import Product.Snack;
+import Sala.AbstractSala;
 import Sala.ISala;
 import Sala.Sala2D;
 import Sala.Sala3D;
+import Utente.IUtente;
 
 public class ManageCinema implements Manager {
 	/*
 	 * implementazione metodi interfaccia (Manager)
-	 * 
-	 * 
-	 * 
 	 */
 	
-	private final Set<ISala> sale;
-	private final Set<IProduct> products;
+	ArrayList<ISala> sales;
+	ArrayList<IUtente> shopassistants;
+	private String[] rets;
 	
-	public ManageCinema(Set<ISala> sale, Set<IProduct> products){
-		this.sale = sale;
-		this.products = products;
+	//costruttore
+	public ManageCinema() {
+		this.sales = new ArrayList<>();
+		this.shopassistants = new ArrayList<>();
+		//creo tutti gli oggetti di cui avrò bisogno
+		this.createSale();
+		this.CreateProduct();
+		this.CreateShopAssistants();
+		this.AddProductToBar();
+		this.associatesBar();
+	}//end costruttore
+
+	@Override
+	public void createSale() {
+		//dichiaro le mie sale
+		AbstractSala Sala2D_1;
+		AbstractSala Sala2D_2;
+		AbstractSala Sala2D_3;
+		AbstractSala Sala2D_4;
+		AbstractSala Sala3D_1;
+		AbstractSala Sala3D_2;
+		AbstractSala Sala3D_3;
+		AbstractSala Sala3D_4;
+		
+		//inizializzo le mie sale
+		Sala2D_1 = new Sala2D("Sala2D_1",1, 10, true);
+		Sala2D_2 = new Sala2D("Sala2D_2",1, 10, true);
+		Sala2D_3 = new Sala2D("Sala2D_3",1, 10, true);
+		Sala2D_4 = new Sala2D("Sala2D_4",1, 10, true);
+		Sala3D_1 = new Sala3D("Sala3D_1",1, 10, false);
+		Sala3D_2 = new Sala3D("Sala3D_2",1, 10, false);
+		Sala3D_3 = new Sala3D("Sala3D_3",1, 10, false);
+		Sala3D_4 = new Sala3D("Sala3D_4",1, 10, false);
+		
+		//aggingo le mie sale alla struttura
+		this.sales.add(Sala2D_1);
+		this.sales.add(Sala2D_2);
+		this.sales.add(Sala2D_3);
+		this.sales.add(Sala2D_4);
+		this.sales.add(Sala3D_1);
+		this.sales.add(Sala3D_2);
+		this.sales.add(Sala3D_3);
+		this.sales.add(Sala3D_4);
+		
+	}//end createSale();
+
+	@Override
+	public void CreateProduct() {
+		// TODO Auto-generated method stub
+		
+	}//end createProduct
+
+	@Override
+	public void CreateShopAssistants() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void AddProductToBar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String[] getSale() {
+		String[] rets = new String[this.sales.size()];
+		try {
+			for(int i = 0; i < this.sales.size(); i++) {
+				String name = this.sales.get(i).getName();
+				rets[i] = name;
+			}	
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		return rets;
+	}
+
+	@Override
+	public int getPosti(ISala s) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void CreateBar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void associatesBar() {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	public Set<ISala> getSale() {
-		return sale;
+	/*
+	private final Set<ISala> sales; 
+	private final Set<IProduct> products;
+	
+	public ManageCinema(){
+		this.sales = new HashSet<>();
+		this.products = new HashSet<>();
+	}
+	
+	public 
+	
+	public ArrayList<String> getSale() {
+		ArrayList<String> ret = null;
+		Iterator<String> setIterator = new Iterator();
+		return ret;
 	}
 	
 	public Set<IProduct> getProducts() {
 		return products;
 	}
 
-	/**
-	 * Creates a list of sale.
-	 * 
-	 * @return a list of sale
-	 */
-	public Set<ISala> createSale() {
+	public void createSale() {
 		Set<ISala> sale = new HashSet<>();
 		
 		//creo una lista di sale
@@ -59,11 +158,7 @@ public class ManageCinema implements Manager {
 		return sale;
 	}		
 	
-	/**
-	 * Creates a list of product.
-	 * 
-	 * @return a list of product
-	 */
+
 	public Set<IProduct> createProduct() {
 		Set<IProduct> products = new HashSet<>();
 		
@@ -76,5 +171,9 @@ public class ManageCinema implements Manager {
 		
 		//restituisco le sale create
 		return products;
-	}		
+	}
+	
+	*/
+
+		
 }//end ManageCinema

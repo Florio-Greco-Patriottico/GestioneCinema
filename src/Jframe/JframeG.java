@@ -26,9 +26,11 @@ public class JframeG extends JFrame{
 	
 			//DICHIARAZIONE CONTROLLER
 			private final IUtente controller;
+			String[] optionsSale = null;
 	
 			//costruttore
-			public JframeG(final IUtente controller) {
+			public JframeG(final IUtente controller, String[] sale) {
+				this.optionsSale = sale;
 				System.out.println("Start JFrameG.....");
 				this.controller = controller;
 			}//end costruttore
@@ -38,19 +40,6 @@ public class JframeG extends JFrame{
 			}//end start
 			
 			public void Init() {
-				// dichiaro le sale
-	            Sala2D sala1 = new Sala2D("Sala1 - 2D", 1, 10, false);
-	            Sala3D sala2 = new Sala3D("Sala2 - 3D", 2, 10, true);
-	            Sala2D sala3 = new Sala2D("Sala3 - 2D", 3, 10, false);
-	            Sala3D sala4 = new Sala3D("Sala4 - 3D", 4, 10, true);
-	            // lista delle sale
-	            ArrayList<AbstractSala> sale = new ArrayList();
-	            // aggiungo le sale alla lista
-	            sale.add(sala1);
-	            sale.add(sala2);
-	            sale.add(sala3);
-	            sale.add(sala4);
-
 	            // defininione delle variabili
 	            Gestore gestore = new Gestore(30, "Mario", "Mario", true);
 	            JLabel title; // titolo iniziale dell'interfaccia
@@ -63,7 +52,6 @@ public class JframeG extends JFrame{
 	            JButton save; // menu' per salvare
 	            JButton reset; // menu' per resettare
 	            String[] optionsBoolean = { "--", "TRUE", "FALSE" }; // elementi menu a cascata
-	            String[] optionsSale = { "SELEZIONA SALA", "sala1", "sala2", "sala3", "sala4" };
 
 	            // inizializzazione delle variabili
 	            // titolo
@@ -92,12 +80,7 @@ public class JframeG extends JFrame{
 	            // inizializzo il pannello per le scelte multiple
 	            dropDown = new JComboBox<>(optionsBoolean);
 	            dropDown2 = new JComboBox<>(optionsBoolean);
-	            dropDown3 = new JComboBox<>();
-	            // inizializzo il dropdown3
-	            for (int i = 0; i < sale.size(); i++) {
-	                String a = sale.get(i).getName();
-	                dropDown3.insertItemAt(a, i);
-	            } // end for
+	            dropDown3 = new JComboBox<>(this.optionsSale);
 	              // definisco le proprietà delle mie variabili
 	              // variabili che compongo l'intesatazione del Jframe
 	            title.setBounds(75, 20, 600, 30);
@@ -212,7 +195,6 @@ public class JframeG extends JFrame{
 	                        int sel = 0;
 	                        AbstractSala current = null;
 	                        sel = dropDown3.getSelectedIndex();
-	                        current = sale.get(sel);
 	                        current.addFilm(film);
 	                        current.toString();
 	                    } catch (Exception ex) {

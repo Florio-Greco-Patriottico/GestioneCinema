@@ -20,16 +20,20 @@ import Utente.IUtente;
 public class JframeM extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-
+	
+		//dichairazione degli attributi funzionali
+		String[] optionsSale = null;
+		
 		//costruttore
-		public JframeM() {		
+		public JframeM(String[] sale) {		
+			this.optionsSale = sale;			
 			System.out.println("Start JFrameM.....");
 		}//end costruttore
 		
 		public void start() {
 			//codice nella main che serve a far partire l'interfaccia JFrameG
 			final IUtente controllerg  = new Gestore(30, "Mario", "Mario", true);
-			new StartJFrame(controllerg, null);
+			new StartJFrame(controllerg, null, this.optionsSale);
 			this.init();
 		}//end start
 
@@ -42,8 +46,7 @@ public class JframeM extends JFrame{
 	        String[] film = new String[100];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 	// menu' a cascata
-	        JComboBox<String> posto; 	// menu' a cascata
-	        String[] optionsSale = { "SELEZIONA SALA", "sala1", "sala2", "sala3", "sala4" };
+	        JComboBox<String> posto; 	// menu' a cascat
 	        String[] optionsPosti = { "SELEZIONA POSTO", "posto1", "posto2", "posto3", "posto4" };
 
 	        //inizializzazione delle variabili
@@ -116,7 +119,7 @@ public class JframeM extends JFrame{
                     	
                     	//apro l'interfaccia cliente
                     	final IUtente controlleru = new Cliente(0,"null","null",true);
-                    	new StartJFrame(controlleru, ret);
+                    	new StartJFrame(controlleru, ret, null);
                     } catch (Exception ex) {
                         System.out.println("Error : " + ex);
                     }

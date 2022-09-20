@@ -10,6 +10,7 @@ public interface ISala {
 	
 	
 	//metodi dell'interfaccia
+	public String getName();
 	// metodo per ritornare il numero univoco della sala
 	public int getNumSala();
 	//metodo per ritornare i posti liberi

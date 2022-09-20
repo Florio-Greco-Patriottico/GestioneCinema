@@ -30,7 +30,7 @@ public abstract class AbstractSala implements ISala {
 	}// end costruttore
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
-	
+	@Override
 	public String getName() {
 		return this.name;
 	}

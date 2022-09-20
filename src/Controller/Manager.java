@@ -12,20 +12,14 @@ public interface Manager {
 	 * 3. public void CreateShopAssitants();
 	 * 4. public void AddProductToBar();
 	 */
-	
-	/**
-	 * @return a Set of all the products
-	 */
-	Set<IProduct> getProducts();
-	
-	/**
-	 * @return a Set of all the Sale
-	 */
-	Set<ISala> getSale();
-	
-	/**
-	 * create all the Sale
-	 */
-	Set<ISala> createSale();
+
+	public void createSale();
+	public void CreateProduct();
+	public void CreateShopAssistants();
+	public void CreateBar();
+	public void associatesBar();
+	public void AddProductToBar();
+	public String[] getSale();
+	public int getPosti(ISala s);
 	
 }//end Manager

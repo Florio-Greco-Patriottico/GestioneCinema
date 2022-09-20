@@ -10,12 +10,12 @@ public class StartJFrame {
 
 	//classe di prova
 	//COSTRUTTORE
-	public StartJFrame(final IUtente controller, ArrayList<String> ret) {
+	public StartJFrame(final IUtente controller, ArrayList<String> ret, String[] sale) {
 		try {
 			if(controller instanceof Cliente) {
 				new JframeU(controller,ret).Init();
 			}else if(controller instanceof Gestore){
-				new JframeG(controller).Init();
+				new JframeG(controller, sale).Init();
 			}
 		}catch(Exception e) {
 			System.out.println("type not found: " + e);
