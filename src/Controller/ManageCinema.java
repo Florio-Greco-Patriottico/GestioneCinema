@@ -10,7 +10,6 @@ import Sala.Sala2D;
 import Sala.Sala3D;
 import Utente.AbstractUtente;
 import Utente.Commesso;
-import Utente.IUtente;
 
 public class ManageCinema implements Manager {
 	/*
