@@ -156,11 +156,15 @@ public class ManageCinema implements Manager {
 	@Override
 	public int getPosti(ISala s) {
 		int ret = 0;
-		if(s.getNpostiLiberi() == 0) {
-			System.out.println("Non vi sono posti liberi.");
-		}else if(s.getNpostiLiberi() > 0) {
-			System.out.println("Ci sono posti liberi...");
-			ret = s.getNpostiLiberi();
+		try {
+			if(s.getNpostiLiberi() == 0) {
+				System.out.println("Non vi sono posti liberi.");
+			}else if(s.getNpostiLiberi() > 0) {
+				System.out.println("Ci sono posti liberi...");
+				ret = s.getNpostiLiberi();
+			}
+		}catch(Exception e) {
+			System.out.println(e);
 		}
 		return ret;
 	}//end getPosti
