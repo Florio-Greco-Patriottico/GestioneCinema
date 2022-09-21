@@ -13,13 +13,13 @@ public abstract class AbstractProduct implements IProduct {
 	
 	
 	//costruttore 1
-	public AbstractProduct() {
+	public AbstractProduct(double i, String n, String d, int j) {
 		super();
 		//inizializzo gli attributi funzionali
-		this.price 		 = 0.0;
-		this.name  		 = null;
-		this.description = null;
-		this.quantity    = 0;
+		this.price 		 = i;
+		this.name  		 = n;
+		this.description = d;
+		this.quantity    = j;
 	}//end costruttore
 	
 	//costruttore 2
