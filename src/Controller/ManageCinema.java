@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 
+import Bar.Bar;
 import Product.*;
 import Sala.AbstractSala;
 import Sala.ISala;
@@ -17,20 +18,21 @@ public class ManageCinema implements Manager {
 	 */
 	
 	ArrayList<ISala> sales;
-	ArrayList<IUtente> shopassistants;
-	ArrayList<IProduct> products;
+	ArrayList<AbstractUtente> shopassistants;
+	ArrayList<AbstractProduct> products;
+	private Bar bar;
 	private String[] rets;
 	
 	//costruttore
 	public ManageCinema() {
 		this.sales = new ArrayList<>();
 		this.shopassistants = new ArrayList<>();
+		this.bar = new Bar("bar");
 		//creo tutti gli oggetti di cui avr� bisogno
 		this.createSale();
 		this.CreateProduct();
 		this.CreateShopAssistants();
-		this.AddProductToBar();
-		this.associatesBar();
+		this.AddElementToBar(shopassistants, products);
 	}//end costruttore
 
 	@Override
@@ -69,33 +71,6 @@ public class ManageCinema implements Manager {
 
 	@Override
 	public void CreateProduct() {
-		// TODO Auto-generated method stub
-		
-	}//end createProduct
-
-	@Override
-	public void CreateShopAssistants() {
-		//dichiaro i commessi
-		AbstractUtente ShopAssistants_1;
-		AbstractUtente ShopAssistants_2;
-		AbstractUtente ShopAssistants_3;
-		AbstractUtente ShopAssistants_4;
-		
-		//inizializzo i commessi
-		ShopAssistants_1 = new Commesso(21, "Alessandro", "Patriottico", true);
-		ShopAssistants_2 = new Commesso(21, "Christian", "Greco", true);
-		ShopAssistants_3 = new Commesso(30, "Giorgia", "Pedio", false);
-		ShopAssistants_4 = new Commesso(25, "Rossella", "Rossi", false);
-		
-		//aggiungo i commessi alla struttura
-		this.shopassistants.add(ShopAssistants_1);
-		this.shopassistants.add(ShopAssistants_2);
-		this.shopassistants.add(ShopAssistants_3);
-		this.shopassistants.add(ShopAssistants_4);		
-	}
-
-	@Override
-	public void AddProductToBar() {
 		AbstractProduct snack_1;	
 		AbstractProduct snack_2;
 		AbstractProduct snack_3;
@@ -122,7 +97,45 @@ public class ManageCinema implements Manager {
 		products.add(beverage_2);
 		products.add(beverage_3);
 		products.add(beverage_4);
+		
+	}//end createProduct
+
+	@Override
+	public void CreateShopAssistants() {
+		//dichiaro i commessi
+		AbstractUtente ShopAssistants_1;
+		AbstractUtente ShopAssistants_2;
+		AbstractUtente ShopAssistants_3;
+		AbstractUtente ShopAssistants_4;
+		
+		//inizializzo i commessi
+		ShopAssistants_1 = new Commesso(21, "Alessandro", "Patriottico", true);
+		ShopAssistants_2 = new Commesso(21, "Christian", "Greco", true);
+		ShopAssistants_3 = new Commesso(30, "Giorgia", "Pedio", false);
+		ShopAssistants_4 = new Commesso(25, "Rossella", "Rossi", false);
+		
+		//aggiungo i commessi alla struttura
+		this.shopassistants.add(ShopAssistants_1);
+		this.shopassistants.add(ShopAssistants_2);
+		this.shopassistants.add(ShopAssistants_3);
+		this.shopassistants.add(ShopAssistants_4);		
 	}
+
+	@Override
+	public void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p ) {
+		try {
+			//aggiungo i commessi al bar
+			for(int i = 0; i < u.size(); i++) {
+				this.bar.addShopAssistant(u.get(i));
+			}//end for
+			//aggiung i prodotti al bar
+			for(int i = 0; i < p.size(); i++) {
+				this.bar.addProduct(p.get(i));
+			}//end for
+		}catch(Exception e) {
+			System.out.println("Error : "+ e);
+		}
+	}//end AddElemtnToBar
 
 	@Override
 	public String[] getSale() {
@@ -136,78 +149,18 @@ public class ManageCinema implements Manager {
 			System.out.println(e);
 		}
 		return rets;
-	}
+	}//end getSale
 
 	@Override
 	public int getPosti(ISala s) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void CreateBar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void associatesBar() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/*
-	private final Set<ISala> sales; 
-	private final Set<IProduct> products;
-	
-	public ManageCinema(){
-		this.sales = new HashSet<>();
-		this.products = new HashSet<>();
-	}
-	
-	public 
-	
-	public ArrayList<String> getSale() {
-		ArrayList<String> ret = null;
-		Iterator<String> setIterator = new Iterator();
+		int ret = 0;
+		if(s.getNpostiLiberi() == 0) {
+			System.out.println("Non vi sono posti liberi.");
+		}else if(s.getNpostiLiberi() > 0) {
+			System.out.println("Ci sono posti liberi...");
+			ret = s.getNpostiLiberi();
+		}
 		return ret;
-	}
-	
-	public Set<IProduct> getProducts() {
-		return products;
-	}
-
-	public void createSale() {
-		Set<ISala> sale = new HashSet<>();
-		
-		//creo una lista di sale
-		List<ISala> SaleCinema = Arrays.asList(new Sala2D("sala 1",1,30,true),
-											   new Sala3D("sala 2",2,20,false),
-											   new Sala2D("sala 3",3,40,true));
-		
-		//aggiungo tutte le sale create all'insieme delle sale
-		sale.addAll(SaleCinema);
-		
-		//restituisco le sale create
-		return sale;
-	}		
-	
-
-	public Set<IProduct> createProduct() {
-		Set<IProduct> products = new HashSet<>();
-		
-		//creo una lista di sale
-		List<IProduct> AllProducts = Arrays.asList(new Snack(),
-												   new Beverage());
-		
-		//aggiungo tutte le sale create all'insieme delle sale
-		products.addAll(AllProducts);
-		
-		//restituisco le sale create
-		return products;
-	}
-	
-	*/
-
+	}//end getPosti
 		
 }//end ManageCinema
