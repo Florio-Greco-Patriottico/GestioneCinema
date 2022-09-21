@@ -16,7 +16,6 @@ public class ManageCinema implements Manager {
 	/*
 	 * implementazione metodi interfaccia (Manager)
 	 */
-	
 	ArrayList<ISala> sales;
 	ArrayList<AbstractUtente> shopassistants;
 	ArrayList<AbstractProduct> products;
@@ -29,10 +28,14 @@ public class ManageCinema implements Manager {
 		this.shopassistants = new ArrayList<>();
 		this.bar = new Bar("bar");
 		//creo tutti gli oggetti di cui avr� bisogno
-		this.createSale();
-		this.CreateProduct();
-		this.CreateShopAssistants();
-		this.AddElementToBar(shopassistants, products);
+		try {
+			this.createSale();
+			this.CreateProduct();
+			this.CreateShopAssistants();
+			this.AddElementToBar(shopassistants, products);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}//end costruttore
 
 	@Override
@@ -49,12 +52,12 @@ public class ManageCinema implements Manager {
 		
 		//inizializzo le mie sale
 		Sala2D_1 = new Sala2D("Sala2D_1",1, 10, true);
-		Sala2D_2 = new Sala2D("Sala2D_2",1, 10, true);
-		Sala2D_3 = new Sala2D("Sala2D_3",1, 10, true);
-		Sala2D_4 = new Sala2D("Sala2D_4",1, 10, true);
-		Sala3D_1 = new Sala3D("Sala3D_1",1, 10, false);
-		Sala3D_2 = new Sala3D("Sala3D_2",1, 10, false);
-		Sala3D_3 = new Sala3D("Sala3D_3",1, 10, false);
+		Sala2D_2 = new Sala2D("Sala2D_2",1, 5, true);
+		Sala2D_3 = new Sala2D("Sala2D_3",1, 3, true);
+		Sala2D_4 = new Sala2D("Sala2D_4",1, 20, true);
+		Sala3D_1 = new Sala3D("Sala3D_1",1, 50, false);
+		Sala3D_2 = new Sala3D("Sala3D_2",1, 2, false);
+		Sala3D_3 = new Sala3D("Sala3D_3",1, 1, false);
 		Sala3D_4 = new Sala3D("Sala3D_4",1, 10, false);
 		
 		//aggiungo le mie sale alla struttura
@@ -89,14 +92,14 @@ public class ManageCinema implements Manager {
 		beverage_3 = new Beverage(3.5,"birra","nastro azzurro", 20);
 		beverage_4 = new Beverage(1.5,"thè","limone", 30);
 		
-		products.add(snack_1);
-		products.add(snack_2);
-		products.add(snack_3);
-		products.add(snack_4);
-		products.add(beverage_1);
-		products.add(beverage_2);
-		products.add(beverage_3);
-		products.add(beverage_4);
+		this.products.add(snack_1);
+		this.products.add(snack_2);
+		this.products.add(snack_3);
+		this.products.add(snack_4);
+		this.products.add(beverage_1);
+		this.products.add(beverage_2);
+		this.products.add(beverage_3);
+		this.products.add(beverage_4);
 		
 	}//end createProduct
 
