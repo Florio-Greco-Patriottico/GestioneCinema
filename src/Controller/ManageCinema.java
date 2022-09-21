@@ -73,6 +73,7 @@ public class ManageCinema implements Manager {
 
 	@Override
 	public void CreateProduct() {
+		//definisco i prodotti
 		AbstractProduct snack_1;	
 		AbstractProduct snack_2;
 		AbstractProduct snack_3;
@@ -82,6 +83,7 @@ public class ManageCinema implements Manager {
 		AbstractProduct beverage_3;
 		AbstractProduct beverage_4;
 		
+		//inizializzo i prodotti
 		snack_1 = new Snack(2.5,"pringles","gusto paprika", 20);
 		snack_2 = new Snack(1.5,"pop corn","gusto classico", 50);
 		snack_3 = new Snack(4.0,"panino","cotto e insalata", 5);
@@ -91,6 +93,7 @@ public class ManageCinema implements Manager {
 		beverage_3 = new Beverage(3.5,"birra","nastro azzurro", 20);
 		beverage_4 = new Beverage(1.5,"th√®","limone", 30);
 		
+		//agiungo i prodotti alla mia collezione
 		this.products.add(snack_1);
 		this.products.add(snack_2);
 		this.products.add(snack_3);
@@ -141,6 +144,8 @@ public class ManageCinema implements Manager {
 
 	@Override
 	public String[] getSale() {
+		//definisco una dimensione a ret, che sar‡ il mio valore 
+		//di return
 		String[] rets = new String[this.sales.size()];
 		try {
 			for(int i = 0; i < this.sales.size(); i++) {
