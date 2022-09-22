@@ -5,6 +5,7 @@ import java.util.Set;
 
 import Product.AbstractProduct;
 import Product.IProduct;
+import Sala.AbstractSala;
 import Sala.ISala;
 import Utente.AbstractUtente;
 import Utente.IUtente;
@@ -21,7 +22,7 @@ public interface Manager {
 	public void CreateProduct();
 	public void CreateShopAssistants();
 	public String[] getSale();
-	public int getPosti(ISala s);
+	public int getPosti(AbstractSala s);
 	void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p);
 	
 }//end Manager

@@ -10,11 +10,13 @@ import Sala.Sala2D;
 import Sala.Sala3D;
 import Utente.AbstractUtente;
 import Utente.Commesso;
+import Utente.Gestore;
 
 public class ManageCinema implements Manager {
 	/*
 	 * implementazione metodi interfaccia (Manager)
 	 */
+	Gestore gestore;
 	ArrayList<ISala> sales;
 	ArrayList<AbstractUtente> shopassistants;
 	ArrayList<AbstractProduct> products;
@@ -23,6 +25,7 @@ public class ManageCinema implements Manager {
 	
 	//costruttore
 	public ManageCinema() {
+		this.gestore = new Gestore(30, "Mario", "Mario", true);
 		this.sales = new ArrayList<>();
 		this.shopassistants = new ArrayList<>();
 		this.bar = new Bar("bar");
@@ -68,6 +71,16 @@ public class ManageCinema implements Manager {
 		this.sales.add(Sala3D_2);
 		this.sales.add(Sala3D_3);
 		this.sales.add(Sala3D_4);
+		
+		gestore.addSalaToCinema(Sala2D_1);
+		gestore.addSalaToCinema(Sala2D_2);
+		gestore.addSalaToCinema(Sala2D_3);
+		gestore.addSalaToCinema(Sala2D_4);
+		gestore.addSalaToCinema(Sala3D_1);
+		gestore.addSalaToCinema(Sala3D_2);
+		gestore.addSalaToCinema(Sala3D_3);
+		gestore.addSalaToCinema(Sala3D_4);
+
 		
 	}//end createSale();
 
@@ -159,7 +172,7 @@ public class ManageCinema implements Manager {
 	}//end getSale
 
 	@Override
-	public int getPosti(ISala s) {
+	public int getPosti(AbstractSala s) {
 		int ret = 0;
 		try {
 			if(s.getNpostiLiberi() == 0) {
@@ -173,5 +186,9 @@ public class ManageCinema implements Manager {
 		}
 		return ret;
 	}//end getPosti
+	
+	public Gestore getGestore() {
+		return this.gestore;
+	}
 		
 }//end ManageCinema

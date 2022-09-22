@@ -57,5 +57,21 @@ public class Gestore extends AbstractUtente {
 		}
 		return s;
 	}
+	
+	public AbstractSala getSala(String name) {
+		AbstractSala current = null;
+		try {
+			for(int i = 0; i < sale.size(); i++) {
+				AbstractSala c = sale.get(i);
+				if(c.getName().equals(name)) {
+					current = c;
+				}
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+		return current;
+	}
 
 }// end classe Gestore

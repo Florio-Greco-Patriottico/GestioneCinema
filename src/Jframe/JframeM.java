@@ -12,6 +12,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controller.ManageCinema;
+import Sala.AbstractSala;
 import Utente.Cliente;
 import Utente.Gestore;
 import Utente.IUtente;
@@ -22,17 +24,19 @@ public class JframeM extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 		//dichairazione degli attributi funzionali
-		String[] optionsSale = null;
+		private  String[] optionsSale = null;
+		int      numposti  	 = 0;
+		final Gestore controllerg;
+		
 		
 		//costruttore
-		public JframeM(String[] sale) {		
-			this.optionsSale = sale;			
+		public JframeM(String[] sale, Gestore g) {		
+			this.optionsSale = sale;	
+			this.controllerg =  g;
 			System.out.println("Start JFrameM.....");
 		}//end costruttore
 		
 		public void start() {
-			//codice nella main che serve a far partire l'interfaccia JFrameG
-			final IUtente controllerg  = new Gestore(30, "Mario", "Mario", true);
 			new StartJFrame(controllerg, null, this.optionsSale);
 			this.init();
 		}//end start
@@ -47,7 +51,7 @@ public class JframeM extends JFrame{
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 	// menu' a cascata
 	        JComboBox<String> posto; 	// menu' a cascat
-	        String[] optionsPosti = { "SELEZIONA POSTO", "posto1", "posto2", "posto3", "posto4" };
+	        String[] optionsPosti = new String[this.numposti];
 
 	        //inizializzazione delle variabili
 	                
@@ -56,6 +60,12 @@ public class JframeM extends JFrame{
 	            String n = "Film" + i;
 	            film[i] = n;
 	        }//end for
+	        
+	        //inizializzo i posti
+	        for(int i = 0; i < optionsPosti.length; i++) {
+	        	String p 	 = "posto " + i;
+	        	optionsPosti[i] = p;
+	        }//end posti
 	        
 	        //inizializzo la JList
 	        films = new JList(film);
@@ -108,6 +118,22 @@ public class JframeM extends JFrame{
 	        buttonPanel.add(prenota);
 	        buttonPanel.setBorder(new EmptyBorder(10,150,100,150));
 	    
+	        sala.addActionListener(new ActionListener() {
+	        	private  ManageCinema  controller = new ManageCinema();
+	        	Gestore g = controllerg;
+	        	AbstractSala current = null;
+
+				@Override
+                public void actionPerformed(ActionEvent e) {
+					current = g.getSala(sala.getSelectedItem().toString());
+	        		int j = current.getNumSala();
+	        		for(int i = 0; i < j; i++) {
+	        			optionsPosti[i] = "posto " + i;
+	        		}
+	        		
+	        	}
+	        });
+	        
 	        prenota.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

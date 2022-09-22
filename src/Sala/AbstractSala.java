@@ -16,6 +16,8 @@ public abstract class AbstractSala implements ISala {
 	private boolean type;
 	private ArrayList<AbstractFilm> programmazioni; // variabile per la lista delle programmazioni
 
+	
+
 	// costuttore
 	public AbstractSala(final String name, final int id, int posti, boolean type) {
 		super();
@@ -27,6 +29,7 @@ public abstract class AbstractSala implements ISala {
 		this.isFull = false;
 		this.type = type;
 		this.programmazioni = new ArrayList<AbstractFilm>();
+		
 	}// end costruttore
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
@@ -92,6 +95,7 @@ public abstract class AbstractSala implements ISala {
 	public AbstractFilm getFilm(Film f) {
 		return this.programmazioni.stream().filter(e -> e.equals(f)).findFirst().get();
 	}// end getFilm
+	
 
 	@Override
 	public boolean equals(Object obj) {

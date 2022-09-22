@@ -29,5 +29,6 @@ public interface ISala {
 	boolean getType();
 	//metodo che ritorna una lista la quali contiene le programmazioni per la sala
 	public ArrayList<AbstractFilm> getFilm();
+	
 
 }//end ISala 
