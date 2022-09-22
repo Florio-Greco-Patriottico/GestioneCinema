@@ -29,8 +29,8 @@ public class TestBar {
 		this.bar = new Bar("Bar");
 		this.commesso = new Commesso(18, "Mario", "Florio", false);
 		this.commessoMinorenne = new Commesso(17, "Mario", "Florio", false);
-		this.snack = new Snack();
-		this.bibita = new Beverage();
+		this.snack = new Snack(null, null, null, 0);
+		this.bibita = new Beverage(null, null, null, 0);
 		
 		snack.setName("Patatine");
 		bibita.setName("coca-cola");
