@@ -25,7 +25,7 @@ public class JframeM extends JFrame{
 	
 		//dichairazione degli attributi funzionali
 		private  String[] optionsSale = null;
-		int      numposti  	 = 0;
+		int      	      numposti    = 0;
 		final Gestore controllerg;
 		
 		
@@ -126,7 +126,8 @@ public class JframeM extends JFrame{
 				@Override
                 public void actionPerformed(ActionEvent e) {
 					current = g.getSala(sala.getSelectedItem().toString());
-	        		int j = current.getNumSala();
+	        		int j = current.getNpostiLiberi();
+	        		System.out.println(current.getNpostiLiberi());
 	        		for(int i = 0; i < j; i++) {
 	        			optionsPosti[i] = "posto " + i;
 	        		}
