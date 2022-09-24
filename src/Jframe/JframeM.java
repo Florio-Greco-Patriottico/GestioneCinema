@@ -70,14 +70,14 @@ public class JframeM extends JFrame{
 	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
-	        posto = new JComboBox<>(optionsPosti);
+
 	        
 
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);
 	        films.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 	        sala.setBounds(180, 310, 200, 30);
-	        posto.setBounds(180, 310, 200, 30);
+	        
 
 	        //creo un JFrame
 	        JFrame frame = new JFrame("Gestione Cinema");
@@ -108,7 +108,7 @@ public class JframeM extends JFrame{
 	        
 	        //pannello con i due box sala e posto
 	        SalaPostoPanel.add(sala);
-	        SalaPostoPanel.add(posto);
+	        
 	        SalaPostoPanel.setBorder(new EmptyBorder(150,150,10,150));
 	        
 	        //pannello con bottone prenota
@@ -121,7 +121,6 @@ public class JframeM extends JFrame{
 	        	AbstractSala current = g.getSala(sala.getSelectedItem().toString());
 	        	int j = current.getNpostiLiberi();
 	        	
-	        	
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -133,6 +132,10 @@ public class JframeM extends JFrame{
 		        	}
 				}
 	        });
+	        
+	        posto = new JComboBox<>(optionsPosti);
+	        posto.setBounds(180, 310, 200, 30);
+	        SalaPostoPanel.add(posto);
 	        
 	        prenota.addActionListener(new ActionListener() {
                 @Override
