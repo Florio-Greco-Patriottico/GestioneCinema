@@ -17,6 +17,7 @@ public class Gestore extends AbstractUtente {
 	// costruttore
 	public Gestore(int age, String name, String surname, boolean gender) {
 		super(age, name, surname, gender);
+		this.sale = new ArrayList<AbstractSala>();
 		// TODO Auto-generated constructor stub
 	}// end costruttore
 

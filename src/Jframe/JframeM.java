@@ -25,14 +25,15 @@ public class JframeM extends JFrame{
 	
 		//dichairazione degli attributi funzionali
 		private  String[] optionsSale = null;
-		int      	      numposti    = 0;
-		final Gestore controllerg;
+		final    Gestore controllerg;
+		private  String[] optionsPosti;
 		
 		
 		//costruttore
 		public JframeM(String[] sale, Gestore g) {		
 			this.optionsSale = sale;	
 			this.controllerg =  g;
+			this.optionsPosti = new String[100];
 			System.out.println("Start JFrameM.....");
 		}//end costruttore
 		
@@ -51,7 +52,7 @@ public class JframeM extends JFrame{
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 	// menu' a cascata
 	        JComboBox<String> posto; 	// menu' a cascat
-	        String[] optionsPosti = new String[this.numposti];
+	        
 
 	        //inizializzazione delle variabili
 	                
@@ -61,11 +62,7 @@ public class JframeM extends JFrame{
 	            film[i] = n;
 	        }//end for
 	        
-	        //inizializzo i posti
-	        for(int i = 0; i < optionsPosti.length; i++) {
-	        	String p 	 = "posto " + i;
-	        	optionsPosti[i] = p;
-	        }//end posti
+
 	        
 	        //inizializzo la JList
 	        films = new JList(film);
@@ -121,18 +118,20 @@ public class JframeM extends JFrame{
 	        sala.addActionListener(new ActionListener() {
 	        	private  ManageCinema  controller = new ManageCinema();
 	        	Gestore g = controllerg;
-	        	AbstractSala current = null;
-
+	        	AbstractSala current = g.getSala(sala.getSelectedItem().toString());
+	        	int j = current.getNpostiLiberi();
+	        	
+	        	
 				@Override
-                public void actionPerformed(ActionEvent e) {
-					current = g.getSala(sala.getSelectedItem().toString());
-	        		int j = current.getNpostiLiberi();
-	        		System.out.println(current.getNpostiLiberi());
-	        		for(int i = 0; i < j; i++) {
-	        			optionsPosti[i] = "posto " + i;
-	        		}
-	        		
-	        	}
+				public void actionPerformed(ActionEvent e) {
+					try {
+			        	for(int i = 0; i < j; i++) {
+			        		optionsPosti[i] = "posto " + i;
+			        	}	
+		        	}catch(Exception ex) {
+		        		System.out.println(ex);
+		        	}
+				}
 	        });
 	        
 	        prenota.addActionListener(new ActionListener() {
