@@ -27,6 +27,8 @@ public class JframeM extends JFrame{
 		private  String[] optionsSale = null;
 		final    Gestore controllerg;
 		private  String[] optionsPosti;
+		private  JComboBox<String> posto;
+		
 		
 		
 		//costruttore
@@ -34,12 +36,13 @@ public class JframeM extends JFrame{
 			this.optionsSale = sale;	
 			this.controllerg =  g;
 			this.optionsPosti = new String[100];
+			this.posto  	  = new JComboBox<String> (optionsPosti);
 			System.out.println("Start JFrameM.....");
 		}//end costruttore
 		
 		public void start() {
 			new StartJFrame(controllerg, null, this.optionsSale);
-			this.init();
+				this.init();								
 		}//end start
 
 		
@@ -50,9 +53,7 @@ public class JframeM extends JFrame{
 	        JList  films;                    	//lista dei film
 	        String[] film = new String[100];
 	        JButton prenota = new JButton("prenota");
-	        JComboBox<String> sala; 	// menu' a cascata
-	        JComboBox<String> posto; 	// menu' a cascat
-	        
+	        JComboBox<String> sala; 
 
 	        //inizializzazione delle variabili
 	                
@@ -70,14 +71,15 @@ public class JframeM extends JFrame{
 	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
-
+	        
 	        
 
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);
 	        films.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 	        sala.setBounds(180, 310, 200, 30);
-	        
+	        this.posto.setBounds(180, 310, 200, 30);
+	       
 
 	        //creo un JFrame
 	        JFrame frame = new JFrame("Gestione Cinema");
@@ -89,7 +91,7 @@ public class JframeM extends JFrame{
 	        JPanel SalaPostoPanel = new JPanel();        
 	        //creo un panel per il bottone
 	        JPanel buttonPanel = new JPanel();
-	        
+	        SalaPostoPanel.add(this.posto);
 	        //aggiungo i miei componenti
 	        frame.add(films);
 	        frame.add(Panel);
@@ -118,24 +120,29 @@ public class JframeM extends JFrame{
 	        sala.addActionListener(new ActionListener() {
 	        	private  ManageCinema  controller = new ManageCinema();
 	        	Gestore g = controllerg;
-	        	AbstractSala current = g.getSala(sala.getSelectedItem().toString());
-	        	int j = current.getNpostiLiberi();
+
 	        	
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					try {
+			        	AbstractSala current = g.getSala(sala.getSelectedItem().toString());
+			        	int j = current.getNpostiLiberi();
+						posto.removeAllItems();
 			        	for(int i = 0; i < j; i++) {
 			        		optionsPosti[i] = "posto " + i;
+			        		System.out.println(optionsPosti[i]);
+			        		posto.addItem(optionsPosti[i]);
 			        	}	
 		        	}catch(Exception ex) {
 		        		System.out.println(ex);
 		        	}
+					
+					
 				}
 	        });
 	        
-	        posto = new JComboBox<>(optionsPosti);
-	        posto.setBounds(180, 310, 200, 30);
-	        SalaPostoPanel.add(posto);
+	        
+
 	        
 	        prenota.addActionListener(new ActionListener() {
                 @Override
