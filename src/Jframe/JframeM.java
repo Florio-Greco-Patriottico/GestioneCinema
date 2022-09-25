@@ -55,8 +55,8 @@ public class JframeM extends JFrame{
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
 
-	        //inizializzazione delle variabili
-	                
+	        //inizializzazione delle variabili   
+	        
 	        //sezione lista film
 	        for(int i = 0; i < 23; i++){
 	            String n = "Film" + i;
