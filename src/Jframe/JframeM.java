@@ -129,8 +129,7 @@ public class JframeM extends JFrame{
 			        	int j = current.getNpostiLiberi();
 						posto.removeAllItems();
 			        	for(int i = 0; i < j; i++) {
-			        		optionsPosti[i] = "posto " + i;
-			        		System.out.println(optionsPosti[i]);
+			        		optionsPosti[i] = "posto " + i;	
 			        		posto.addItem(optionsPosti[i]);
 			        	}	
 		        	}catch(Exception ex) {
