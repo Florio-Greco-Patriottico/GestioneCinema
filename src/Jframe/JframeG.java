@@ -18,7 +18,7 @@ import Sala.Sala3D;
 import Utente.Gestore;
 import Utente.IUtente;
 
-//classe Jframe per il gestore, questo Jframe servirà al gestore per inserire i dati relativi al film da aggiungere
+//classe Jframe per il gestore, questo Jframe servirï¿½ al gestore per inserire i dati relativi al film da aggiungere
 //al cinema e associarlo ad una sala disponibile scelta a discrezione del gestore
 public class JframeG extends JFrame{
     		
@@ -56,6 +56,7 @@ public class JframeG extends JFrame{
 	            // inizializzazione delle variabili
 	            // titolo
 	            title = new JLabel("GESTIONE CINEMA : INSERISCI IL FILM");
+	            
 	            // inizializzo le variabili che comporranno la cornice del Jfraem
 	            h1 = new JLabel("");
 	            h2 = new JLabel("");
@@ -63,6 +64,7 @@ public class JframeG extends JFrame{
 	            h4 = new JLabel("");
 	            h5 = new JLabel("");
 	            h6 = new JLabel("");
+	            
 	            // inizializzo le variaibli che comporranno il corpo del Jframe
 	            name = new JLabel("NOME: ");
 	            gender = new JLabel("GENERE: ");
@@ -70,19 +72,23 @@ public class JframeG extends JFrame{
 	            movieType = new JLabel("TIPOLOGIA DEL FILM: ");
 	            entranceType = new JLabel("TIPOLOGIA ENTRATA FILM: ");
 	            sala = new JLabel("SALA: ");
+	            
 	            // inizializzo le variabili JTextField
 	            Name = new JTextField();
 	            Gender = new JTextField();
 	            Plot = new JTextField();
+	            
 	            // inizializzo i bottoni save e reset
 	            save = new JButton("SALVA");
 	            reset = new JButton("RESET");
+	            
 	            // inizializzo il pannello per le scelte multiple
 	            dropDown = new JComboBox<>(optionsBoolean);
 	            dropDown2 = new JComboBox<>(optionsBoolean);
 	            dropDown3 = new JComboBox<>(this.optionsSale);
-	              // definisco le proprietà delle mie variabili
-	              // variabili che compongo l'intesatazione del Jframe
+	             
+	            // definisco le proprietï¿½ delle mie variabili
+	            // variabili che compongo l'intesatazione del Jframe
 	            title.setBounds(75, 20, 600, 30);
 	            h1.setBounds(460, 0, 100, 50);
 	            h2.setBounds(460, 22, 100, 50);
@@ -90,6 +96,7 @@ public class JframeG extends JFrame{
 	            h4.setBounds(545, 5, 100, 50);
 	            h5.setBounds(458, 15, 100, 50);
 	            h6.setBounds(545, 15, 100, 50);
+	            
 	            // variabili che compongono il corpo del Jframe
 	            name.setBounds(80, 60, 100, 30);
 	            Name.setBounds(180, 60, 200, 30);
@@ -106,6 +113,7 @@ public class JframeG extends JFrame{
 	            // imposto la posizione dei tasti salva e reset
 	            save.setBounds(200, 510, 140, 30);
 	            reset.setBounds(360, 510, 140, 30);
+	            
 	            // creo un JFrame
 	            JFrame frame = new JFrame("Gestione Cinema");
 
@@ -134,6 +142,7 @@ public class JframeG extends JFrame{
 	            frame.add(save);
 	            frame.add(reset);
 	            // frame.getContentPane().add(new JScrollPane(films));
+	            
 	            // definisco i settaggi del frame
 	            frame.setTitle("INTERFACCIA GESTORE - GESTIONE CINEMA");
 	            // imposto il font ai miei JLabel
@@ -172,6 +181,7 @@ public class JframeG extends JFrame{
 	                    dropDown3.setSelectedIndex(0-1);
 	                }
 	            });
+	            
 	            // evento save
 	            save.addActionListener(new ActionListener() {
 	                @Override
