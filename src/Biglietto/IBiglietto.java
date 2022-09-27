@@ -14,6 +14,9 @@ public interface IBiglietto {
 	
 	//INTERFACCIA PUBBLICA DELLA CLASSE
 	
+	//metodo per ottenere il film del biglietto
+	int getIDfilm();
+	
 	//metodo per ottenere il numero di matricola
 	int getNumber();
 	
@@ -26,6 +29,9 @@ public interface IBiglietto {
 	//metodo per ottenere il prezzo per un bambino
 	double getChildPrice();
 	
+	//metodo per modificare l'ID del film
+	void setIDfilm(int ID);
+		
 	//metodo per modificare il prezzo per un uomo
 	void setManPrice(double manprice);
 		

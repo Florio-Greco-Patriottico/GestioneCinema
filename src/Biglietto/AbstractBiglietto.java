@@ -2,17 +2,24 @@ package Biglietto;
 
 public abstract class AbstractBiglietto implements IBiglietto{
 	
+	private int IDfilm;
 	private int Number = 0;
 	private double ManPrice;
 	private double WomanPrice;
 	private double ChildPrice;
 	
-	public AbstractBiglietto(double ManPrice, double WomanPrice, double ChildPrice) {
+	public AbstractBiglietto(int IDfilm, double ManPrice, double WomanPrice, double ChildPrice) {
 		super();
 		this.Number++;
+		this.IDfilm = IDfilm;
 		this.ManPrice = ManPrice;
 		this.WomanPrice = WomanPrice;
 		this.ChildPrice = ChildPrice;
+	}
+
+	@Override
+	public int getIDfilm() {
+		return IDfilm;
 	}
 
 	@Override
@@ -35,6 +42,11 @@ public abstract class AbstractBiglietto implements IBiglietto{
 		return this.ChildPrice;
 	}
 
+	@Override
+	public void setIDfilm(int iD) {
+		IDfilm = iD;
+	}
+	
 	@Override
 	public void setManPrice(double ManPrice) {
 		this.ManPrice = ManPrice;
@@ -64,7 +76,7 @@ public abstract class AbstractBiglietto implements IBiglietto{
 
 	@Override
 	public String toString() {
-		return "Biglietto [Matricola:" + this.Number + ", prezzoUomo:" + this.ManPrice + ", prezzoDonna:"
+		return "Biglietto [Film: " +this.IDfilm +", Matricola:" + this.Number + ", prezzoUomo:" + this.ManPrice + ", prezzoDonna:"
 				+ this.WomanPrice + ", prezzoBambino:" + this.ChildPrice + "]";
 	}
 }

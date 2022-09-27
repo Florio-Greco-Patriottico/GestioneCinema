@@ -2,12 +2,12 @@ package Biglietto;
 
 public class BigliettoPromozionale extends AbstractBiglietto{
 	
-	private static double	MAN_PRICE 	= 20.00;
-	private static double 	WOMAN_PRICE = 18.00;
-	private static double 	CHILD_PRICE	= 8.00;
+	private static double	MAN_PRICE 	= 10.00;
+	private static double 	WOMAN_PRICE = 9.00;
+	private static double 	CHILD_PRICE	= 4.00;
 	
-	public BigliettoPromozionale(double ManPrice, double WomanPrice, double ChildPrice) {
-		super(ManPrice, WomanPrice, ChildPrice);
+	public BigliettoPromozionale(int IDfilm, double ManPrice, double WomanPrice, double ChildPrice) {
+		super(IDfilm, ManPrice, WomanPrice, ChildPrice);
 	}
 	
 

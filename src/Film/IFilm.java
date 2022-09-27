@@ -14,6 +14,9 @@ public interface IFilm {
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
 
+	// metodo per restituire l'ID
+	public int getID();
+	
 	// metodo per restituire il nome
 	public String getName();
 

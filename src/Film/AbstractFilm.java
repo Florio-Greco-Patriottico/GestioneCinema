@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public abstract class AbstractFilm implements IFilm {
 
+	private int ID;
 	private String name;
 	private String gender;
 	private String plot;
@@ -12,11 +13,16 @@ public abstract class AbstractFilm implements IFilm {
 	private boolean entranceType;
 
 	public AbstractFilm(String name, String gender, String plot, boolean movieType, boolean entranceType) {
+		this.ID = this.ID++;
 		this.name = name;
 		this.gender = gender;
 		this.plot = plot;
 		this.movieType = movieType;
 		this.entranceType = entranceType;
+	}
+
+	public int getID() {
+		return this.ID;
 	}
 
 	@Override
