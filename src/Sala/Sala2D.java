@@ -1,10 +1,5 @@
 package Sala;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
-import Film.Film;
-
 public class Sala2D extends AbstractSala {
 
 	public Sala2D(String name, int id, int posti, boolean type) {
