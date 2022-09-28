@@ -60,7 +60,7 @@ public class JframeM extends JFrame{
 			//defininione delle variabili
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
-	        JComboBox<String> films = new JComboBox<>(); 	//lista dei film
+	        JComboBox<String> films; 	//lista dei film
 	        String[] film = new String[Film.size()];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
@@ -73,10 +73,7 @@ public class JframeM extends JFrame{
 	        }
 
 	        //inizializzo la JList dei film
-	        films.addItem("---");
-	        for(int i = 1; i < film.length; i++) {
-	        	films.addItem(film[i]);
-	        }
+	        films = new JComboBox<>(film);
 	        //films = new JList(film);
 	        
 	        // inizializzo il pannello per le scelte multiple
