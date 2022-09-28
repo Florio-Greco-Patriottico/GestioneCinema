@@ -165,7 +165,7 @@ public class ManageCinema implements Manager {
 
 	@Override
 	public String[] getSale() {
-		//definisco una dimensione a ret, che sarà il mio valore 
+		//definisco una dimensione a ret, che sarï¿½ il mio valore 
 		//di return
 		String[] rets = new String[this.sales.size()];
 		try {
@@ -201,6 +201,23 @@ public class ManageCinema implements Manager {
 	
 	public ArrayList<AbstractFilm> getFilms() {
 		return this.films;
+	}
+	
+	public void CreateFilm() {
+		Film film_1   = new Film("Terminator", "avventura", null, true, true);
+		Film film_2   = new Film("Spider-Man", "azione", null, false, false);
+		Film film_3   = new Film("GhostBusters", "avventura", null, true, true);
+		Film film_4   = new Film("Il grinch", "azione", null, false, false);
+		Film film_5   = new Film("ALD", "avventura", null, true, true);
+		Film film_6   = new Film("White cicks", "azione", null, false, false);
+		
+		films.add(film_1);
+		films.add(film_2);
+		films.add(film_3);
+		films.add(film_4);
+		films.add(film_5);
+		films.add(film_6);
+		
 	}
 	
 	public void addFilm(Film f, String n) {
