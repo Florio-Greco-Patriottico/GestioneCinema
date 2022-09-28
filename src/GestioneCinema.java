@@ -10,7 +10,7 @@ public class GestioneCinema {
 		String[] ret = manager.getSale();
 		Gestore  g   = manager.getGestore();
 		//inizializzo il JFrameM
-		JframeM frameM = new JframeM(ret, g);
+		JframeM frameM = new JframeM(manager);
 		//avvio il JFrameM
 		frameM.start();
 

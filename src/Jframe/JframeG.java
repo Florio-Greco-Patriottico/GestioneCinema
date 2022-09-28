@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import Controller.ManageCinema;
 import Film.Film;
 import Sala.AbstractSala;
 import Sala.Sala2D;
@@ -27,12 +28,13 @@ public class JframeG extends JFrame{
 			//DICHIARAZIONE CONTROLLER
 			private final IUtente controller;
 			String[] optionsSale = null;
-	
+			private ManageCinema manager;
 			//costruttore
-			public JframeG(final IUtente controller, String[] sale) {
-				this.optionsSale = sale;
+			public JframeG(final IUtente controller, ManageCinema manger) {
+				this.optionsSale = manager.getSale();
 				System.out.println("Start JFrameG.....");
 				this.controller = controller;
+				this.manager    = manager;
 			}//end costruttore
 			
 			public void start() {
@@ -189,24 +191,20 @@ public class JframeG extends JFrame{
 	                    try {
 	                        // creo l'oggetto film
 	                        boolean a, b;
-	                        if (dropDown.getSelectedItem().equals("TRUE")) {
+	                        if (dropDown.getSelectedItem().toString().equals("TRUE")) {
 	                            a = true;
 	                        } else {
 	                            a = false;
 	                        }
-	                        if (dropDown2.getSelectedItem().equals("TRUE")) {
+	                        if (dropDown2.getSelectedItem().toString().equals("TRUE")) {
 	                            b = true;
 	                        } else {
 	                            b = false;
 	                        }
 	                        Film film = new Film(Name.getText(), Gender.getText(), Plot.getText(), a, b);
-	                        film.toString();
+	                        System.out.println(film.getName());
 	                        // aggiungo il film alla sala
-	                        int sel = 0;
-	                        AbstractSala current = null;
-	                        sel = dropDown3.getSelectedIndex();
-	                        current.addFilm(film);
-	                        current.toString();
+	                        //invio il film 
 	                    } catch (Exception ex) {
 	                        System.out.println(ex);
 	                    }

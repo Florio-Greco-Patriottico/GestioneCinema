@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controller.ManageCinema;
+import Film.AbstractFilm;
 import Sala.AbstractSala;
 import Utente.Cliente;
 import Utente.Gestore;
@@ -28,20 +29,25 @@ public class JframeM extends JFrame{
 		final    Gestore controllerg;
 		private  String[] optionsPosti;
 		private  JComboBox<String> posto;
-		
+		private  ArrayList<AbstractFilm> Film;
+		private  ManageCinema manager;
 		
 		
 		//costruttore
-		public JframeM(String[] sale, Gestore g) {		
-			this.optionsSale = sale;	
-			this.controllerg =  g;
+		public JframeM(ManageCinema manager) {		
+			this.optionsSale = manager.getSale();	
+			this.controllerg = manager.getGestore();
+			this.manager	 = manager;
 			this.optionsPosti = new String[100];
 			this.posto  	  = new JComboBox<String> (optionsPosti);
+			this.Film	  	  = new ArrayList<AbstractFilm>();
+			
 			System.out.println("Start JFrameM.....");
 		}//end costruttore
-		
+
+
 		public void start() {
-			new StartJFrame(controllerg, null, this.optionsSale);
+			new StartJFrame(controllerg,this.manager);
 				this.init();								
 		}//end start
 
@@ -50,28 +56,25 @@ public class JframeM extends JFrame{
 			//defininione delle variabili
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
-	        JList  films;                    	//lista dei film
-	        String[] film = new String[100];
+	        JList<String> films = new JList<String>(); 	//lista dei film
+	        String[] film = new String[Film.size()];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
-
+	        this.Film 		  = manager.getFilms();
 	        //inizializzazione delle variabili   
 	        
-	        //sezione lista film
-	        for(int i = 0; i < 23; i++){
-	            String n = "Film" + i;
-	            film[i] = n;
-	        }//end for
-	        
+	        //inizializzo i film
+	        for(int i = 0; i < film.length; i++) {
+	        	film[i] =  Film.get(i).toString();
+	        }
 
-	        
-	        //inizializzo la JList
-	        films = new JList(film);
+	        //inizializzo la JList dei film
+	        films.setListData(film);
+	        //films = new JList(film);
 	        films.setVisibleRowCount(1);
 	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
-	        
 	        
 
 	        //definisco le proprietà delle mie variabili
@@ -154,7 +157,7 @@ public class JframeM extends JFrame{
                     	
                     	//apro l'interfaccia cliente
                     	final IUtente controlleru = new Cliente(0,"null","null",true);
-                    	new StartJFrame(controlleru, ret, null);
+                    	new StartJFrame(controllerg,manager);
                     } catch (Exception ex) {
                         System.out.println("Error : " + ex);
                     }

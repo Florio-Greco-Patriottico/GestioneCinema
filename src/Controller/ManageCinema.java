@@ -3,6 +3,8 @@ package Controller;
 import java.util.ArrayList;
 
 import Bar.Bar;
+import Film.AbstractFilm;
+import Film.Film;
 import Product.*;
 import Sala.AbstractSala;
 import Sala.ISala;
@@ -17,9 +19,10 @@ public class ManageCinema implements Manager {
 	 * implementazione metodi interfaccia (Manager)
 	 */
 	Gestore gestore;
-	ArrayList<ISala> sales;
+	ArrayList<AbstractSala> sales;
 	ArrayList<AbstractUtente> shopassistants;
 	ArrayList<AbstractProduct> products;
+	ArrayList<AbstractFilm>	   films;
 	private Bar bar;
 	private String[] rets;
 	
@@ -190,6 +193,21 @@ public class ManageCinema implements Manager {
 	
 	public Gestore getGestore() {
 		return this.gestore;
+	}
+	
+	public ArrayList<AbstractFilm> getFilms() {
+		return this.films;
+	}
+	
+	public void addFilm(Film f, String n) {
+		try {
+			films.add(f);
+			//associo il film alla sala
+			AbstractSala s = sales.stream().filter((e) -> e.getName().equals(n)).findAny().get();
+			s.addFilm(f);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 		
 }//end ManageCinema

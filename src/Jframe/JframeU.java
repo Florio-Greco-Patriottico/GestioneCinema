@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Controller.ManageCinema;
 import Utente.IUtente;
 
 public class JframeU extends JFrame{
@@ -24,12 +25,14 @@ public class JframeU extends JFrame{
 	//DICHIARAZIONE CONTROLLER
 	private final IUtente controller;
 	private ArrayList<String> parametri = new ArrayList();
+	private ManageCinema  	  manager;
 	
 	//COSTRUTTORE
-	JframeU(final IUtente controller, ArrayList<String> ret){
+	JframeU(final IUtente controller,ManageCinema manager){
 		System.out.println("Start JFrameU.....");
 		this.controller = controller;
-		this.parametri.addAll(ret);
+		this.manager = manager;
+		
 	}//end costruttore
 	
 	public void Init() {
