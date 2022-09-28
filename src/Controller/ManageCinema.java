@@ -24,7 +24,7 @@ public class ManageCinema implements Manager {
 	ArrayList<AbstractUtente> shopassistants;
 	ArrayList<AbstractProduct> products;
 	ArrayList<AbstractFilm>	   films;
-	ArrayList<AbstractUtente>  users;
+	ArrayList<Cliente>  users;
 	String sala;
 	private Bar bar;
 	private String[] rets;
@@ -228,7 +228,7 @@ public class ManageCinema implements Manager {
 		}
 	}
 	
-	public ArrayList<AbstractUtente> getUsers() {
+	public ArrayList<Cliente> getUsers() {
 		return this.users;
 	}
 		

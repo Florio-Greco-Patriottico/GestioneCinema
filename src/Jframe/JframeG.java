@@ -16,6 +16,8 @@ import Film.Film;
 import Sala.AbstractSala;
 import Sala.Sala2D;
 import Sala.Sala3D;
+import Utente.AbstractUtente;
+import Utente.Cliente;
 import Utente.Gestore;
 import Utente.IUtente;
 
@@ -53,6 +55,7 @@ public class JframeG extends JFrame{
 	            JComboBox<String> dropDown3; // menu' a cascata
 	            JButton save; // menu' per salvare
 	            JButton reset; // menu' per resettare
+	            JButton visualizzaUtenti; // menu' per resettare
 	            String[] optionsBoolean = { "--", "TRUE", "FALSE" }; // elementi menu a cascata
 
 	            // inizializzazione delle variabili
@@ -83,6 +86,7 @@ public class JframeG extends JFrame{
 	            // inizializzo i bottoni save e reset
 	            save = new JButton("SALVA");
 	            reset = new JButton("RESET");
+	            visualizzaUtenti = new JButton("Utenti");
 	            
 	            // inizializzo il pannello per le scelte multiple
 	            dropDown = new JComboBox<>(optionsBoolean);
@@ -113,8 +117,9 @@ public class JframeG extends JFrame{
 	            sala.setBounds(80, 300, 300, 50);
 	            dropDown3.setBounds(180, 310, 200, 30);
 	            // imposto la posizione dei tasti salva e reset
-	            save.setBounds(200, 510, 140, 30);
-	            reset.setBounds(360, 510, 140, 30);
+	            save.setBounds(100, 510, 140, 30);
+	            reset.setBounds(260, 510, 140, 30);
+	            visualizzaUtenti.setBounds(430, 510, 140, 30);
 	            
 	            // creo un JFrame
 	            JFrame frame = new JFrame("Gestione Cinema");
@@ -143,6 +148,7 @@ public class JframeG extends JFrame{
 	            frame.add(dropDown3);
 	            frame.add(save);
 	            frame.add(reset);
+	            frame.add(visualizzaUtenti);
 	            // frame.getContentPane().add(new JScrollPane(films));
 	            
 	            // definisco i settaggi del frame
@@ -163,6 +169,7 @@ public class JframeG extends JFrame{
 	            dropDown3.setFont(new Font("Courier", Font.BOLD, 20));
 	            save.setFont(new Font("Courier", Font.BOLD, 20));
 	            reset.setFont(new Font("Courier", Font.BOLD, 20));
+	            visualizzaUtenti.setFont(new Font("Courier", Font.BOLD, 20));
 	            // imposto le impostazioni di visualizzazione del JFrame
 	            frame.setLayout(null);
 	            frame.setSize(700, 600);
@@ -181,6 +188,21 @@ public class JframeG extends JFrame{
 	                    dropDown.setSelectedIndex(0);
 	                    dropDown2.setSelectedIndex(0);
 	                    dropDown3.setSelectedIndex(0-1);
+	                }
+	            });
+	            
+	            visualizzaUtenti.addActionListener(new ActionListener() {
+	                @Override
+	                public void actionPerformed(ActionEvent e) {
+	                	ArrayList<Cliente> u;
+	                	u = manager.getUsers();
+	                	System.out.println("Lista degli utenti: \n");
+	                	u.stream()
+	                	     .forEach(x -> System.out.println("Utente : " + u.indexOf(x) 
+	                	     									+ "Nome : " + x.getName()
+	                	     									+ "Cognome: " + x.getSurname()
+	                	     									+ " Eta' : " + x.getAge()
+	                	     									+ " Sala : " + x.getSala()+ "\n"));
 	                }
 	            });
 	            
