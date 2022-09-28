@@ -28,6 +28,7 @@ public class ManageCinema implements Manager {
 	String sala;
 	private Bar bar;
 	private String[] rets;
+	private String f;
 	
 	//costruttore
 	public ManageCinema() {
@@ -213,15 +214,17 @@ public class ManageCinema implements Manager {
 		}
 	}
 	
-	public void SaveLastSala(String n) {
+	public void SaveLastSala(String n, String f) {
 		this.sala = n;
+		this.f	  = f;
 	}
 	
 	
 	
 	public void addUsers(Cliente u) {
 		try {
-			u.setSala(sala);
+			u.setSala(this.sala);
+			u.setFilm(this.f);
 			users.add(u);
 		}catch(Exception e) {
 			System.out.println(e);

@@ -60,7 +60,7 @@ public class JframeM extends JFrame{
 			//defininione delle variabili
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
-	        JList films; 	//lista dei film
+	        JComboBox<String> films = new JComboBox<>(); 	//lista dei film
 	        String[] film = new String[Film.size()];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
@@ -73,9 +73,11 @@ public class JframeM extends JFrame{
 	        }
 
 	        //inizializzo la JList dei film
-	        films = new JList(film);
+	        films.addItem("---");
+	        for(int i = 1; i < film.length; i++) {
+	        	films.addItem(film[i]);
+	        }
 	        //films = new JList(film);
-	        films.setVisibleRowCount(1);
 	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
@@ -83,7 +85,6 @@ public class JframeM extends JFrame{
 	        
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);
-	        films.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 	        sala.setBounds(180, 310, 200, 30);
 	        this.posto.setBounds(180, 310, 200, 30);
 	        
@@ -157,7 +158,7 @@ public class JframeM extends JFrame{
                         	//apro l'interfaccia cliente
                         	final IUtente controlleru = new Cliente(0,"null","null",true);
                         	//salvo la sala
-                        	manager.SaveLastSala(sala.getSelectedItem().toString());
+                        	manager.SaveLastSala(sala.getSelectedItem().toString(), films.getSelectedItem().toString());
                         	//apro il JframeU
                         	new StartJFrame(controlleru, manager);
                         } catch (Exception ex) {

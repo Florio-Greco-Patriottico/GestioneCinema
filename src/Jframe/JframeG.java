@@ -202,7 +202,8 @@ public class JframeG extends JFrame{
 	                	     									+ "Nome : " + x.getName()
 	                	     									+ "Cognome: " + x.getSurname()
 	                	     									+ " Eta' : " + x.getAge()
-	                	     									+ " Sala : " + x.getSala()+ "\n"));
+	                	     									+ " Sala : " + x.getSala() 
+	                	     									+ " Film : " + x.getFilm()+ "\n"));
 	                }
 	            });
 	            

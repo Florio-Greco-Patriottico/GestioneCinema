@@ -13,6 +13,7 @@ public class Cliente extends AbstractUtente{
 	//biglietto del cliente
 	private HashMap<AbstractFilm,AbstractBiglietto> tickets;
 	private String sala;
+	private String film;
 	
 	//costruttore
 	public Cliente(int age, String name, String surname, boolean gender) {
@@ -57,6 +58,14 @@ public class Cliente extends AbstractUtente{
 			System.out.println("Error found: " + e);
 			return false;
 		}
+	}
+	
+	public void setFilm(String f) {
+		this.film = f;
+	}
+	
+	public String getFilm() {
+		return this.film;
 	}
 	
 	public void setSala(String n) {
