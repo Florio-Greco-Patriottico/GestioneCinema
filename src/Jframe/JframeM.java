@@ -26,7 +26,7 @@ public class JframeM extends JFrame{
 	
 		//dichairazione degli attributi funzionali
 		private  String[] optionsSale = null;
-		final    Gestore controllerg;
+		private  IUtente controllerg = new Gestore(0, "nome", "nome", true); 
 		private  String[] optionsPosti;
 		private  JComboBox<String> posto;
 		private  ArrayList<AbstractFilm> Film;
@@ -36,7 +36,6 @@ public class JframeM extends JFrame{
 		//costruttore
 		public JframeM(ManageCinema manager) {		
 			this.optionsSale = manager.getSale();	
-			this.controllerg = manager.getGestore();
 			this.manager	 = manager;
 			this.optionsPosti = new String[100];
 			this.posto  	  = new JComboBox<String> (optionsPosti);
@@ -47,8 +46,13 @@ public class JframeM extends JFrame{
 
 
 		public void start() {
-			new StartJFrame(controllerg,this.manager);
+			try {
+				new StartJFrame(this.controllerg,this.manager);
+				System.out.println("Start JFrameG.....");
 				this.init();								
+			}catch(Exception e) {
+				System.out.println(e);
+			}
 		}//end start
 
 		
@@ -56,7 +60,7 @@ public class JframeM extends JFrame{
 			//defininione delle variabili
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
-	        JList<String> films = new JList<String>(); 	//lista dei film
+	        JList films; 	//lista dei film
 	        String[] film = new String[Film.size()];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
@@ -69,21 +73,21 @@ public class JframeM extends JFrame{
 	        }
 
 	        //inizializzo la JList dei film
-	        films.setListData(film);
+	        films = new JList(film);
 	        //films = new JList(film);
 	        films.setVisibleRowCount(1);
 	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
+	        	
 	        
-
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);
 	        films.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 	        sala.setBounds(180, 310, 200, 30);
 	        this.posto.setBounds(180, 310, 200, 30);
-	       
-
+	        
+	        
 	        //creo un JFrame
 	        JFrame frame = new JFrame("Gestione Cinema");
 	        
@@ -121,10 +125,8 @@ public class JframeM extends JFrame{
 	        buttonPanel.setBorder(new EmptyBorder(10,150,100,150));
 	    
 	        sala.addActionListener(new ActionListener() {
-	        	private  ManageCinema  controller = new ManageCinema();
-	        	Gestore g = controllerg;
+	        	Gestore g = manager.getGestore();
 
-	        	
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -137,14 +139,9 @@ public class JframeM extends JFrame{
 			        	}	
 		        	}catch(Exception ex) {
 		        		System.out.println(ex);
-		        	}
-					
-					
+		        	}	
 				}
 	        });
-	        
-	        
-
 	        
 	        prenota.addActionListener(new ActionListener() {
                 @Override
@@ -157,14 +154,12 @@ public class JframeM extends JFrame{
                     	
                     	//apro l'interfaccia cliente
                     	final IUtente controlleru = new Cliente(0,"null","null",true);
-                    	new StartJFrame(controllerg,manager);
+                    	new StartJFrame(controlleru, manager);
                     } catch (Exception ex) {
                         System.out.println("Error : " + ex);
                     }
-
                 }
             });
-	        
 		}//end init
 }//end JFrameM
     	

@@ -30,7 +30,7 @@ public class JframeG extends JFrame{
 			String[] optionsSale = null;
 			private ManageCinema manager;
 			//costruttore
-			public JframeG(final IUtente controller, ManageCinema manger) {
+			public JframeG(final IUtente controller, ManageCinema manager) {
 				this.optionsSale = manager.getSale();
 				System.out.println("Start JFrameG.....");
 				this.controller = controller;
@@ -204,11 +204,13 @@ public class JframeG extends JFrame{
 	                        Film film = new Film(Name.getText(), Gender.getText(), Plot.getText(), a, b);
 	                        System.out.println(film.getName());
 	                        // aggiungo il film alla sala
-	                        //invio il film 
+	                        //invio il film
+	                        manager.addFilm(film,dropDown3.getSelectedItem().toString());
+	                        
 	                    } catch (Exception ex) {
 	                        System.out.println(ex);
 	                    }
-
+	                    	
 	                }
 	            });
 			}//end init
