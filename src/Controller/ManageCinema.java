@@ -11,6 +11,7 @@ import Sala.ISala;
 import Sala.Sala2D;
 import Sala.Sala3D;
 import Utente.AbstractUtente;
+import Utente.Cliente;
 import Utente.Commesso;
 import Utente.Gestore;
 
@@ -23,6 +24,8 @@ public class ManageCinema implements Manager {
 	ArrayList<AbstractUtente> shopassistants;
 	ArrayList<AbstractProduct> products;
 	ArrayList<AbstractFilm>	   films;
+	ArrayList<AbstractUtente>  users;
+	String sala;
 	private Bar bar;
 	private String[] rets;
 	
@@ -208,6 +211,25 @@ public class ManageCinema implements Manager {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	public void SaveLastSala(String n) {
+		this.sala = n;
+	}
+	
+	
+	
+	public void addUsers(Cliente u) {
+		try {
+			u.setSala(sala);
+			users.add(u);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public ArrayList<AbstractUtente> getUsers() {
+		return this.users;
 	}
 		
 }//end ManageCinema

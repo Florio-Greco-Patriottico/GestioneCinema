@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import Biglietto.AbstractBiglietto;
 import Film.AbstractFilm;
+import Sala.AbstractSala;
 
 //classe cliente, si occuperà di simulare le iterazione all'interno del cinema
 
@@ -11,6 +12,7 @@ public class Cliente extends AbstractUtente{
 
 	//biglietto del cliente
 	private HashMap<AbstractFilm,AbstractBiglietto> tickets;
+	private String sala;
 	
 	//costruttore
 	public Cliente(int age, String name, String surname, boolean gender) {
@@ -55,5 +57,13 @@ public class Cliente extends AbstractUtente{
 			System.out.println("Error found: " + e);
 			return false;
 		}
+	}
+	
+	public void setSala(String n) {
+		this.sala = n;
+	}
+	
+	public String getSala() {
+		return this.sala;
 	}
 }//end classe Cliente

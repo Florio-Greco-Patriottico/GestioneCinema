@@ -133,7 +133,8 @@ public class JframeM extends JFrame{
 			        	AbstractSala current = g.getSala(sala.getSelectedItem().toString());
 			        	int j = current.getNpostiLiberi();
 						posto.removeAllItems();
-			        	for(int i = 0; i < j; i++) {
+						optionsPosti[0] = "---";
+			        	for(int i = 1; i < j; i++) {
 			        		optionsPosti[i] = "posto " + i;	
 			        		posto.addItem(optionsPosti[i]);
 			        	}	
@@ -146,17 +147,22 @@ public class JframeM extends JFrame{
 	        prenota.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    try {
-                    	//inizializzo un array contente le scelte del cliente
-                    	ArrayList<String> ret = new ArrayList();
-                    	ret.add((String) sala.getSelectedItem());
-                    	ret.add((String) posto.getSelectedItem());
-                    	
-                    	//apro l'interfaccia cliente
-                    	final IUtente controlleru = new Cliente(0,"null","null",true);
-                    	new StartJFrame(controlleru, manager);
-                    } catch (Exception ex) {
-                        System.out.println("Error : " + ex);
+                    if(!posto.getSelectedItem().toString().equals("---")) {
+                    	try {
+                        	//inizializzo un array contente le scelte del cliente
+                        	ArrayList<String> ret = new ArrayList();
+                        	ret.add((String) sala.getSelectedItem());
+                        	ret.add((String) posto.getSelectedItem());
+                        	
+                        	//apro l'interfaccia cliente
+                        	final IUtente controlleru = new Cliente(0,"null","null",true);
+                        	//salvo la sala
+                        	manager.SaveLastSala(sala.getSelectedItem().toString());
+                        	//apro il JframeU
+                        	new StartJFrame(controlleru, manager);
+                        } catch (Exception ex) {
+                            System.out.println("Error : " + ex);
+                        }
                     }
                 }
             });
