@@ -2,6 +2,8 @@ package Pulizie;
 
 import java.util.Objects;
 
+import Sala.ISala;
+
 public abstract class AbstractPulizie implements IPulizie{
 	
 	private int ID;
@@ -58,7 +60,7 @@ public abstract class AbstractPulizie implements IPulizie{
 	}
 	
 	//metodo per pulire la sala, restituisce true se la sala è stata pulita
-	public boolean Clean(int idsala) {
+	public boolean Clean(ISala sala) {
 		int TimeInSeconds = this.CleaningTime * 60;
 		
 		for(int i = 0; TimeInSeconds == 0; i++) {
@@ -67,7 +69,7 @@ public abstract class AbstractPulizie implements IPulizie{
 		
 		//se il tempo è terminato la sala è stata pulita
 		if(TimeInSeconds == 0) {
-			System.out.println("la sala "+ idsala +" è stata pulita");
+			System.out.println("la sala "+ sala.getName() +" è stata pulita");
 			return true;
 		}else
 			return false;

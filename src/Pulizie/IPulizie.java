@@ -1,5 +1,7 @@
 package Pulizie;
 
+import Sala.ISala;
+
 public interface IPulizie {
 
 	//metodi dell'interfaccia
@@ -20,5 +22,5 @@ public interface IPulizie {
 	public void setCleaningTime(int minute);
 	
 	//metodo per fal pulire una sala
-	public boolean Clean(int idSala);
+	public boolean Clean(ISala sala);
 }
