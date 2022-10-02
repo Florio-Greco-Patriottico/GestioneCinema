@@ -221,7 +221,6 @@ public class ManageCinema implements Manager {
 		films.add(film_6);
 		
 	}
-	
 	public void addFilm(Film f, String n) {
 		try {
 			films.add(f);
@@ -232,14 +231,10 @@ public class ManageCinema implements Manager {
 			System.out.println(e);
 		}
 	}
-	
 	public void SaveLastSala(String n, String f) {
 		this.sala = n;
 		this.f	  = f;
 	}
-	
-	
-	
 	public void addUsers(Cliente u) {
 		try {
 			u.setSala(this.sala);
