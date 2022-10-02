@@ -29,19 +29,27 @@ public class JframeM extends JFrame{
 		private  IUtente controllerg = new Gestore(0, "nome", "nome", true); 
 		private  String[] optionsPosti;
 		private  JComboBox<String> posto;
+		private  JComboBox<String> films;
+		private  String[] film 	= new String[100];
 		private  ArrayList<AbstractFilm> Film;
 		private  ManageCinema manager;
 		
 		
 		//costruttore
 		public JframeM(ManageCinema manager) {		
-			this.optionsSale = manager.getSale();	
-			this.manager	 = manager;
+			this.optionsSale  = manager.getSale();	
+			this.manager	  = manager;
 			this.optionsPosti = new String[100];
 			this.posto  	  = new JComboBox<String> (optionsPosti);
+			this.films  	  = new JComboBox<String> (film);
 			this.Film	  	  = new ArrayList<AbstractFilm>();
 			
-			System.out.println("Start JFrameM.....");
+			try {
+				this.start();
+				System.out.println("Start JFrameM.....");
+			}catch(Exception e) {
+				System.out.println(e);
+			}
 		}//end costruttore
 
 
@@ -60,29 +68,24 @@ public class JframeM extends JFrame{
 			//defininione delle variabili
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
-	        JComboBox<String> films; 	//lista dei film
-	        String[] film 	= new String[100];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
 	        this.Film 		  = manager.getFilms();
+	        
 	        //inizializzazione delle variabili   
 	        
 	        //inizializzo i film
-	        try {	        	
+	        try {	        
+	        	films.removeAllItems();
 	        	for(int i = 0; i < Film.size(); i++) {
-	        		film[i] =  Film.get(i).toString();
+	        		film[i] = Film.get(i).getName();
 	        	}
 	        }catch(Exception e) {
 	        	System.out.println(e);
-	        }
-
-	        //inizializzo la JList dei film
-	        films = new JComboBox<>(film);
-	        //films = new JList(film);
-	        
+	        }	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
-	        	
+	        films = new JComboBox<>(film);
 	        
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);

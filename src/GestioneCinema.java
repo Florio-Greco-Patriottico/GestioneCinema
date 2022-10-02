@@ -7,13 +7,8 @@ public class GestioneCinema {
 	{	
 		//creo un manager
 		ManageCinema manager = new ManageCinema();
-		String[] ret = manager.getSale();
-		Gestore  g   = manager.getGestore();
 		//inizializzo il JFrameM
 		JframeM frameM = new JframeM(manager);
-		//avvio il JFrameM
-		frameM.start();
-
 	}//end main	  
 
 }//end gestioneCinema

@@ -205,12 +205,12 @@ public class ManageCinema implements Manager {
 	}
 	
 	public void CreateFilm() {
-		Film film_1   = new Film("Terminator", "avventura", null, true, true);
-		Film film_2   = new Film("Spider-Man", "azione", null, false, false);
-		Film film_3   = new Film("GhostBusters", "avventura", null, true, true);
-		Film film_4   = new Film("Il grinch", "azione", null, false, false);
-		Film film_5   = new Film("ALD", "avventura", null, true, true);
-		Film film_6   = new Film("White cicks", "azione", null, false, false);
+		AbstractFilm film_1   = new Film("Terminator", "avventura", null, true, true);
+		AbstractFilm film_2   = new Film("Spider-Man", "azione", null, false, false);
+		AbstractFilm film_3   = new Film("GhostBusters", "avventura", null, true, true);
+		AbstractFilm film_4   = new Film("Il grinch", "azione", null, false, false);
+		AbstractFilm film_5   = new Film("ALD", "avventura", null, true, true);
+		AbstractFilm film_6   = new Film("White cicks", "azione", null, false, false);
 		
 		films.add(film_1);
 		films.add(film_2);
