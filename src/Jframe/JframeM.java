@@ -33,8 +33,7 @@ public class JframeM extends JFrame{
 		private  String[] film 	= new String[100];
 		private  ArrayList<AbstractFilm> Film;
 		private  ManageCinema manager;
-		
-		
+				
 		//costruttore
 		public JframeM(ManageCinema manager) {		
 			this.optionsSale  = manager.getSale();	
@@ -66,10 +65,10 @@ public class JframeM extends JFrame{
 		
 		public void init() {
 			//defininione delle variabili
-	        JLabel title;                       //titolo iniziale dell'interfaccia
-	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
+	        JLabel title;                       	//titolo iniziale dell'interfaccia
+	        JLabel h1, h2, h3, h4, h5, h6;      	//cornice del titolo
 	        JButton prenota = new JButton("prenota");
-	        JComboBox<String> sala; 
+	        JComboBox<String> sala; 				
 	        this.Film 		  = manager.getFilms();
 	        
 	        //inizializzazione delle variabili   
@@ -78,14 +77,14 @@ public class JframeM extends JFrame{
 	        try {	        
 	        	films.removeAllItems();
 	        	for(int i = 0; i < Film.size(); i++) {
-	        		film[i] = Film.get(i).getName();
+	        		film[i] = " - " + Film.get(i).getName();
+	        		films.addItem(film[i]);
 	        	}
 	        }catch(Exception e) {
 	        	System.out.println(e);
 	        }	        
 	        // inizializzo il pannello per le scelte multiple
 	        sala = new JComboBox<>(optionsSale);
-	        films = new JComboBox<>(film);
 	        
 	        //definisco le proprietà delle mie variabili
 	        films.setBounds(0,75,1000,50);

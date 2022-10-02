@@ -35,6 +35,7 @@ public class ManageCinema implements Manager {
 		this.gestore = new Gestore(30, "Mario", "Mario", true);
 		this.products = new ArrayList<AbstractProduct>();
 		this.sales = new ArrayList<>();
+		this.films = new ArrayList<AbstractFilm>();
 		this.shopassistants = new ArrayList<>();
 		this.bar = new Bar("bar");
 		//creo tutti gli oggetti di cui avr� bisogno
