@@ -61,15 +61,19 @@ public class JframeM extends JFrame{
 	        JLabel title;                       //titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      //cornice del titolo
 	        JComboBox<String> films; 	//lista dei film
-	        String[] film = new String[Film.size()];
+	        String[] film 	= new String[100];
 	        JButton prenota = new JButton("prenota");
 	        JComboBox<String> sala; 
 	        this.Film 		  = manager.getFilms();
 	        //inizializzazione delle variabili   
 	        
 	        //inizializzo i film
-	        for(int i = 0; i < film.length; i++) {
-	        	film[i] =  Film.get(i).toString();
+	        try {	        	
+	        	for(int i = 0; i < Film.size(); i++) {
+	        		film[i] =  Film.get(i).toString();
+	        	}
+	        }catch(Exception e) {
+	        	System.out.println(e);
 	        }
 
 	        //inizializzo la JList dei film

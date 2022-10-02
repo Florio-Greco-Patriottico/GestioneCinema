@@ -42,6 +42,7 @@ public class ManageCinema implements Manager {
 			this.createSale();
 			this.CreateProduct();
 			this.CreateShopAssistants();
+			this.CreateFilm();
 			this.AddElementToBar(shopassistants, products);
 		}catch(Exception e) {
 			System.out.println(e);
