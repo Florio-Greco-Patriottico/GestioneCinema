@@ -194,16 +194,19 @@ public class JframeG extends JFrame{
 	            visualizzaUtenti.addActionListener(new ActionListener() {
 	                @Override
 	                public void actionPerformed(ActionEvent e) {
-	                	ArrayList<Cliente> u;
-	                	u = manager.getUsers();
-	                	System.out.println("Lista degli utenti: \n");
-	                	u.stream()
-	                	     .forEach(x -> System.out.println("Utente : " + u.indexOf(x) 
-	                	     									+ "Nome : " + x.getName()
-	                	     									+ "Cognome: " + x.getSurname()
-	                	     									+ " Eta' : " + x.getAge()
-	                	     									+ " Sala : " + x.getSala() 
-	                	     									+ " Film : " + x.getFilm()+ "\n"));
+	                	try {
+		                		ArrayList<Cliente> u = new ArrayList<Cliente>(manager.getUsers());	        
+		                		System.out.println("Lista degli utenti: \n");
+		                		u.stream()
+		                		.forEach(x -> System.out.println("Utente : " + u.indexOf(x) 
+		                		+ "Nome : " + x.getName()
+		                		+ "Cognome: " + x.getSurname()
+		                		+ "Eta' : " + x.getAge()
+		                		+ "Sala : " + x.getSala() 
+		                		+ "Film : " + x.getFilm()+ "\n"));	                		
+	                	}catch(Exception ex) {
+	                		System.out.println(ex);
+	                	}
 	                }
 	            });
 	            
