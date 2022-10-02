@@ -170,7 +170,7 @@ public class JframeM extends JFrame{
 	        prenota.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if(!posto.getSelectedItem().toString().equals("---")) {
+                    if(!posto.getSelectedItem().toString().equals(null)) {
                     	try {
                         	//inizializzo un array contente le scelte del cliente
                         	ArrayList<String> ret = new ArrayList();
@@ -186,6 +186,9 @@ public class JframeM extends JFrame{
                         } catch (Exception ex) {
                             System.out.println("Error : " + ex);
                         }
+                    }else
+                    {
+                    	System.out.println("please select a plot");
                     }
                 }
             });
