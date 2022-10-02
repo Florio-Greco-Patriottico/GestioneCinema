@@ -68,6 +68,7 @@ public class JframeM extends JFrame{
 	        JLabel title;                       	//titolo iniziale dell'interfaccia
 	        JLabel h1, h2, h3, h4, h5, h6;      	//cornice del titolo
 	        JButton prenota = new JButton("prenota");
+	        JButton aggiorna = new JButton("aggiorna");
 	        JComboBox<String> sala; 				
 	        this.Film 		  = manager.getFilms();
 	        
@@ -126,6 +127,7 @@ public class JframeM extends JFrame{
 	        
 	        //pannello con bottone prenota
 	        buttonPanel.add(prenota);
+	        buttonPanel.add(aggiorna);
 	        buttonPanel.setBorder(new EmptyBorder(10,150,100,150));
 	    
 	        sala.addActionListener(new ActionListener() {
@@ -145,6 +147,23 @@ public class JframeM extends JFrame{
 		        	}catch(Exception ex) {
 		        		System.out.println(ex);
 		        	}	
+				}
+	        });
+	        
+	        aggiorna.addActionListener(new ActionListener() {
+	        	Gestore g = manager.getGestore();
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+			        try {	        
+			        	films.removeAllItems();
+			        	for(int i = 0; i < Film.size(); i++) {
+			        		film[i] = " - " + Film.get(i).getName();
+			        		films.addItem(film[i]);
+			        	}
+			        }catch(Exception ex) {
+			        	System.out.println(ex);
+			        }
 				}
 	        });
 	        
