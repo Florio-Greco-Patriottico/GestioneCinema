@@ -139,14 +139,6 @@ public class JframeU extends JFrame{
                 //aggiungo l'utente
                 manager.addUsers(utente);
             }
-        });
-        
-        
+        });               
     }//end init
-	
-	
-	
-	
-	
-	
 }
