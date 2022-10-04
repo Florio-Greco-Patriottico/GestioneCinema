@@ -47,7 +47,7 @@ public class JframeU extends JFrame{
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
  
         JPanel headingPanel = new JPanel();
-        JLabel headingLabel = new JLabel("This is the heading panel for registration");
+        JLabel headingLabel = new JLabel("Questo è il pannello per la registrazione");
         headingPanel.add(headingLabel);
          
                // Panel to define the layout. We are using GridBagLayout
@@ -62,10 +62,10 @@ public class JframeU extends JFrame{
         constr.gridy=0;
   
         // Declare the required Labels
-        JLabel userNameLabel = new JLabel("Enter your name :");
-        JLabel surnameLabel = new JLabel("Enter surname :");
-        JLabel ageLabel = new JLabel("Enter your age :");
-        JLabel typeLabel = new JLabel("Choose ticket's type :");
+        JLabel userNameLabel = new JLabel("Inserisci nome :");
+        JLabel surnameLabel = new JLabel("Inserisci cognome :");
+        JLabel ageLabel = new JLabel("Inserire eta' :");
+        JLabel typeLabel = new JLabel("Uomo/Donna (T/F) :");
         
          
         // Declare Text fields
@@ -123,7 +123,7 @@ public class JframeU extends JFrame{
         // Add panel to frame
         frame.add(mainPanel);
         frame.pack();
-                frame.setSize(400, 400);
+                frame.setSize(500, 500);
                 frame.setLocationRelativeTo(null);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

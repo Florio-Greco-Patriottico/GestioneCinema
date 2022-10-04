@@ -73,9 +73,9 @@ public class JframeG extends JFrame{
 	            // inizializzo le variaibli che comporranno il corpo del Jframe
 	            name = new JLabel("NOME: ");
 	            gender = new JLabel("GENERE: ");
-	            plot = new JLabel("POSTO: ");
-	            movieType = new JLabel("TIPOLOGIA DEL FILM: ");
-	            entranceType = new JLabel("TIPOLOGIA ENTRATA FILM: ");
+	            plot = new JLabel("TRAMA: ");
+	            movieType = new JLabel("VISIONE IN 3D: ");
+	            entranceType = new JLabel("CONSENTITO AI MINORI: ");
 	            sala = new JLabel("SALA: ");
 	            
 	            // inizializzo le variabili JTextField
