@@ -23,13 +23,15 @@ public class TestFilm {
 	
 	@org.junit.Test
 	public void testFilm() {
+		createData();
 		assertEquals(film_1.equals(film_2),false);
 		assertEquals(film_2.equals(film_1),false);
 		assertEquals(film_1.getName().equals("Terminator"),true);
 		assertEquals(film_2.getName().equals("Terminator"),false);
 		assertEquals(film_2.getName().equals("Spider-Man"),true);
 		assertEquals(film_1.getMovieType(),true);
-		assertEquals(film_2.getMovieType(),false);
+		assertEquals(film_2.getMovieType(),false);			
+
 	}//end testFilm
 	
 }//end TestFilm

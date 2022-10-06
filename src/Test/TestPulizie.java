@@ -27,22 +27,24 @@ public class TestPulizie {
 	
 	@org.junit.Test
 	public void testPulizie() {
-		assertEquals(ditta_1.equals(ditta_2),false);
-		assertEquals(ditta_2.getName(),"Vedo Bianco");
-		assertEquals(ditta_3.getName(),"Lo Strofinaccio");
-		assertEquals(ditta_2.equals(ditta_3),false);
-		ditta_1 = ditta_2;
-		assertEquals(ditta_1.equals(ditta_2),true);
-		
-		//prova metodo Clean per pulire una sala
-		assertEquals(ditta_1.Clean(sala),false);
-		
-		//toString
-		ditta_1.toString();
-		ditta_2.toString();
-		
+		createData();
+			assertEquals(ditta_1.equals(ditta_2),false);
+			assertEquals(ditta_2.getName(),"Vedo Bianco");
+			assertEquals(ditta_3.getName(),"Lo Strofinaccio");
+			assertEquals(ditta_2.equals(ditta_3),false);
+			ditta_1 = ditta_2;
+			assertEquals(ditta_1.equals(ditta_2),true);
+			
+			//prova metodo Clean per pulire una sala
+			assertEquals(ditta_1.Clean(sala),false);
+
+			print();
 	}//end testPulizie
 	
-	
+	void print() {
+		//toString
+		System.out.println(ditta_1.toString());
+		System.out.println(ditta_2.toString());
+	}
 	
 }
