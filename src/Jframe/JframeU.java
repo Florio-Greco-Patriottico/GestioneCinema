@@ -129,15 +129,21 @@ public class JframeU extends JFrame{
         frame.setVisible(true);
         
         button.addActionListener(new ActionListener() {
-            @Override
+            
+            Cliente utente = null;
             public void actionPerformed(ActionEvent e) {
-            	//creo l'utente in base ai dati che ho catturato
-                Cliente utente = new Cliente(Integer.parseInt(ageTxt.getText()), 
-                							 userNameTxt.getText(), 
-                							 surnameTxt.getText(), 
-                							 Boolean.parseBoolean(typeTxt.getText()));
-                //aggiungo l'utente
-                manager.addUsers(utente);
+            	try {            		
+            		//creo l'utente in base ai dati che ho catturato
+            		utente = new Cliente(Integer.parseInt(ageTxt.getSelectedText()), 
+            				userNameTxt.getSelectedText(), 
+            				surnameTxt.getSelectedText(), 
+            				Boolean.parseBoolean(typeTxt.getSelectedText()));
+            		System.out.println(utente.toString());
+            		//aggiungo l'utente
+            		manager.addUsers(utente);
+            	}catch(Exception ex) {
+            		System.out.println(ex);
+            	}      	
             }
         });               
     }//end init
