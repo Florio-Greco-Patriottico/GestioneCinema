@@ -8,7 +8,11 @@ public class BigliettoOrdinario extends AbstractBiglietto{
 	private static double 	CHILD_PRICE	= 8.00;
 	
 	
-	public BigliettoOrdinario(int IDfilm, double ManPrice, double WomanPrice, double ChildPrice) {
-		super(IDfilm, ManPrice, WomanPrice, ChildPrice);
+	public BigliettoOrdinario(int IDfilm) {
+		super(IDfilm,MAN_PRICE, WOMAN_PRICE, CHILD_PRICE);
+	}
+	
+	public BigliettoOrdinario() {
+		super(MAN_PRICE, WOMAN_PRICE, CHILD_PRICE);
 	}
 }

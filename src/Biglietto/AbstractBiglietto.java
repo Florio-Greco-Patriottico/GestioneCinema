@@ -11,12 +11,19 @@ public abstract class AbstractBiglietto implements IBiglietto{
 	private double ManPrice;
 	private double WomanPrice;
 	private double ChildPrice;
-	private final Random rnd = new Random();
 	
 	public AbstractBiglietto(int IDfilm, double ManPrice, double WomanPrice, double ChildPrice) {
 		super();
 		this.Number++;
 		this.IDfilm = IDfilm;
+		this.ManPrice = ManPrice;
+		this.WomanPrice = WomanPrice;
+		this.ChildPrice = ChildPrice;
+	}
+	
+	public AbstractBiglietto(double ManPrice, double WomanPrice, double ChildPrice) {
+		super();
+		this.Number++;
 		this.ManPrice = ManPrice;
 		this.WomanPrice = WomanPrice;
 		this.ChildPrice = ChildPrice;

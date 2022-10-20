@@ -3,6 +3,8 @@ package Controller;
 import java.util.ArrayList;
 import java.util.Set;
 
+import Biglietto.AbstractBiglietto;
+import Film.AbstractFilm;
 import Product.AbstractProduct;
 import Product.IProduct;
 import Sala.AbstractSala;
@@ -21,7 +23,7 @@ public interface Manager {
 	public void createSale();
 	public void CreateProduct();
 	public void CreateShopAssistants();
-	public void CreateTicket();
+	public void CreateTicket(ArrayList<AbstractFilm> f);
 	public String[] getSale();
 	public int getPosti(AbstractSala s);
 	void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p);

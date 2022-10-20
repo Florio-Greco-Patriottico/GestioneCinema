@@ -3,19 +3,13 @@ package Controller;
 import java.util.ArrayList;
 import java.util.Random;
 
-import Bar.Bar;
-import Biglietto.AbstractBiglietto;
-import Film.AbstractFilm;
-import Film.Film;
+import Bar.*;
+import Biglietto.*;
+import Film.*;
 import Product.*;
-import Sala.AbstractSala;
-import Sala.ISala;
-import Sala.Sala2D;
-import Sala.Sala3D;
-import Utente.AbstractUtente;
-import Utente.Cliente;
-import Utente.Commesso;
-import Utente.Gestore;
+import Pulizie.*;
+import Sala.*;
+import Utente.*;
 
 public class ManageCinema implements Manager {
 	/*
@@ -28,6 +22,7 @@ public class ManageCinema implements Manager {
 	ArrayList<AbstractFilm>	   films;
 	ArrayList<Cliente>  users;
 	ArrayList<AbstractBiglietto>  tickets;
+	ArrayList<AbstractPulizie>  cleaning;
 
 	String sala;
 	private Bar bar;
@@ -42,13 +37,14 @@ public class ManageCinema implements Manager {
 		this.films = new ArrayList<AbstractFilm>();
 		this.shopassistants = new ArrayList<>();
 		this.bar = new Bar("bar");
+		
 		//creo tutti gli oggetti di cui avr� bisogno
 		try {
 			this.createSale();
 			this.CreateProduct();
 			this.CreateShopAssistants();
 			this.CreateFilm();
-			this.CreateTicket();
+			this.CreateTicket(films);
 			this.AddElementToBar(shopassistants, products);
 		}catch(Exception e) {
 			System.out.println(e);
@@ -99,8 +95,46 @@ public class ManageCinema implements Manager {
 		
 	}//end createSale();
 
-	public void CreateTicket(AbstractBiglietto b) {
-		this.tickets.add(b);
+	//creazione di 10 biglietti per ogni film
+	public void CreateTicket(ArrayList<AbstractFilm> f) {
+		
+		AbstractBiglietto b1;
+		AbstractBiglietto b2;
+		AbstractBiglietto b3;
+		AbstractBiglietto b4;
+		AbstractBiglietto b5;
+		AbstractBiglietto b6;
+		AbstractBiglietto b7;
+		AbstractBiglietto b8;
+		AbstractBiglietto b9;
+		AbstractBiglietto b10;
+
+		//aggiungo biglietti al film
+		for(int i = 0; i < f.size(); i++) {
+			b1 = new BigliettoOrdinario(f.get(i).getID());
+			b2 = new BigliettoOrdinario(f.get(i).getID());
+			b3 = new BigliettoOrdinario(f.get(i).getID());
+			b4 = new BigliettoOrdinario(f.get(i).getID());
+			b5 = new BigliettoOrdinario(f.get(i).getID());
+			b6 = new BigliettoOrdinario(f.get(i).getID());
+			b7 = new BigliettoOrdinario(f.get(i).getID());
+			b8 = new BigliettoOrdinario(f.get(i).getID());
+			b9 = new BigliettoOrdinario(f.get(i).getID());
+			b10 = new BigliettoOrdinario(f.get(i).getID());	
+			
+			//aggiungo i biglietti alla lista
+			this.tickets.add(b1);
+			this.tickets.add(b2);
+			this.tickets.add(b3);
+			this.tickets.add(b4);
+			this.tickets.add(b5);
+			this.tickets.add(b6);
+			this.tickets.add(b7);
+			this.tickets.add(b8);
+			this.tickets.add(b9);
+			this.tickets.add(b10);
+		}//end for
+		
 	}
 	
 	public AbstractBiglietto getWinners() {
@@ -169,6 +203,23 @@ public class ManageCinema implements Manager {
 		this.shopassistants.add(ShopAssistants_2);
 		this.shopassistants.add(ShopAssistants_3);
 		this.shopassistants.add(ShopAssistants_4);		
+	}
+	
+	public void Pulizie() {
+		//dichiaro le ditte di pulizia
+		AbstractPulizie ditta_1;
+		AbstractPulizie ditta_2;
+		AbstractPulizie ditta_3;
+		
+		//inizializzo le ditte di pulizia
+		ditta_1 = new Pulizie("Super Pulito", 5);
+		ditta_2 = new Pulizie("Pulizia Istantanea", 3);
+		ditta_3 = new Pulizie("Tutto Pulito", 7);
+		
+		//aggiungo i commessi alla struttura
+		this.cleaning.add(ditta_1);
+		this.cleaning.add(ditta_2);
+		this.cleaning.add(ditta_3);	
 	}
 
 	@Override
