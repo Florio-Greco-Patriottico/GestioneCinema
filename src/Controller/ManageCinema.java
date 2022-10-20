@@ -1,8 +1,10 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import Bar.Bar;
+import Biglietto.AbstractBiglietto;
 import Film.AbstractFilm;
 import Film.Film;
 import Product.*;
@@ -25,6 +27,8 @@ public class ManageCinema implements Manager {
 	ArrayList<AbstractProduct> products;
 	ArrayList<AbstractFilm>	   films;
 	ArrayList<Cliente>  users;
+	ArrayList<AbstractBiglietto>  tickets;
+
 	String sala;
 	private Bar bar;
 	private String[] rets;
@@ -44,6 +48,7 @@ public class ManageCinema implements Manager {
 			this.CreateProduct();
 			this.CreateShopAssistants();
 			this.CreateFilm();
+			this.CreateTicket();
 			this.AddElementToBar(shopassistants, products);
 		}catch(Exception e) {
 			System.out.println(e);
@@ -94,6 +99,23 @@ public class ManageCinema implements Manager {
 		
 	}//end createSale();
 
+	public void CreateTicket(AbstractBiglietto b) {
+		this.tickets.add(b);
+	}
+	
+	public AbstractBiglietto getWinners() {
+		Random rnd = new Random();
+		AbstractBiglietto winner = null;
+		try {
+			int i = rnd.nextInt(this.tickets.size());
+			winner = this.tickets.get(i);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return winner;
+	}
+	
 	@Override
 	public void CreateProduct() {
 		//definisco i prodotti

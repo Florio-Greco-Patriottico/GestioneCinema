@@ -1,5 +1,9 @@
 package Biglietto;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public abstract class AbstractBiglietto implements IBiglietto{
 	
 	private int IDfilm;
@@ -7,6 +11,7 @@ public abstract class AbstractBiglietto implements IBiglietto{
 	private double ManPrice;
 	private double WomanPrice;
 	private double ChildPrice;
+	private final Random rnd = new Random();
 	
 	public AbstractBiglietto(int IDfilm, double ManPrice, double WomanPrice, double ChildPrice) {
 		super();
