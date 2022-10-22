@@ -24,6 +24,7 @@ public interface Manager {
 	public void CreateProduct();
 	public void CreateShopAssistants();
 	public void CreateTicket(ArrayList<AbstractFilm> f);
+	public void Pulizie();
 	public String[] getSale();
 	public int getPosti(AbstractSala s);
 	void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p);

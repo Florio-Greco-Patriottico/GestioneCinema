@@ -46,6 +46,7 @@ public class ManageCinema implements Manager {
 			this.CreateFilm();
 			this.CreateTicket(films);
 			this.AddElementToBar(shopassistants, products);
+			this.Pulizie();
 		}catch(Exception e) {
 			System.out.println(e);
 		}
@@ -97,45 +98,31 @@ public class ManageCinema implements Manager {
 
 	//creazione di 10 biglietti per ogni film
 	public void CreateTicket(ArrayList<AbstractFilm> f) {
-		
-		AbstractBiglietto b1;
-		AbstractBiglietto b2;
-		AbstractBiglietto b3;
-		AbstractBiglietto b4;
-		AbstractBiglietto b5;
-		AbstractBiglietto b6;
-		AbstractBiglietto b7;
-		AbstractBiglietto b8;
-		AbstractBiglietto b9;
-		AbstractBiglietto b10;
 
 		//aggiungo biglietti al film
 		for(int i = 0; i < f.size(); i++) {
-			b1 = new BigliettoOrdinario(f.get(i).getID());
-			b2 = new BigliettoOrdinario(f.get(i).getID());
-			b3 = new BigliettoOrdinario(f.get(i).getID());
-			b4 = new BigliettoOrdinario(f.get(i).getID());
-			b5 = new BigliettoOrdinario(f.get(i).getID());
-			b6 = new BigliettoOrdinario(f.get(i).getID());
-			b7 = new BigliettoOrdinario(f.get(i).getID());
-			b8 = new BigliettoOrdinario(f.get(i).getID());
-			b9 = new BigliettoOrdinario(f.get(i).getID());
-			b10 = new BigliettoOrdinario(f.get(i).getID());	
+			int sizeTickets = f.get(i).getPlot();
+			AbstractBiglietto[] biglietti = new AbstractBiglietto[sizeTickets];
 			
-			//aggiungo i biglietti alla lista
-			this.tickets.add(b1);
-			this.tickets.add(b2);
-			this.tickets.add(b3);
-			this.tickets.add(b4);
-			this.tickets.add(b5);
-			this.tickets.add(b6);
-			this.tickets.add(b7);
-			this.tickets.add(b8);
-			this.tickets.add(b9);
-			this.tickets.add(b10);
+			for(int j = 0; j < biglietti.length; j++) {
+				biglietti[j] = new BigliettoOrdinario(f.get(i).getID());
+				this.tickets.add(biglietti[j]);
+			}
 		}//end for
-		
 	}
+	
+	/**
+	 * 
+	 * @param idFilm
+	 * @param nTickets
+	 */
+	public void addTicketToFilm(int idFilm, int nTickets) throws Exception{
+		AbstractBiglietto[] biglietti = new AbstractBiglietto[nTickets];
+		for(int i = 0; i < biglietti.length; i++) {
+			biglietti[i] = new BigliettoOrdinario(idFilm);
+		}
+	}
+	
 	
 	public AbstractBiglietto getWinners() {
 		Random rnd = new Random();
@@ -279,12 +266,12 @@ public class ManageCinema implements Manager {
 	}
 	
 	public void CreateFilm() {
-		AbstractFilm film_1   = new Film("Terminator", "avventura", null, true, true);
-		AbstractFilm film_2   = new Film("Spider-Man", "azione", null, false, false);
-		AbstractFilm film_3   = new Film("GhostBusters", "avventura", null, true, true);
-		AbstractFilm film_4   = new Film("Il grinch", "azione", null, false, false);
-		AbstractFilm film_5   = new Film("ALD", "avventura", null, true, true);
-		AbstractFilm film_6   = new Film("White cicks", "azione", null, false, false);
+		AbstractFilm film_1   = new Film("Terminator", "avventura", 20, true, true);
+		AbstractFilm film_2   = new Film("Spider-Man", "azione", 30, false, false);
+		AbstractFilm film_3   = new Film("GhostBusters", "avventura", 10, true, true);
+		AbstractFilm film_4   = new Film("Il grinch", "azione", 15, false, false);
+		AbstractFilm film_5   = new Film("ALD", "avventura", 25, true, true);
+		AbstractFilm film_6   = new Film("White cicks", "azione", 40, false, false);
 		
 		films.add(film_1);
 		films.add(film_2);

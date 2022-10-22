@@ -8,11 +8,11 @@ public abstract class AbstractFilm implements IFilm {
 	private int ID;
 	private String name;
 	private String gender;
-	private String plot;
+	private int plot;
 	private boolean movieType;
 	private boolean entranceType;
 
-	public AbstractFilm(String name, String gender, String plot, boolean movieType, boolean entranceType) {
+	public AbstractFilm(String name, String gender, int plot, boolean movieType, boolean entranceType) {
 		this.ID = this.ID++;
 		this.name = name;
 		this.gender = gender;
@@ -36,7 +36,7 @@ public abstract class AbstractFilm implements IFilm {
 	}
 
 	@Override
-	public String getPlot() {
+	public int getPlot() {
 		return this.plot;
 	}
 
@@ -51,7 +51,7 @@ public abstract class AbstractFilm implements IFilm {
 	}
 
 	@Override
-	public void setPlot(String plot) {
+	public void setPlot(int plot) {
 		this.plot = plot;
 	}
 

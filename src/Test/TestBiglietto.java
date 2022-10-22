@@ -18,8 +18,8 @@ public class TestBiglietto {
 	public void createData() {
 		//inizializzazione degli attributi funzionali
 		this.rnd = new Random();
-		this.biglietto_1 = new BigliettoOrdinario(0, 0, 0, 0);
-		this.biglietto_2 = new BigliettoPromozionale(0, 0, 0, 0);
+		this.biglietto_1 = new BigliettoOrdinario();
+		this.biglietto_2 = new BigliettoPromozionale();
 	}//end createData()
 	
 	@org.junit.Test
