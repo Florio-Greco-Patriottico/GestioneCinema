@@ -52,6 +52,7 @@ public class ManageCinema implements Manager {
 		}
 	}//end costruttore
 
+	//crea le sale per il nostro cinema
 	@Override
 	public void createSale() {
 		//dichiaro le mie sale
@@ -123,7 +124,7 @@ public class ManageCinema implements Manager {
 		}
 	}
 	
-	
+	//estrae un biglietto vincente
 	public AbstractBiglietto getWinners() {
 		Random rnd = new Random();
 		AbstractBiglietto winner = null;
@@ -137,6 +138,7 @@ public class ManageCinema implements Manager {
 		return winner;
 	}
 	
+	//crea i prodotti
 	@Override
 	public void CreateProduct() {
 		//definisco i prodotti
@@ -171,6 +173,7 @@ public class ManageCinema implements Manager {
 		
 	}//end createProduct
 
+	//crea i commessi del bar
 	@Override
 	public void CreateShopAssistants() {
 		//dichiaro i commessi
@@ -209,6 +212,7 @@ public class ManageCinema implements Manager {
 		this.cleaning.add(ditta_3);	
 	}
 
+	//aggiunge prodotti e personale al bar
 	@Override
 	public void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p ) {
 		try {
@@ -225,9 +229,10 @@ public class ManageCinema implements Manager {
 		}
 	}//end AddElemtnToBar
 
+	//restituisce l'insieme delle sale
 	@Override
 	public String[] getSale() {
-		//definisco una dimensione a ret, che sar� il mio valore 
+		//definisco una dimensione a ret, che sara' il mio valore 
 		//di return
 		String[] rets = new String[this.sales.size()];
 		try {
@@ -241,6 +246,7 @@ public class ManageCinema implements Manager {
 		return rets;
 	}//end getSale
 
+	//restituisce i posti liberi in una determinata sala
 	@Override
 	public int getPosti(AbstractSala s) {
 		int ret = 0;
@@ -257,14 +263,17 @@ public class ManageCinema implements Manager {
 		return ret;
 	}//end getPosti
 	
+	//restituisce il gestore
 	public Gestore getGestore() {
 		return this.gestore;
 	}
 	
+	//restituisce l'insieme dei film
 	public ArrayList<AbstractFilm> getFilms() {
 		return this.films;
 	}
 	
+	//crea i film
 	public void CreateFilm() {
 		AbstractFilm film_1   = new Film("Terminator", "avventura", 20, true, true);
 		AbstractFilm film_2   = new Film("Spider-Man", "azione", 30, false, false);
@@ -281,6 +290,8 @@ public class ManageCinema implements Manager {
 		films.add(film_6);
 		
 	}
+	
+	
 	public void addFilm(Film f, String n) {
 		try {
 			films.add(f);
@@ -291,10 +302,12 @@ public class ManageCinema implements Manager {
 			System.out.println(e);
 		}
 	}
+	
 	public void SaveLastSala(String n, String f) {
 		this.sala = n;
-		this.film	  = f;
+		this.film = f;
 	}
+	
 	public void addUsers(Cliente u) {
 		try {
 			u.setSala(this.sala);
@@ -307,6 +320,19 @@ public class ManageCinema implements Manager {
 	
 	public ArrayList<Cliente> getUsers() {
 		return this.users;
+	}
+	
+	//metodo che pulisce tutte le sale
+	public boolean PulisciTutteLeSale(Pulizie p, ArrayList<AbstractSala> sales) {
+		//variabile inizializzata a falso di defoult perchè si ipotizza che le stanze siano da pulire
+		boolean AllClean = false;
+		
+		//vengono pulite tutte le sale
+		for(int i = 0; i < sales.size(); i++)
+			AllClean = p.Clean(sales.get(i));
+		
+		//ritorno vero se tutte le sale sono state pulite
+		return AllClean;
 	}
 		
 }//end ManageCinema

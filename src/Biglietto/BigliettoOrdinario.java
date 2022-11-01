@@ -15,4 +15,6 @@ public class BigliettoOrdinario extends AbstractBiglietto{
 	public BigliettoOrdinario() {
 		super(MAN_PRICE, WOMAN_PRICE, CHILD_PRICE);
 	}
+	
+	
 }
