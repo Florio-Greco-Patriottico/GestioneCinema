@@ -25,23 +25,35 @@ public abstract class AbstractBar implements Ibar {
 	
 	
 	//METODI DERIVATI DALL'INTERFACCIA
+	/**
+	 * Metodo che ritorna il nome
+	 */
 	@Override
 	public String getName() {
 		return this.name;
-	}
-
+	}//end metodo getName()
+	
+	/**
+	 * Metodo che ritorna i prodotti
+	 */
 	@Override
 	public void getProduct() {
 		System.out.println("Product:");
 		this.product.stream().forEach(System.out::println);
-	}
+	}//end metodo getProduct()
 
+	/**
+	 * Metodo che ritorna i commessi
+	 */
 	@Override
 	public void getShopAssistant() {
 		System.out.println("Dependents: ");
 		this.dependents.stream().forEach(System.out::println);
-	}
+	}//end metodo getShopAssistant()
 
+	/**
+	 * Metodo per aggiungere i prodotti al bar
+	 */
 	@Override
 	public void addProduct(AbstractProduct p) {
 		try {
@@ -53,8 +65,11 @@ public abstract class AbstractBar implements Ibar {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-	}
+	}//end metodo addProduct()
 
+	/**
+	 * Metodo per aggiungere un commesso al bar
+	 */
 	@Override
 	public boolean addShopAssistant(AbstractUtente u) {
 		boolean ret = true;
@@ -71,13 +86,13 @@ public abstract class AbstractBar implements Ibar {
 			System.out.println(e);
 		}
 		return ret;
-	}
+	}//end metoto addShopAssistant()
 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(dependents, name, product);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -91,7 +106,6 @@ public abstract class AbstractBar implements Ibar {
 		return Objects.equals(dependents, other.dependents) && Objects.equals(name, other.name)
 				&& Objects.equals(product, other.product);
 	}
-
 
 	@Override
 	public String toString() {

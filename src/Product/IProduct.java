@@ -2,7 +2,6 @@ package Product;
 
 public interface IProduct {
 
-	
 	//metodo per ritornare il nome 
 	public String getName();
 	//metodo per ritornare la descrizione

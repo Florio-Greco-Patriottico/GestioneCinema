@@ -2,9 +2,16 @@ package Film;
 
 public class Film extends AbstractFilm{
 
+	/**
+	 * Costruttore
+	 * @param name
+	 * @param gender
+	 * @param plot
+	 * @param movieType
+	 * @param entranceType
+	 */
 	public Film(String name, String gender, int plot, boolean movieType, boolean entranceType) {
+		//inizializzo il costruttore della classe padre
 		super(name, gender, plot, movieType, entranceType);
-		// TODO Auto-generated constructor stub
-	}
-
-}
+	}//end costruttore
+}//end classe

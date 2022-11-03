@@ -2,10 +2,8 @@ package Bar;
 
 public class Bar extends AbstractBar{
 
+	//Costruttore
 	public Bar(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
-	}
-
-	//classe bar
-}
+	}//end costruttore
+}//end classe Bar

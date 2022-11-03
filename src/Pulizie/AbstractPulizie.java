@@ -6,16 +6,21 @@ import Sala.ISala;
 
 public abstract class AbstractPulizie implements IPulizie{
 	
+	//Dichiarazione degli attributi funzionali della classe
 	private int ID;
 	private String Name;
 	private int CleaningTime;
 	
-	//COSTRUTTORE
+	/**
+	 * Costruttore
+	 * @param Name
+	 * @param CleaningTime
+	 */
 	public AbstractPulizie(String Name, int CleaningTime) {
 		this.ID = this.ID++;
 		this.Name = Name;
 		this.CleaningTime = CleaningTime;
-	}
+	}//end costruttore
 	
 	//secondo costruttore nel caso in cui non si conosca il tempo impiegato a pulire la sala
 	public AbstractPulizie(String Name) {

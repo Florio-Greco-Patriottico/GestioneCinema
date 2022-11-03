@@ -16,9 +16,13 @@ public abstract class AbstractSala implements ISala {
 	private boolean type;
 	private ArrayList<AbstractFilm> programmazioni; // variabile per la lista delle programmazioni
 
-	
-
-	// costuttore
+	/**
+	 * Costruttore
+	 * @param name
+	 * @param id
+	 * @param posti
+	 * @param type
+	 */
 	public AbstractSala(final String name, final int id, int posti, boolean type) {
 		super();
 		// inizializzazione degli attributi funzionali
@@ -33,32 +37,54 @@ public abstract class AbstractSala implements ISala {
 	}// end costruttore
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
+	/**
+	 * Metodo per ritornare il nome
+	 * @return name
+	 */
 	@Override
 	public String getName() {
 		return this.name;
-	}
+	}//end getName()
 
+	/**
+	 * Metodo per ritornare il numero della sala
+	 * @return numSala
+	 */
 	@Override
 	public int getNumSala() {
 		return this.numSala;
 	}// end getNumSala
 
+	/**
+	 * Metodo per rirotnare il numero dei posti liberi
+	 * @return numPostiL
+	 */
 	@Override
 	public int getNpostiLiberi() {
 		return this.numPostiL;
 	}// end getNpostiLiberi
 
+	/**
+	 * Metodo per ritornare il numero di posti occupati
+	 * @return numPostio
+	 */
 	@Override
 	public int getNpostiOccupati() {
 		return this.numPostiO;
 	}// end getNpostiOccupati
 
+	/**
+	 * Metodo per controllare se la sala è piena
+	 * @return isFull
+	 */
 	@Override
 	public boolean isFull() {
 		return this.isFull;
 	}// end isFull
 
-	// metodo per prenotare un posto
+	/**
+	 * Metodo per aggiungere un posto alla sala
+	 */
 	@Override
 	public void addPosto() {
 		if (this.numPostiO == this.numPostiL) {
@@ -72,11 +98,19 @@ public abstract class AbstractSala implements ISala {
 		}
 	}// end addPosto
 
+	/**
+	 * Metodo per ritornare i film
+	 * @return programamzioni
+	 */
 	@Override
 	public ArrayList<AbstractFilm> getFilm() {
 		return this.programmazioni;
 	}// end getFilm
 
+	/**
+	 * Metodo per aggiungere un film
+	 * @parms film
+	 */
 	@Override
 	public void addFilm(AbstractFilm film) {
 		this.programmazioni.add(film);
@@ -91,7 +125,10 @@ public abstract class AbstractSala implements ISala {
 	public boolean getType() {
 		return this.type;
 	}// end getType
-
+	
+	/**
+	 * Metodo per ritornare un film
+	 */
 	public AbstractFilm getFilm(Film f) {
 		return this.programmazioni.stream().filter(e -> e.equals(f)).findFirst().get();
 	}// end getFilm
