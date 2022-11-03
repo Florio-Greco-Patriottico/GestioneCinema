@@ -235,8 +235,7 @@ public class JframeG extends JFrame{
 	                        
 	                    } catch (Exception ex) {
 	                        System.out.println(ex);
-	                    }
-	                    	
+	                    }	            	
 	                }
 	            });
 			}//end init
