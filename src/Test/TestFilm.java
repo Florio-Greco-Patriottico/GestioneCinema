@@ -17,8 +17,8 @@ public class TestFilm {
 	
 	public void createData() {
 		this.rnd = new Random();
-		film_1   = new Film("Terminator", "avventura", 20, true, true);
-		film_2   = new Film("Spider-Man", "azione", 20, false, false);
+		film_1   = new Film("Terminator", "avventura", "", true, true);
+		film_2   = new Film("Spider-Man", "azione", "", false, false);
 	}//end createData()
 	
 	@org.junit.Test

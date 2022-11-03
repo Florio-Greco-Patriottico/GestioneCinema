@@ -24,7 +24,7 @@ public interface IFilm {
 	public String getGender();
 
 	// metodo per restituire la trama
-	public int getPlot();
+	public String getPlot();
 
 	// metodo per restituire tipo del film
 	// in questo caso TRUE = 3D, FALSE = 2D
@@ -35,7 +35,7 @@ public interface IFilm {
 	public boolean getEntranceType();
 
 	// metodo per modificare la trama di un film
-	public void setPlot(int getPlot);
+	public void setPlot(String getPlot);
 
 	// metodo per modificare il tipo di un film
 	public void setMovieType(boolean getMovieType);

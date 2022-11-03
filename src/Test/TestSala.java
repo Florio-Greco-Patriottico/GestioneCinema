@@ -32,8 +32,8 @@ public class TestSala {
 		Sala3D_1 = new Sala3D("Sala3D_1",1, 10, false);
 		Sala3D_2 = new Sala3D("Sala3D_2",1, 10, false);
 		//inizializzo i film
-		film_1   = new Film("Terminator", "avventura", 20, true, true);
-		film_2   = new Film("Spider-Man", "azione", 20, false, false);
+		film_1   = new Film("Terminator", "avventura", "", true, true);
+		film_2   = new Film("Spider-Man", "azione", "", false, false);
 		//aggingo i film alle sale
 		Sala2D_1.addFilm(film_1);
 		Sala2D_2.addFilm(film_1);

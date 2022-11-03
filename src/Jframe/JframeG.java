@@ -227,7 +227,7 @@ public class JframeG extends JFrame{
 	                        } else {
 	                            b = false;
 	                        }
-	                        Film film = new Film(Name.getText(), Gender.getText(), Integer.parseInt(Plot.getText()), a, b);
+	                        Film film = new Film(Name.getText(), Gender.getText(),Plot.getText(), a, b);
 	                        System.out.println(film.getName());
 	                        // aggiungo il film alla sala
 	                        //invio il film

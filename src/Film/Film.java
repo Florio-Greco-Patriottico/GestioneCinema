@@ -10,7 +10,7 @@ public class Film extends AbstractFilm{
 	 * @param movieType
 	 * @param entranceType
 	 */
-	public Film(String name, String gender, int plot, boolean movieType, boolean entranceType) {
+	public Film(String name, String gender, String plot, boolean movieType, boolean entranceType) {
 		//inizializzo il costruttore della classe padre
 		super(name, gender, plot, movieType, entranceType);
 	}//end costruttore

@@ -9,7 +9,7 @@ public abstract class AbstractFilm implements IFilm {
 	private int ID;
 	private String name;
 	private String gender;
-	private int plot;
+	private String plot;
 	private boolean movieType;
 	private boolean entranceType;
 
@@ -21,7 +21,7 @@ public abstract class AbstractFilm implements IFilm {
 	 * @param movieType
 	 * @param entranceType
 	 */
-	public AbstractFilm(String name, String gender, int plot, boolean movieType, boolean entranceType) {
+	public AbstractFilm(String name, String gender, String plot, boolean movieType, boolean entranceType) {
 		//inizializzo gli attributi funzionali
 		this.ID = this.ID++;
 		this.name = name;
@@ -62,7 +62,7 @@ public abstract class AbstractFilm implements IFilm {
 	 * @return plot
 	 */
 	@Override
-	public int getPlot() {
+	public String getPlot() {
 		return this.plot;
 	}//end getPlot()
 
@@ -88,7 +88,7 @@ public abstract class AbstractFilm implements IFilm {
 	 * Metodo per impostare il posto
 	 */
 	@Override
-	public void setPlot(int plot) {
+	public void setPlot(String plot) {
 		this.plot = plot;
 	}//end setPlot()
 

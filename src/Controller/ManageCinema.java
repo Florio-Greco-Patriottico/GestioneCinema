@@ -115,8 +115,7 @@ public class ManageCinema implements Manager {
 
 		//aggiungo biglietti al film
 		for(int i = 0; i < f.size(); i++) {
-			int sizeTickets = f.get(i).getPlot();
-			AbstractBiglietto[] biglietti = new AbstractBiglietto[sizeTickets];
+			AbstractBiglietto[] biglietti = new AbstractBiglietto[10];
 			
 			for(int j = 0; j < biglietti.length; j++) {
 				biglietti[j] = new BigliettoOrdinario(f.get(i).getID());
@@ -313,12 +312,12 @@ public class ManageCinema implements Manager {
 	 */
 	public void CreateFilm() {
 		//dichiaro e inizializzo i relavtivi film
-		AbstractFilm film_1   = new Film("Terminator", "avventura", 20, true, true);
-		AbstractFilm film_2   = new Film("Spider-Man", "azione", 30, false, false);
-		AbstractFilm film_3   = new Film("GhostBusters", "avventura", 10, true, true);
-		AbstractFilm film_4   = new Film("Il grinch", "azione", 15, false, false);
-		AbstractFilm film_5   = new Film("ALD", "avventura", 25, true, true);
-		AbstractFilm film_6   = new Film("White cicks", "azione", 40, false, false);
+		AbstractFilm film_1   = new Film("Terminator", "avventura", "", true, true);
+		AbstractFilm film_2   = new Film("Spider-Man", "azione", "", false, false);
+		AbstractFilm film_3   = new Film("GhostBusters", "avventura", "", true, true);
+		AbstractFilm film_4   = new Film("Il grinch", "azione", "", false, false);
+		AbstractFilm film_5   = new Film("ALD", "avventura", "", true, true);
+		AbstractFilm film_6   = new Film("White cicks", "azione", "", false, false);
 		
 		//aggiungo i film alla mia struttura
 		films.add(film_1);
