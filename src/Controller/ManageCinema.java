@@ -12,25 +12,31 @@ import Sala.*;
 import Utente.*;
 
 public class ManageCinema implements Manager {
-	/*
-	 * implementazione metodi interfaccia (Manager)
+	
+	/**
+	 * 
+	 * Dichiarazione degli attributi funzionali della classe
 	 */
-	Gestore gestore;
-	ArrayList<AbstractSala> sales;
-	ArrayList<AbstractUtente> shopassistants;
-	ArrayList<AbstractProduct> products;
-	ArrayList<AbstractFilm>	   films;
-	ArrayList<Cliente>  users;
-	ArrayList<AbstractBiglietto>  tickets;
-	ArrayList<AbstractPulizie>  cleaning;
+	private Gestore gestore;
+	private ArrayList<AbstractSala> sales;
+	private ArrayList<AbstractUtente> shopassistants;
+	private ArrayList<AbstractProduct> products;
+	private ArrayList<AbstractFilm>	   films;
+	private ArrayList<Cliente>  users;
+	private ArrayList<AbstractBiglietto>  tickets;
+	private ArrayList<AbstractPulizie>  cleaning;
 
-	String sala;
+	private String sala;
 	private Bar bar;
 	private String[] rets;
 	private String film;
+	private boolean AllClean = false;
 	
-	//costruttore
+	/**
+	 * Costruttore della classe
+	 */
 	public ManageCinema() {
+		//inizializzazione degli attributi funzionali
 		this.gestore = new Gestore(30, "Mario", "Mario", true);
 		this.products = new ArrayList<AbstractProduct>();
 		this.sales = new ArrayList<>();
@@ -38,7 +44,7 @@ public class ManageCinema implements Manager {
 		this.shopassistants = new ArrayList<>();
 		this.bar = new Bar("bar");
 		
-		//creo tutti gli oggetti di cui avr� bisogno
+		//creo tutti gli oggetti di cui avrò. bisogno
 		try {
 			this.createSale();
 			this.CreateProduct();
@@ -52,7 +58,9 @@ public class ManageCinema implements Manager {
 		}
 	}//end costruttore
 
-	//crea le sale per il nostro cinema
+	/**
+	 * Metodo per creare le sale
+	 */
 	@Override
 	public void createSale() {
 		//dichiaro le mie sale
@@ -85,6 +93,7 @@ public class ManageCinema implements Manager {
 		this.sales.add(Sala3D_3);
 		this.sales.add(Sala3D_4);
 		
+		//aggiungo le sale al gestore
 		gestore.addSalaToCinema(Sala2D_1);
 		gestore.addSalaToCinema(Sala2D_2);
 		gestore.addSalaToCinema(Sala2D_3);
@@ -97,7 +106,11 @@ public class ManageCinema implements Manager {
 		
 	}//end createSale();
 
-	//creazione di 10 biglietti per ogni film
+	/**
+	 * Metodo per creare i Biglietti per ogni film
+	 * convenzionalmente sono stati scelti a livello standard
+	 * 10 biglietti per ogni film
+	 */
 	public void CreateTicket(ArrayList<AbstractFilm> f) {
 
 		//aggiungo biglietti al film
@@ -110,10 +123,10 @@ public class ManageCinema implements Manager {
 				this.tickets.add(biglietti[j]);
 			}
 		}//end for
-	}
+	}//end metodo Create Ticket
 	
 	/**
-	 * 
+	 * Metodo per aggiungere Biglietti ai film
 	 * @param idFilm
 	 * @param nTickets
 	 */
@@ -121,24 +134,26 @@ public class ManageCinema implements Manager {
 		AbstractBiglietto[] biglietti = new AbstractBiglietto[nTickets];
 		for(int i = 0; i < biglietti.length; i++) {
 			biglietti[i] = new BigliettoOrdinario(idFilm);
-		}
-	}
+		}//end for
+	}//end metodo addTicketToFilm
 	
-	//estrae un biglietto vincente
-	public AbstractBiglietto getWinners() {
+	
+	/**
+	 * metodo per estrarre un biglietto vincente
+	 * @return winner (biglietto vincente)
+	 * @throws Exception
+	 */
+	public AbstractBiglietto getWinners()throws Exception{
 		Random rnd = new Random();
 		AbstractBiglietto winner = null;
-		try {
-			int i = rnd.nextInt(this.tickets.size());
-			winner = this.tickets.get(i);
-		}catch(Exception e) {
-			System.out.println(e);
-		}
-		
+		int i = rnd.nextInt(this.tickets.size());
+		winner = this.tickets.get(i);
 		return winner;
-	}
+	}//end metodo getWinners
 	
-	//crea i prodotti
+	/**
+	 * Metodo per creare i prodotti
+	 */
 	@Override
 	public void CreateProduct() {
 		//definisco i prodotti
@@ -173,7 +188,10 @@ public class ManageCinema implements Manager {
 		
 	}//end createProduct
 
-	//crea i commessi del bar
+	/**
+	 * Metodo per creare i commessi che saranno
+	 * associati al bar
+	 */
 	@Override
 	public void CreateShopAssistants() {
 		//dichiaro i commessi
@@ -195,6 +213,10 @@ public class ManageCinema implements Manager {
 		this.shopassistants.add(ShopAssistants_4);		
 	}
 	
+	/**
+	 * Metodo per generare e valorizzare
+	 * la classe Pulizie
+	 */
 	public void Pulizie() {
 		//dichiaro le ditte di pulizia
 		AbstractPulizie ditta_1;
@@ -212,7 +234,10 @@ public class ManageCinema implements Manager {
 		this.cleaning.add(ditta_3);	
 	}
 
-	//aggiunge prodotti e personale al bar
+	/**
+	 * Metodo per aggiungere 
+	 * Personale e Prodotti al bar
+	 */
 	@Override
 	public void AddElementToBar(ArrayList<AbstractUtente> u, ArrayList<AbstractProduct> p ) {
 		try {
@@ -229,7 +254,9 @@ public class ManageCinema implements Manager {
 		}
 	}//end AddElemtnToBar
 
-	//restituisce l'insieme delle sale
+	/**
+	 * Metodo che restituisce l'insieme delle sale
+	 */
 	@Override
 	public String[] getSale() {
 		//definisco una dimensione a ret, che sara' il mio valore 
@@ -246,7 +273,9 @@ public class ManageCinema implements Manager {
 		return rets;
 	}//end getSale
 
-	//restituisce i posti liberi in una determinata sala
+	/**
+	 * Metodo che restituisce i posti liberi d'una determinata sala
+	 */
 	@Override
 	public int getPosti(AbstractSala s) {
 		int ret = 0;
@@ -263,18 +292,27 @@ public class ManageCinema implements Manager {
 		return ret;
 	}//end getPosti
 	
-	//restituisce il gestore
+	/**
+	 * Metodo per restituire il gestore
+	 * @return gestore
+	 */
 	public Gestore getGestore() {
 		return this.gestore;
 	}
 	
-	//restituisce l'insieme dei film
+	/**
+	 * Metodo che restituisce l'inseme contenente tutti i film presenti nel cinema
+	 * @return ArrayList<Film> film
+	 */
 	public ArrayList<AbstractFilm> getFilms() {
 		return this.films;
 	}
 	
-	//crea i film
+	/**
+	 * Metodo che crea un film
+	 */
 	public void CreateFilm() {
+		//dichiaro e inizializzo i relavtivi film
 		AbstractFilm film_1   = new Film("Terminator", "avventura", 20, true, true);
 		AbstractFilm film_2   = new Film("Spider-Man", "azione", 30, false, false);
 		AbstractFilm film_3   = new Film("GhostBusters", "avventura", 10, true, true);
@@ -282,16 +320,20 @@ public class ManageCinema implements Manager {
 		AbstractFilm film_5   = new Film("ALD", "avventura", 25, true, true);
 		AbstractFilm film_6   = new Film("White cicks", "azione", 40, false, false);
 		
+		//aggiungo i film alla mia struttura
 		films.add(film_1);
 		films.add(film_2);
 		films.add(film_3);
 		films.add(film_4);
 		films.add(film_5);
 		films.add(film_6);
-		
-	}
+	}//end metodo CreateFilm()
 	
-	
+	/**
+	 * Metodo per aggiungere un film
+	 * @param f film
+	 * @param n nome sala
+	 */
 	public void addFilm(Film f, String n) {
 		try {
 			films.add(f);
@@ -301,13 +343,23 @@ public class ManageCinema implements Manager {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-	}
+	}//end addFilm()
 	
+	/**
+	 * Metodo che si occupa di salvare
+	 * l'ultima sala
+	 * @param n nome sala
+	 * @param f nome film
+	 */
 	public void SaveLastSala(String n, String f) {
 		this.sala = n;
 		this.film = f;
-	}
+	}//end SaveLastSala()
 	
+	/**
+	 * Metodo per aggiungere un utente
+	 * @param u User
+	 */
 	public void addUsers(Cliente u) {
 		try {
 			u.setSala(this.sala);
@@ -316,23 +368,32 @@ public class ManageCinema implements Manager {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-	}
+	}//end metodo addUsers()
 	
+	/**
+	 * Metodo che restituisce gli utenti presenti
+	 * @return ArrayList<Cliente> users
+	 */
 	public ArrayList<Cliente> getUsers() {
 		return this.users;
-	}
+	}//end getUsers()
 	
-	//metodo che pulisce tutte le sale
+	/**
+	 * Metodo utilizzato dalla classe "Pulizie" che 
+	 * simula la "Pulizia" delle relative sale
+	 * @param p 
+	 * @param sales
+	 * @return
+	 */
 	public boolean PulisciTutteLeSale(Pulizie p, ArrayList<AbstractSala> sales) {
-		//variabile inizializzata a falso di defoult perchè si ipotizza che le stanze siano da pulire
-		boolean AllClean = false;
 		
 		//vengono pulite tutte le sale
-		for(int i = 0; i < sales.size(); i++)
-			AllClean = p.Clean(sales.get(i));
+		sales.forEach((e) -> {
+			AllClean = p.Clean(e);
+		});
 		
 		//ritorno vero se tutte le sale sono state pulite
 		return AllClean;
-	}
+	}//end PulisciTutteLeSale()
 		
 }//end ManageCinema
