@@ -8,7 +8,7 @@ import Film.Film;
 
 public abstract class AbstractSala implements ISala {
 	// Dichiarazione degli attributi funzionali
-	private String name;
+	private String name;   
 	private int numSala;   // variabile per tenere conto del numero della sala
 	private int numPostiL; // variabile per tenere conto dei posti liberi
 	private int numPostiO; // varibile per tenere conto dei posti occupati
@@ -33,7 +33,6 @@ public abstract class AbstractSala implements ISala {
 		this.isFull = false;
 		this.type = type;
 		this.programmazioni = new ArrayList<AbstractFilm>();
-		
 	}// end costruttore
 
 	// INTERFACCIA PUBBLICA DELLA CLASSE
