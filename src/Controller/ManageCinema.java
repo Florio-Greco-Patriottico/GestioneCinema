@@ -163,22 +163,15 @@ public class ManageCinema implements Manager {
 	@Override
 	public void CreateShopAssistants() {
 		//dichiaro i commessi
-		AbstractUtente ShopAssistants_1;
-		AbstractUtente ShopAssistants_2;
-		AbstractUtente ShopAssistants_3;
-		AbstractUtente ShopAssistants_4;
+		ArrayList<Commesso> shopAssistants = new ArrayList<>(){};
 		
 		//inizializzo i commessi
-		ShopAssistants_1 = new Commesso(21, "Alessandro", "Patriottico", true);
-		ShopAssistants_2 = new Commesso(21, "Christian", "Greco", true);
-		ShopAssistants_3 = new Commesso(30, "Giorgia", "Pedio", false);
-		ShopAssistants_4 = new Commesso(25, "Rossella", "Rossi", false);
-		
-		//aggiungo i commessi alla struttura
-		this.shopassistants.add(ShopAssistants_1);
-		this.shopassistants.add(ShopAssistants_2);
-		this.shopassistants.add(ShopAssistants_3);
-		this.shopassistants.add(ShopAssistants_4);		
+		shopAssistants.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Commesso(rnd.nextInt(30), "Commesso_"+i, "Surname_"+i, rnd.nextBoolean());
+			shopassistants.add(x);
+		});
 	}
 	
 	/**
