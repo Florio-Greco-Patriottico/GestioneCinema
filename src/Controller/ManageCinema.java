@@ -180,19 +180,15 @@ public class ManageCinema implements Manager {
 	 */
 	public void Pulizie() {
 		//dichiaro le ditte di pulizia
-		AbstractPulizie ditta_1;
-		AbstractPulizie ditta_2;
-		AbstractPulizie ditta_3;
+		ArrayList<Pulizie> companies = new ArrayList<>();
 		
 		//inizializzo le ditte di pulizia
-		ditta_1 = new Pulizie("Super Pulito", 5);
-		ditta_2 = new Pulizie("Pulizia Istantanea", 3);
-		ditta_3 = new Pulizie("Tutto Pulito", 7);
-		
-		//aggiungo i commessi alla struttura
-		this.cleaning.add(ditta_1);
-		this.cleaning.add(ditta_2);
-		this.cleaning.add(ditta_3);	
+		companies.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Pulizie("Ditta_"+i, rnd.nextInt(10));
+			cleaning.add(x);
+		});
 	}
 
 	/**
