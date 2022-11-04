@@ -90,7 +90,6 @@ public class ManageCinema implements Manager {
 			this.sales.add(x);
 			gestore.addSalaToCinema(x);
 			i++;
-
 		});
 
 		sala_3D.forEach(x -> {
