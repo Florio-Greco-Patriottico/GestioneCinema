@@ -123,7 +123,8 @@ public class JframeG extends JFrame{
 	            
 	            // creo un JFrame
 	            JFrame frame = new JFrame("Gestione Cinema");
-
+	            
+	            
 	            // aggiungo i miei componenti
 	            frame.add(title);
 	            frame.add(h1);
