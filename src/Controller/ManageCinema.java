@@ -1,5 +1,6 @@
 package Controller;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,6 +32,7 @@ public class ManageCinema implements Manager {
 	private String[] rets;
 	private String film;
 	private boolean AllClean = false;
+	private int i = 0; 
 	
 	/**
 	 * Costruttore della classe
@@ -66,22 +68,37 @@ public class ManageCinema implements Manager {
 		//dichiaro le mie sale
 		ArrayList<Sala2D> sala_2D = new ArrayList<>();
 		ArrayList<Sala3D> sala_3D = new ArrayList<>();
+
+		Sala2D a = null;
+		Sala2D b = null;
+		Sala2D c = null;
+		Sala3D d = null;
+		Sala3D e = null;
+		Sala3D f = null;
+		sala_2D.add(a);
+		sala_2D.add(b);
+		sala_2D.add(c);
+		sala_3D.add(d);
+		sala_3D.add(e);
+		sala_3D.add(f);
+
 				
 		//inizializzo le mie sale
 		sala_2D.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Sala2D("Sala2D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
 			this.sales.add(x);
 			gestore.addSalaToCinema(x);
+			i++;
+
 		});
 
 		sala_3D.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Sala3D("Sala3D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
 			this.sales.add(x);
 			gestore.addSalaToCinema(x);
+			i++;
 		});
 		
 	}//end createSale();
@@ -138,20 +155,30 @@ public class ManageCinema implements Manager {
 		//definisco i prodotti
 		ArrayList<AbstractProduct> snacks = new ArrayList<>();
 		ArrayList<AbstractProduct> beverages = new ArrayList<>();
+
+		AbstractProduct a = null;
+		AbstractProduct b = null;
+		AbstractProduct c = null;
+		AbstractProduct d = null;
+		
+		snacks.add(a);
+		snacks.add(b);
+		beverages.add(b);
+		beverages.add(c);
 			
 		//inizializzo i prodotti
 		snacks.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Snack(rnd.nextDouble(10), "Snack_"+i, "description_"+i, rnd.nextInt(10));
 			products.add(x);
+			i++;
 		});
 
 		beverages.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Beverage(rnd.nextDouble(10), "Snack_"+i, "description_"+i, rnd.nextInt(10));
 			products.add(x);
+			i++;
 		});
 		
 	}//end createProduct
@@ -163,14 +190,22 @@ public class ManageCinema implements Manager {
 	@Override
 	public void CreateShopAssistants() {
 		//dichiaro i commessi
-		ArrayList<Commesso> shopAssistants = new ArrayList<>(){};
+		ArrayList<Commesso> shopAssistants = new ArrayList<>();
+
+		Commesso a = null;
+		Commesso b = null;
+		Commesso c = null;
 		
+		shopAssistants.add(a);
+		shopAssistants.add(b);
+		shopAssistants.add(c);
+	
 		//inizializzo i commessi
 		shopAssistants.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Commesso(rnd.nextInt(30), "Commesso_"+i, "Surname_"+i, rnd.nextBoolean());
 			shopassistants.add(x);
+			i++;
 		});
 	}
 	
@@ -181,13 +216,19 @@ public class ManageCinema implements Manager {
 	public void Pulizie() {
 		//dichiaro le ditte di pulizia
 		ArrayList<Pulizie> companies = new ArrayList<>();
-		
+		Pulizie a = null;
+		Pulizie b = null;
+		Pulizie c = null;
+		companies.add(a);
+		companies.add(b);
+		companies.add(c);
+	
 		//inizializzo le ditte di pulizia
 		companies.forEach(x -> {
 			Random rnd = new Random();
-			int i = 0;
 			x = new Pulizie("Ditta_"+i, rnd.nextInt(10));
 			cleaning.add(x);
+			i++;
 		});
 	}
 
@@ -270,20 +311,22 @@ public class ManageCinema implements Manager {
 	 */
 	public void CreateFilm() {
 		//dichiaro e inizializzo i relavtivi film
-		AbstractFilm film_1   = new Film("Terminator", "avventura", "", true, true);
-		AbstractFilm film_2   = new Film("Spider-Man", "azione", "", false, false);
-		AbstractFilm film_3   = new Film("GhostBusters", "avventura", "", true, true);
-		AbstractFilm film_4   = new Film("Il grinch", "azione", "", false, false);
-		AbstractFilm film_5   = new Film("ALD", "avventura", "", true, true);
-		AbstractFilm film_6   = new Film("White cicks", "azione", "", false, false);
-		
-		//aggiungo i film alla mia struttura
-		films.add(film_1);
-		films.add(film_2);
-		films.add(film_3);
-		films.add(film_4);
-		films.add(film_5);
-		films.add(film_6);
+		ArrayList<Film> Films = new ArrayList<>();
+		Film a = null;
+		Film b = null;
+		Film c = null;
+		Film d = null;
+		Films.add(a);
+		Films.add(b);
+		Films.add(c);
+		Films.add(d);
+
+		Films.forEach(x -> {
+			Random rnd = new Random();
+			x = new Film("Film_"+i, "Genere_"+i, "", rnd.nextBoolean(), rnd.nextBoolean());
+			this.films.add(x);
+			i++;
+		});
 	}//end metodo CreateFilm()
 	
 	/**
