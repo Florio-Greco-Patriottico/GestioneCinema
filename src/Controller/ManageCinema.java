@@ -72,21 +72,14 @@ public class ManageCinema implements Manager {
 			Random rnd = new Random();
 			int i = 0;
 			x = new Sala2D("Sala2D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
+			this.sales.add(x);
+			gestore.addSalaToCinema(x);
 		});
 
 		sala_3D.forEach(x -> {
 			Random rnd = new Random();
 			int i = 0;
 			x = new Sala3D("Sala3D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
-		});
-		
-		//aggiungo le mie sale alla struttura
-		sala_2D.forEach(x -> {
-			this.sales.add(x);
-			gestore.addSalaToCinema(x);
-		});
-
-		sala_3D.forEach(x -> {
 			this.sales.add(x);
 			gestore.addSalaToCinema(x);
 		});
@@ -143,34 +136,23 @@ public class ManageCinema implements Manager {
 	@Override
 	public void CreateProduct() {
 		//definisco i prodotti
-		AbstractProduct snack_1;	
-		AbstractProduct snack_2;
-		AbstractProduct snack_3;
-		AbstractProduct snack_4;
-		AbstractProduct beverage_1;
-		AbstractProduct beverage_2;
-		AbstractProduct beverage_3;
-		AbstractProduct beverage_4;
-		
+		ArrayList<AbstractProduct> snacks = new ArrayList<>();
+		ArrayList<AbstractProduct> beverages = new ArrayList<>();
+			
 		//inizializzo i prodotti
-		snack_1 = new Snack(2.5,"pringles","gusto paprika", 20);
-		snack_2 = new Snack(1.5,"pop corn","gusto classico", 50);
-		snack_3 = new Snack(4.0,"panino","cotto e insalata", 5);
-		snack_4 = new Snack(4.0,"piada","salame piccante e formaggio", 8);
-		beverage_1 = new Beverage(1.5,"coca cola","servita con ghiaccio", 50);
-		beverage_2 = new Beverage(0.5,"acqua","naturale minerale", 100);
-		beverage_3 = new Beverage(3.5,"birra","nastro azzurro", 20);
-		beverage_4 = new Beverage(1.5,"thè","limone", 30);
-		
-		//agiungo i prodotti alla mia collezione
-		this.products.add(snack_1);
-		this.products.add(snack_2);
-		this.products.add(snack_3);
-		this.products.add(snack_4);
-		this.products.add(beverage_1);
-		this.products.add(beverage_2);
-		this.products.add(beverage_3);
-		this.products.add(beverage_4);
+		snacks.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Snack(rnd.nextDouble(10), "Snack_"+i, "description_"+i, rnd.nextInt(10));
+			products.add(x);
+		});
+
+		beverages.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Beverage(rnd.nextDouble(10), "Snack_"+i, "description_"+i, rnd.nextInt(10));
+			products.add(x);
+		});
 		
 	}//end createProduct
 
