@@ -64,45 +64,32 @@ public class ManageCinema implements Manager {
 	@Override
 	public void createSale() {
 		//dichiaro le mie sale
-		AbstractSala Sala2D_1;
-		AbstractSala Sala2D_2;
-		AbstractSala Sala2D_3;
-		AbstractSala Sala2D_4;
-		AbstractSala Sala3D_1;
-		AbstractSala Sala3D_2;
-		AbstractSala Sala3D_3;
-		AbstractSala Sala3D_4;
-		
+		ArrayList<Sala2D> sala_2D = new ArrayList<>();
+		ArrayList<Sala3D> sala_3D = new ArrayList<>();
+				
 		//inizializzo le mie sale
-		Sala2D_1 = new Sala2D("Sala2D_1",1, 10, true);
-		Sala2D_2 = new Sala2D("Sala2D_2",1, 5, true);
-		Sala2D_3 = new Sala2D("Sala2D_3",1, 3, true);
-		Sala2D_4 = new Sala2D("Sala2D_4",1, 20, true);
-		Sala3D_1 = new Sala3D("Sala3D_1",1, 50, false);
-		Sala3D_2 = new Sala3D("Sala3D_2",1, 2, false);
-		Sala3D_3 = new Sala3D("Sala3D_3",1, 1, false);
-		Sala3D_4 = new Sala3D("Sala3D_4",1, 10, false);
+		sala_2D.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Sala2D("Sala2D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
+		});
+
+		sala_3D.forEach(x -> {
+			Random rnd = new Random();
+			int i = 0;
+			x = new Sala3D("Sala3D_"+i, i, rnd.nextInt(10), rnd.nextBoolean());
+		});
 		
 		//aggiungo le mie sale alla struttura
-		this.sales.add(Sala2D_1);
-		this.sales.add(Sala2D_2);
-		this.sales.add(Sala2D_3);
-		this.sales.add(Sala2D_4);
-		this.sales.add(Sala3D_1);
-		this.sales.add(Sala3D_2);
-		this.sales.add(Sala3D_3);
-		this.sales.add(Sala3D_4);
-		
-		//aggiungo le sale al gestore
-		gestore.addSalaToCinema(Sala2D_1);
-		gestore.addSalaToCinema(Sala2D_2);
-		gestore.addSalaToCinema(Sala2D_3);
-		gestore.addSalaToCinema(Sala2D_4);
-		gestore.addSalaToCinema(Sala3D_1);
-		gestore.addSalaToCinema(Sala3D_2);
-		gestore.addSalaToCinema(Sala3D_3);
-		gestore.addSalaToCinema(Sala3D_4);
+		sala_2D.forEach(x -> {
+			this.sales.add(x);
+			gestore.addSalaToCinema(x);
+		});
 
+		sala_3D.forEach(x -> {
+			this.sales.add(x);
+			gestore.addSalaToCinema(x);
+		});
 		
 	}//end createSale();
 
