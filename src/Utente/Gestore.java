@@ -36,11 +36,6 @@ public class Gestore extends AbstractUtente {
 		}
 	}
 
-	// idea da implementare
-	public boolean changeFilm(AbstractFilm oldFilm, AbstractFilm newFilm, AbstractSala film) {
-		return true;
-	}
-
 	public void addSalaToCinema(AbstractSala s) {
 		this.sale.add(s);
 	}
